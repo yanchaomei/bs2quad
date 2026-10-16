@@ -1,0 +1,4 @@
+{"version": 2, "width": 112, "height": 32, "timestamp": 1792162877, "env": {"TERM": "xterm-256color"}, "title": "S02 real BS2Quad command"}
+[0.000128, "o", "$ /work/build/bs2quad_main --help\r\n"]
+[0.146984, "o", "BS2Quad 1.1.0 (OpenCASCADE; SGK 1.7 not integrated)\r\n  --demo [--tolerance 1e-5] [--perf]\r\n  --generate N [--output-dir data/generated] [--seed 42]\r\n  --input face.step|face.brep --output converted.step|converted.brep [--report result.json]\r\nFile conversion accepts exactly one trimmed NURBS face. Multi-face model replacement requires explicit neighbor context.\r\n"]
+[0.153257, "o", "\r\n[process exit=0]\r\n"]

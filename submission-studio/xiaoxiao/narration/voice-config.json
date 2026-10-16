@@ -1,0 +1,28 @@
+{
+  "provider": "Microsoft Edge online TTS via edge-tts",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "display_name": "微软晓晓普通话神经女声",
+  "locale": "zh-CN",
+  "rate": "-8%",
+  "client_version": "edge-tts 7.3.1",
+  "selected_by": "explicit user request",
+  "sample_actual_success": "voice-sample-v3.mp3",
+  "online_service_used": true,
+  "external_paid_api_used": false,
+  "audio_playback_rate_changes": false,
+  "audio_truncation": false,
+  "subtitle_mode": "service boundary times; optional SRT/VTT and switchable MP4 track",
+  "voice_source": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=tts",
+  "client_source": "https://github.com/rany2/edge-tts",
+  "pronunciation_glossary": {
+    "NURBS": "非均匀有理样条曲面",
+    "BRep": "边界表示模型",
+    "CAD": "计算机辅助设计",
+    "SGK": "海星几何内核",
+    "G1": "切向连续性",
+    "SDK": "开发工具包",
+    "STEP": "通用三维模型交换格式"
+  },
+  "listening_scope": "Sample supplied for user listening; independent subjective listening not certified",
+  "created_utc": "2026-10-16T15:34:22.949200+00:00"
+}

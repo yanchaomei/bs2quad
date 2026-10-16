@@ -1,0 +1,6 @@
+report/rendered/
+video/frames/
+video/frames.ffconcat
+video/BS2Quad_真实演示_晓晓版_20261016.mp4
+qa/independent-*/
+!*.log

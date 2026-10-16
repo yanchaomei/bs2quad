@@ -1,0 +1,119 @@
+{
+  "status": "pass",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "native_synthesis_rate": "-8%",
+  "playback_rate_changes": false,
+  "audio_truncation": false,
+  "audio_pcm_checks": [
+    {
+      "id": "S01",
+      "full_pcm_preserved": true,
+      "sha256": "225702d4510c3fc8628ce78beedce88b8d5a09642ab71f87ed8910e43f8fe5cc"
+    },
+    {
+      "id": "S02",
+      "full_pcm_preserved": true,
+      "sha256": "0ff7c183af1c5eabe2f47797b1adad9e4754213845fdf374188b650fa342169c"
+    },
+    {
+      "id": "S03",
+      "full_pcm_preserved": true,
+      "sha256": "a69b5e7b2d5bc58d068ccb22b11c03d772c609875eabe285663fb7bf0687cab3"
+    },
+    {
+      "id": "S04",
+      "full_pcm_preserved": true,
+      "sha256": "a4de0c29e0210426ab549b130643d86080684dd6ca5ff454bafcc26cb0c1cc1c"
+    },
+    {
+      "id": "S05",
+      "full_pcm_preserved": true,
+      "sha256": "a5c5a25ceb4ad3deb284ceea78752e3176ceb1ed7e211435caf7e3b394e223fc"
+    },
+    {
+      "id": "S06",
+      "full_pcm_preserved": true,
+      "sha256": "ee7df5d58098f0ef4eaec9f1c49b25443edced011e65cf6d8d5883fa3ba4a937"
+    },
+    {
+      "id": "S07",
+      "full_pcm_preserved": true,
+      "sha256": "9a3dda8c09173fe6e9dc277e51b39a0d1fc0bcbf5a75491ac2f4c4e83a28c284"
+    }
+  ],
+  "service_subtitle_text_coverage": [
+    {
+      "id": "S01",
+      "all_script_text_present_in_service_subtitles": true,
+      "audio_seconds": 20.928
+    },
+    {
+      "id": "S02",
+      "all_script_text_present_in_service_subtitles": true,
+      "audio_seconds": 18.6
+    },
+    {
+      "id": "S03",
+      "all_script_text_present_in_service_subtitles": true,
+      "audio_seconds": 22.368
+    },
+    {
+      "id": "S04",
+      "all_script_text_present_in_service_subtitles": true,
+      "audio_seconds": 18.576
+    },
+    {
+      "id": "S05",
+      "all_script_text_present_in_service_subtitles": true,
+      "audio_seconds": 21.048
+    },
+    {
+      "id": "S06",
+      "all_script_text_present_in_service_subtitles": true,
+      "audio_seconds": 21.792
+    },
+    {
+      "id": "S07",
+      "all_script_text_present_in_service_subtitles": true,
+      "audio_seconds": 23.088
+    }
+  ],
+  "subtitle_timing": "Original service sentence boundaries shifted by exact scene start and 0.6s lead; adjacent 50ms overlaps clipped in subtitle only; no audio edit",
+  "subtitle_default_on": true,
+  "duration_seconds": 164,
+  "mux_command": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-i",
+    "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/video/BS2Quad_真实演示_晓晓版_20261016.mp4",
+    "-i",
+    "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/video/BS2Quad_晓晓_可选字幕.srt",
+    "-map",
+    "0:v:0",
+    "-map",
+    "0:a:0",
+    "-map",
+    "1:0",
+    "-c:v",
+    "copy",
+    "-c:a",
+    "copy",
+    "-c:s",
+    "mov_text",
+    "-metadata:s:s:0",
+    "language=zho",
+    "-metadata:s:s:0",
+    "title=简体中文（可选）",
+    "-disposition:s:0",
+    "0",
+    "-movflags",
+    "+faststart",
+    "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/video/BS2Quad_演示_晓晓_可选字幕_20261016.mp4"
+  ],
+  "final_video_sha256": "184eb202740f098fd8952e57d3fb318e6dad05649268fdb4daf9a8ad6f5f6341",
+  "subjective_listening": "not independently certified",
+  "requested_default_disposition": false,
+  "subtitle_default_note": "Readback found default=1 and forced=0. Subtitle is selectable; default display depends on player."
+}

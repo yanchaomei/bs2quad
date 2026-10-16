@@ -1,0 +1,15 @@
+{
+  "source_code_commit": "a813309e5ef1e7d748713925685eb9620c00fdec",
+  "material_baseline": "200f7c7caf31caa9a74394d52f6bf5f2e198b26e",
+  "date": "2026-10-16 Asia/Shanghai",
+  "requested_voice": "Microsoft zh-CN-XiaoxiaoNeural, rate -8%",
+  "voice_synthesis_actual_success": true,
+  "duration_seconds": 164,
+  "new_pdf_pages": 17,
+  "guide_pages": 3,
+  "runtime_source_changes": false,
+  "request_scope": "Expanded illustrated PDF, complete Xiaoxiao narration, optional subtitles, formal ZIP of exactly two files",
+  "paid_api_used": false,
+  "formal_submission": false,
+  "public_access_changed": false
+}

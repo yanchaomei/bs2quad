@@ -1,0 +1,163 @@
+[
+  {
+    "id": "S01",
+    "command": [
+      "/tmp/bs2quad-xiaoxiao-compatible/bin/edge-tts",
+      "--voice",
+      "zh-CN-XiaoxiaoNeural",
+      "--rate=-8%",
+      "--file",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S01.txt",
+      "--write-media",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S01.mp3",
+      "--write-subtitles",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S01.srt"
+    ],
+    "exit_code": 0,
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "-8%",
+    "mp3_sha256": "946a488c66b558785e65145e914b944a3548b60cde822e9f85dacf8f783a7bb5",
+    "wav_sha256": "22389e02abf51eb9afadf93eb2c449dde8bb4bc06afe4a2ca88aa9c2199f6097",
+    "text_sha256": "30380c7ea3fddd2e6ce93b1de7a6a833733304ff52948020dd8b375d760d5968",
+    "subtitle_sha256": "4fc17bb6c67354311cd76848e86e4e89bd98a5c82dc68a820f308edb04d90107",
+    "audio_seconds": 20.928
+  },
+  {
+    "id": "S02",
+    "command": [
+      "/tmp/bs2quad-xiaoxiao-compatible/bin/edge-tts",
+      "--voice",
+      "zh-CN-XiaoxiaoNeural",
+      "--rate=-8%",
+      "--file",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S02.txt",
+      "--write-media",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S02.mp3",
+      "--write-subtitles",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S02.srt"
+    ],
+    "exit_code": 0,
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "-8%",
+    "mp3_sha256": "3bd376546cccfb2e34ed8f0659e6cc165c072444d7011ff2f571fe4c16923a79",
+    "wav_sha256": "1ff0208a15f12c3ce2b355d1e9ad391b271725df608e9ef6e54c3927c485a5dc",
+    "text_sha256": "d96dd44d5e9bbd58ced15253edd322592dafda97a953d2f17595939a6e7ec39d",
+    "subtitle_sha256": "a88d26877369c4d10107acbcfc1cfcac2be02e00681805efb276d6a10c3cbe26",
+    "audio_seconds": 18.6
+  },
+  {
+    "id": "S03",
+    "command": [
+      "/tmp/bs2quad-xiaoxiao-compatible/bin/edge-tts",
+      "--voice",
+      "zh-CN-XiaoxiaoNeural",
+      "--rate=-8%",
+      "--file",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S03.txt",
+      "--write-media",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S03.mp3",
+      "--write-subtitles",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S03.srt"
+    ],
+    "exit_code": 0,
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "-8%",
+    "mp3_sha256": "51aaa7bc4fdc3b892d45d6b5fe86d3b6b43d997b18c56638d382fb7cc84563b7",
+    "wav_sha256": "c529ab872b09fefa44dbd5d6967e60c32cc8e66b9f0776715fef0add89ebc41f",
+    "text_sha256": "341c56ecb9112078aae5a244fe18f709a896d60872079e71134007b824828398",
+    "subtitle_sha256": "bc83871410290b7e68193d284009c8abedcc793669d8ae81a3e6bbbbf7d41a7a",
+    "audio_seconds": 22.368
+  },
+  {
+    "id": "S04",
+    "command": [
+      "/tmp/bs2quad-xiaoxiao-compatible/bin/edge-tts",
+      "--voice",
+      "zh-CN-XiaoxiaoNeural",
+      "--rate=-8%",
+      "--file",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S04.txt",
+      "--write-media",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S04.mp3",
+      "--write-subtitles",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S04.srt"
+    ],
+    "exit_code": 0,
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "-8%",
+    "mp3_sha256": "7b12fd552d5a4d63e76e246348e8e44c34e8336975977261310a23ba08c6f60a",
+    "wav_sha256": "cf7d336dd2849ce1ec471f14e765f7d8de34ca94d441ffcda8b47dcf3e39bbf6",
+    "text_sha256": "d4aed0f38be7e90a88d9d8b35a12aaaf5efc3a5bc62a9e01325538d77cbe28ff",
+    "subtitle_sha256": "fed4adc4eb54101504b5e65b288175f8c5b8034806caea86303af7ebad25f481",
+    "audio_seconds": 18.576
+  },
+  {
+    "id": "S05",
+    "command": [
+      "/tmp/bs2quad-xiaoxiao-compatible/bin/edge-tts",
+      "--voice",
+      "zh-CN-XiaoxiaoNeural",
+      "--rate=-8%",
+      "--file",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S05.txt",
+      "--write-media",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S05.mp3",
+      "--write-subtitles",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S05.srt"
+    ],
+    "exit_code": 0,
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "-8%",
+    "mp3_sha256": "3ac9f4d3eb3fd455e9a9539b62576861fbc3ae0dfcdd7401c2224c58ad41dfc7",
+    "wav_sha256": "5713294b4357bf2d5b2a4a9e863480bdc1d8065f98b1a795c67939151b7868be",
+    "text_sha256": "80e2d1a28f8b83dc32cf64387fa211ed10a61535e4c6883bb54b625833dece5f",
+    "subtitle_sha256": "2738b1fa995c29a97720aa91093c57ebff096a2a5d33304721c183ef19dd3682",
+    "audio_seconds": 21.048
+  },
+  {
+    "id": "S06",
+    "command": [
+      "/tmp/bs2quad-xiaoxiao-compatible/bin/edge-tts",
+      "--voice",
+      "zh-CN-XiaoxiaoNeural",
+      "--rate=-8%",
+      "--file",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S06.txt",
+      "--write-media",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S06.mp3",
+      "--write-subtitles",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S06.srt"
+    ],
+    "exit_code": 0,
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "-8%",
+    "mp3_sha256": "f1253737b9f6be0e2b507d3c899fc7391ae8f2a57ad6dbd78595e0d489a9163c",
+    "wav_sha256": "af7312875454225d9763b6b0e86abc452c0193053f990e2e957d968ee8891afd",
+    "text_sha256": "c43957aa88eed80ce52228222b8e5bedcb4159b87c057272bc389721fb00c4e3",
+    "subtitle_sha256": "5caeac4514c380e8b44a2e52a9c77200e8985d2d750b9498c41aa5431a354db0",
+    "audio_seconds": 21.792
+  },
+  {
+    "id": "S07",
+    "command": [
+      "/tmp/bs2quad-xiaoxiao-compatible/bin/edge-tts",
+      "--voice",
+      "zh-CN-XiaoxiaoNeural",
+      "--rate=-8%",
+      "--file",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S07.txt",
+      "--write-media",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S07.mp3",
+      "--write-subtitles",
+      "/Users/yanchaomei/Desktop/Working/openatom2025/winzone/g_bs2quad/80c7b18a661b51ca2ba49bf5278b1fc7/submission-studio/xiaoxiao/narration/S07.srt"
+    ],
+    "exit_code": 0,
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "-8%",
+    "mp3_sha256": "a90cf6a81f906a2d66a5dc23b4b10271a0181befe608d485654cb7a0c5c89c18",
+    "wav_sha256": "fb68af02f3c3ab5a43a15840b1418e36d8bffe4aee64fb433a21af7c6e1ad824",
+    "text_sha256": "0f591acbb315d7221f5a18bfcc3ae7e1a381f329b4a76f6b0de350b4d7698ffb",
+    "subtitle_sha256": "df18efade78e731a93c7f9c0c461d7ee853906aae4572973d24e308f349ccaee",
+    "audio_seconds": 23.088
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "command": [
+    "edge-tts",
+    "--voice",
+    "zh-CN-XiaoxiaoNeural",
+    "--rate=-8%",
+    "--file",
+    "submission-studio/xiaoxiao/narration/voice-sample.txt",
+    "--write-media",
+    "submission-studio/xiaoxiao/narration/voice-sample.mp3",
+    "--write-subtitles",
+    "submission-studio/xiaoxiao/narration/voice-sample.srt"
+  ],
+  "exit_code": 1,
+  "date_utc": "2026-10-16T15:26:45.355401+00:00",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "-8%"
+}

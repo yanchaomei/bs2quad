@@ -1,0 +1,21 @@
+$ /work/build/unit_tests --gtest_color=no --gtest_filter=ValidationRegression.FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns:ValidationRegression.FaceOrientationReversalIsNotNormalPreservation:ValidationRegression.ReverseBoundaryDirectionDetectsAnExtraInteriorHole:ValidationRegression.ConversionWithActualNeighborsAcceptsSmoothAndRejectsCreasedFaces
+Running main() from ./googletest/src/gtest_main.cc
+Note: Google Test filter = ValidationRegression.FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns:ValidationRegression.FaceOrientationReversalIsNotNormalPreservation:ValidationRegression.ReverseBoundaryDirectionDetectsAnExtraInteriorHole:ValidationRegression.ConversionWithActualNeighborsAcceptsSmoothAndRejectsCreasedFaces
+[==========] Running 4 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 4 tests from ValidationRegression
+[ RUN      ] ValidationRegression.FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns
+[       OK ] ValidationRegression.FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns (0 ms)
+[ RUN      ] ValidationRegression.FaceOrientationReversalIsNotNormalPreservation
+[       OK ] ValidationRegression.FaceOrientationReversalIsNotNormalPreservation (157 ms)
+[ RUN      ] ValidationRegression.ReverseBoundaryDirectionDetectsAnExtraInteriorHole
+[       OK ] ValidationRegression.ReverseBoundaryDirectionDetectsAnExtraInteriorHole (55 ms)
+[ RUN      ] ValidationRegression.ConversionWithActualNeighborsAcceptsSmoothAndRejectsCreasedFaces
+[       OK ] ValidationRegression.ConversionWithActualNeighborsAcceptsSmoothAndRejectsCreasedFaces (117 ms)
+[----------] 4 tests from ValidationRegression (331 ms total)
+
+[----------] Global test environment tear-down
+[==========] 4 tests from 1 test suite ran. (331 ms total)
+[  PASSED  ] 4 tests.
+
+[process exit=0]

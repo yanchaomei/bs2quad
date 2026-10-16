@@ -1,0 +1,12 @@
+{
+  "tool": "image_gen.imagegen",
+  "requested_model": "GPT Image 2",
+  "confirmed_exact_model": null,
+  "note": "Built-in tool returned pixels and output_hint, not exact model identifier",
+  "source_code_commit": "a813309",
+  "sha256": "4e6a6fabfee1856d0a60da002f0474204fbf20d913e31338fdcc296d94d993a8",
+  "prompt": "certificate.prompt.txt",
+  "edit_prompt": "certificate.edit-prompt.txt",
+  "semantic_review": "Image opened and main arrows/scope/labels reviewed; explanatory only; no experiment numbers",
+  "caption": "AI生成的机制示意，非实验截图；精确模型版本未由工具回执确认。"
+}

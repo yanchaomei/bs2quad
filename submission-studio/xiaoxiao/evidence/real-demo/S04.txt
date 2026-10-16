@@ -1,0 +1,4 @@
+$ /work/build/bs2quad_main --input /work/evidence/final-release-v3/surface1000/inputs/case_5.brep --output /work/materials-demo-20261016T1510/rejected-freeform.brep --report /work/materials-demo-20261016T1510/rejected-freeform.json
+{"backend":"OpenCASCADE","sgk_1_7_verified":false,"success":false,"type":"None","error":"Non-Quadric Surface","message":"NON_QUADRIC: no analytic candidate at requested tolerance","decision_ms":0.32053799999999999,"conversion_ms":0.32053799999999999,"directed_support_bound_mm":null,"sampled_max_mm":null,"sampled_boundary_hausdorff_mm":null,"normal_deviation_degrees":null,"adjacency_checked":false}
+
+[process exit=1]

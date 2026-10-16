@@ -1,0 +1,15 @@
+{
+  "tool": "image_gen.imagegen",
+  "requested_model": "GPT Image 2 per invoked skill",
+  "confirmed_exact_model": null,
+  "exact_model_note": "Tool receipt exposes image_url/output_hint only; no exact model identity returned",
+  "prompt": "assets/mechanism.actual-prompt.txt",
+  "original_file_name": "exec-3fb246f3-5e42-445b-a362-eee203053c8e.png",
+  "sha256": "0004ba335d6788e20bdec402eb6cdb068888f3ec965813bda30d3f94f202cce5",
+  "caption": "AI生成的机制示意，依据源码 a813309；不代表实验结果。G1仅在提供真实邻面时检查。",
+  "semantic_review": "Viewed full generated image; checked main left-to-right sequence, two rejection arrows, sampling inset, OCCT and sampled G1 scope labels. No benchmark numbers.",
+  "source_commit": "a813309",
+  "tool_receipt": "assets/mechanism.tool-receipt.json",
+  "actual_prompt_sha256": "e0411d95cb05ad068f8e6f0f3ab9b17dde7a7d37b6f243119ff459a6d6a102ee",
+  "export_changes": "None; source PNG copied byte-for-byte, scaled only when embedded in PDF/video"
+}

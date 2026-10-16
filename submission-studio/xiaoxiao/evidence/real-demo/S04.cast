@@ -1,0 +1,4 @@
+{"version": 2, "width": 112, "height": 32, "timestamp": 1792162878, "env": {"TERM": "xterm-256color"}, "title": "S04 real BS2Quad command"}
+[0.000605, "o", "$ /work/build/bs2quad_main --input /work/evidence/final-release-v3/surface1000/inputs/case_5.brep --output /work/materials-demo-20261016T1510/rejected-freeform.brep --report /work/materials-demo-20261016T1510/rejected-freeform.json\r\n"]
+[0.144961, "o", "{\"backend\":\"OpenCASCADE\",\"sgk_1_7_verified\":false,\"success\":false,\"type\":\"None\",\"error\":\"Non-Quadric Surface\",\"message\":\"NON_QUADRIC: no analytic candidate at requested tolerance\",\"decision_ms\":0.32053799999999999,\"conversion_ms\":0.32053799999999999,\"directed_support_bound_mm\":null,\"sampled_max_mm\":null,\"sampled_boundary_hausdorff_mm\":null,\"normal_deviation_degrees\":null,\"adjacency_checked\":false}\r\n"]
+[0.151753, "o", "\r\n[process exit=1]\r\n"]

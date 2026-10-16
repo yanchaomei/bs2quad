@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/tmp/bs2quad-xiaoxiao-compatible/bin/edge-tts",
+    "--voice",
+    "zh-CN-XiaoxiaoNeural",
+    "--rate=-8%",
+    "--file",
+    "submission-studio/xiaoxiao/narration/voice-sample.txt",
+    "--write-media",
+    "submission-studio/xiaoxiao/narration/voice-sample-v3.mp3",
+    "--write-subtitles",
+    "submission-studio/xiaoxiao/narration/voice-sample-v3.srt"
+  ],
+  "exit_code": 0,
+  "date_utc": "2026-10-16T15:31:06.895177+00:00"
+}
