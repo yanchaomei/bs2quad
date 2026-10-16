@@ -1,0 +1,84 @@
+Running main() from ./googletest/src/gtest_main.cc
+Note: Google Test filter = ValidationRegression.OriginalPeriodic*
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ValidationRegression
+[ RUN      ] ValidationRegression.OriginalPeriodicRepresentationsReceiveFullDomainCertificates
+tests/unit_tests/test_validation_regression.cpp:303: Failure
+Value of: result.meetsRequirements
+  Actual: false
+Expected: true
+full-domain certificate unavailable: periodic B-spline certificate is unsupported bound=inf
+Google Test trace:
+tests/unit_tests/test_validation_regression.cpp:297: 0
+tests/unit_tests/test_validation_regression.cpp:304: Failure
+Value of: result.maxDistanceCertified
+  Actual: false
+Expected: true
+Google Test trace:
+tests/unit_tests/test_validation_regression.cpp:297: 0
+tests/unit_tests/test_validation_regression.cpp:305: Failure
+Expected: (result.certifiedMaxDistance) <= (1e-5), actual: inf vs 1e-05
+Google Test trace:
+tests/unit_tests/test_validation_regression.cpp:297: 0
+tests/unit_tests/test_validation_regression.cpp:303: Failure
+Value of: result.meetsRequirements
+  Actual: false
+Expected: true
+full-domain certificate unavailable: periodic B-spline certificate is unsupported bound=inf
+Google Test trace:
+tests/unit_tests/test_validation_regression.cpp:297: 1
+tests/unit_tests/test_validation_regression.cpp:304: Failure
+Value of: result.maxDistanceCertified
+  Actual: false
+Expected: true
+Google Test trace:
+tests/unit_tests/test_validation_regression.cpp:297: 1
+tests/unit_tests/test_validation_regression.cpp:305: Failure
+Expected: (result.certifiedMaxDistance) <= (1e-5), actual: inf vs 1e-05
+Google Test trace:
+tests/unit_tests/test_validation_regression.cpp:297: 1
+tests/unit_tests/test_validation_regression.cpp:303: Failure
+Value of: result.meetsRequirements
+  Actual: false
+Expected: true
+full-domain certificate unavailable: periodic B-spline certificate is unsupported bound=inf
+Google Test trace:
+tests/unit_tests/test_validation_regression.cpp:297: 2
+tests/unit_tests/test_validation_regression.cpp:304: Failure
+Value of: result.maxDistanceCertified
+  Actual: false
+Expected: true
+Google Test trace:
+tests/unit_tests/test_validation_regression.cpp:297: 2
+tests/unit_tests/test_validation_regression.cpp:305: Failure
+Expected: (result.certifiedMaxDistance) <= (1e-5), actual: inf vs 1e-05
+Google Test trace:
+tests/unit_tests/test_validation_regression.cpp:297: 2
+tests/unit_tests/test_validation_regression.cpp:303: Failure
+Value of: result.meetsRequirements
+  Actual: false
+Expected: true
+full-domain certificate unavailable: periodic B-spline certificate is unsupported bound=inf
+Google Test trace:
+tests/unit_tests/test_validation_regression.cpp:297: 3
+tests/unit_tests/test_validation_regression.cpp:304: Failure
+Value of: result.maxDistanceCertified
+  Actual: false
+Expected: true
+Google Test trace:
+tests/unit_tests/test_validation_regression.cpp:297: 3
+tests/unit_tests/test_validation_regression.cpp:305: Failure
+Expected: (result.certifiedMaxDistance) <= (1e-5), actual: inf vs 1e-05
+Google Test trace:
+tests/unit_tests/test_validation_regression.cpp:297: 3
+[  FAILED  ] ValidationRegression.OriginalPeriodicRepresentationsReceiveFullDomainCertificates (3 ms)
+[----------] 1 test from ValidationRegression (3 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (3 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] ValidationRegression.OriginalPeriodicRepresentationsReceiveFullDomainCertificates
+
+ 1 FAILED TEST

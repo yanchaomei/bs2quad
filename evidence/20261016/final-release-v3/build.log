@@ -1,0 +1,12 @@
+Consolidate compiler generated dependencies of target bs2quad_lib
+[ 45%] Built target bs2quad_lib
+Consolidate compiler generated dependencies of target bs2quad_main
+Consolidate compiler generated dependencies of target bs2quad_cad_benchmark
+Consolidate compiler generated dependencies of target bs2quad_evidence
+Consolidate compiler generated dependencies of target unit_tests
+[ 51%] Built target bs2quad_main
+[ 57%] Built target bs2quad_cad_benchmark
+[ 63%] Built target bs2quad_evidence
+[ 87%] Built target unit_tests
+Consolidate compiler generated dependencies of target performance_tests
+[100%] Built target performance_tests

@@ -1,0 +1,20 @@
+Running main() from ./googletest/src/gtest_main.cc
+Note: Google Test filter = ValidationRegression.Performance*
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ValidationRegression
+[ RUN      ] ValidationRegression.PerformanceReportsOnlyCompletedOperationPairs
+tests/unit_tests/test_validation_regression.cpp:179: Failure
+Value of: result.projectionComplete
+  Actual: false
+Expected: true
+[  FAILED  ] ValidationRegression.PerformanceReportsOnlyCompletedOperationPairs (31 ms)
+[----------] 1 test from ValidationRegression (31 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (31 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] ValidationRegression.PerformanceReportsOnlyCompletedOperationPairs
+
+ 1 FAILED TEST

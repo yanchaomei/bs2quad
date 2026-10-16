@@ -1,0 +1,16 @@
+Internal ctest changing into directory: /work/build
+Test project /work/build
+    Start 1: UnitTests
+1/5 Test #1: UnitTests ........................   Passed    2.16 sec
+    Start 2: CADSemanticContracts
+2/5 Test #2: CADSemanticContracts .............   Passed    0.17 sec
+    Start 3: CreateCLIFixtures
+3/5 Test #3: CreateCLIFixtures ................   Passed    0.04 sec
+    Start 4: CLIContracts
+4/5 Test #4: CLIContracts .....................   Passed    0.75 sec
+    Start 5: OutputFailureContracts
+5/5 Test #5: OutputFailureContracts ...........   Passed    1.47 sec
+
+100% tests passed, 0 tests failed out of 5
+
+Total Test time (real) =   4.61 sec

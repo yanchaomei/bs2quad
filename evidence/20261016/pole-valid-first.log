@@ -1,0 +1,24 @@
+Running main() from ./googletest/src/gtest_main.cc
+Note: Google Test filter = ConversionContract.CompleteClosedCylinderSphereAndTorusReturnTrimmedFaces
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ConversionContract
+[ RUN      ] ConversionContract.CompleteClosedCylinderSphereAndTorusReturnTrimmedFaces
+/work/source/tests/unit_tests/test_conversion_contract.cpp:167: Failure
+Value of: result.success
+  Actual: false
+Expected: true
+family=1 TOPOLOGY_FAILURE: invalid reconstructed face type=4:BRepCheck_UnorientableShape
+ type=5:BRepCheck_NotClosed
+ [deg=0 uv=6.28319,1.5708 -> 6.28319,-1.5708] [deg=1 uv=12.5664,-1.5708 -> 6.28319,-1.5708] [deg=0 uv=12.5664,-1.5708 -> 12.5664,1.5708] [deg=1 uv=6.28319,1.5708 -> 12.5664,1.5708] before_repair= type=4:BRepCheck_BadOrientationOfSubshape
+ [deg=0 uv=12.5664,1.5708 -> 12.5664,-1.5708] [deg=1 uv=12.5664,-1.5708 -> 6.28319,-1.5708] [deg=0 uv=6.28319,-1.5708 -> 6.28319,1.5708] [deg=1 uv=6.28319,1.5708 -> 12.5664,1.5708]
+[  FAILED  ] ConversionContract.CompleteClosedCylinderSphereAndTorusReturnTrimmedFaces (229 ms)
+[----------] 1 test from ConversionContract (229 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (230 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] ConversionContract.CompleteClosedCylinderSphereAndTorusReturnTrimmedFaces
+
+ 1 FAILED TEST

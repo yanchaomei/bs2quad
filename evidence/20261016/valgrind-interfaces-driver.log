@@ -1,0 +1,108 @@
+Running main() from ./googletest/src/gtest_main.cc
+Note: Google Test filter = ConversionContract.*:PointFitting.*:ValidationRegression.*
+[==========] Running 46 tests from 3 test suites.
+[----------] Global test environment set-up.
+[----------] 11 tests from ConversionContract
+[ RUN      ] ConversionContract.GeneratorProducesExactRationalCylinder
+[       OK ] ConversionContract.GeneratorProducesExactRationalCylinder (161 ms)
+[ RUN      ] ConversionContract.ConvertsTranslatedRotatedPartialCylinder
+[       OK ] ConversionContract.ConvertsTranslatedRotatedPartialCylinder (249 ms)
+[ RUN      ] ConversionContract.FaceConversionReturnsValidTrimmedFace
+[       OK ] ConversionContract.FaceConversionReturnsValidTrimmedFace (3606 ms)
+[ RUN      ] ConversionContract.RejectsInvalidTolerance
+[       OK ] ConversionContract.RejectsInvalidTolerance (31 ms)
+[ RUN      ] ConversionContract.NullBatchItemDoesNotPreventNextConversion
+[       OK ] ConversionContract.NullBatchItemDoesNotPreventNextConversion (18 ms)
+[ RUN      ] ConversionContract.AllFiveExactFamiliesAndDegreeElevatedSurfacesAreAccepted
+[       OK ] ConversionContract.AllFiveExactFamiliesAndDegreeElevatedSurfacesAreAccepted (1291 ms)
+[ RUN      ] ConversionContract.PlacedFaceReturnsWorldSpaceSurfaceWithoutChangingInput
+[       OK ] ConversionContract.PlacedFaceReturnsWorldSpaceSurfaceWithoutChangingInput (3527 ms)
+[ RUN      ] ConversionContract.CannotClaimItselfAsItsOwnTangentNeighbor
+[       OK ] ConversionContract.CannotClaimItselfAsItsOwnTangentNeighbor (3070 ms)
+[ RUN      ] ConversionContract.RejectsNonQuadricAndCorruptControlPointsWithoutThrowing
+[       OK ] ConversionContract.RejectsNonQuadricAndCorruptControlPointsWithoutThrowing (35 ms)
+[ RUN      ] ConversionContract.PartialSphereConeAndTorusKeepValidTrimmedFaces
+[       OK ] ConversionContract.PartialSphereConeAndTorusKeepValidTrimmedFaces (9137 ms)
+[ RUN      ] ConversionContract.CompleteClosedCylinderSphereAndTorusReturnTrimmedFaces
+[       OK ] ConversionContract.CompleteClosedCylinderSphereAndTorusReturnTrimmedFaces (15870 ms)
+[----------] 11 tests from ConversionContract (37007 ms total)
+
+[----------] 11 tests from PointFitting
+[ RUN      ] PointFitting.PlaneUsesTheLeastVarianceDirectionAndAcceptedGetter
+[       OK ] PointFitting.PlaneUsesTheLeastVarianceDirectionAndAcceptedGetter (37 ms)
+[ RUN      ] PointFitting.SphereRecoversTranslatedCenterFromPartialPatch
+[       OK ] PointFitting.SphereRecoversTranslatedCenterFromPartialPatch (40 ms)
+[ RUN      ] PointFitting.CylinderRecoversThinPartialPatchAxisRatherThanDominantPCAAxis
+[       OK ] PointFitting.CylinderRecoversThinPartialPatchAxisRatherThanDominantPCAAxis (249 ms)
+[ RUN      ] PointFitting.ConeRecoversApexInsteadOfUsingPointCentroid
+[       OK ] PointFitting.ConeRecoversApexInsteadOfUsingPointCentroid (30 ms)
+[ RUN      ] PointFitting.TorusRecoversMajorAndMinorRadiiFromRotatedFullSamples
+[       OK ] PointFitting.TorusRecoversMajorAndMinorRadiiFromRotatedFullSamples (48 ms)
+[ RUN      ] PointFitting.EveryFamilyRejectsNonfiniteRepeatedAndCollinearInputsWithoutLeakingOutput
+[       OK ] PointFitting.EveryFamilyRejectsNonfiniteRepeatedAndCollinearInputsWithoutLeakingOutput (13 ms)
+[ RUN      ] PointFitting.MaximumResidualGateRejectsOneOutlierEvenWhenRMSWouldFitTolerance
+[       OK ] PointFitting.MaximumResidualGateRejectsOneOutlierEvenWhenRMSWouldFitTolerance (2 ms)
+[ RUN      ] PointFitting.PartialTorusAndFullCylinderUseTheSameFinitePointContract
+[       OK ] PointFitting.PartialTorusAndFullCylinderUseTheSameFinitePointContract (482 ms)
+[ RUN      ] PointFitting.EveryFamilyUsesMaximumResidualRatherThanAveragingAnOutlierAway
+[       OK ] PointFitting.EveryFamilyUsesMaximumResidualRatherThanAveragingAnOutlierAway (1428 ms)
+[ RUN      ] PointFitting.DisablingOptionalRefinementStillFitsWellConditionedExactFullFixtures
+[       OK ] PointFitting.DisablingOptionalRefinementStillFitsWellConditionedExactFullFixtures (60 ms)
+[ RUN      ] PointFitting.WorldCoordinateRoundingMustNotBypassTheResidualGate
+[       OK ] PointFitting.WorldCoordinateRoundingMustNotBypassTheResidualGate (2 ms)
+[----------] 11 tests from PointFitting (2395 ms total)
+
+[----------] 24 tests from ValidationRegression
+[ RUN      ] ValidationRegression.RejectsNonPositiveOrNonFiniteToleranceWithoutChangingState
+[       OK ] ValidationRegression.RejectsNonPositiveOrNonFiniteToleranceWithoutChangingState (5 ms)
+[ RUN      ] ValidationRegression.IdenticalTrimmedFaceHasZeroBoundaryUnionDistance
+[       OK ] ValidationRegression.IdenticalTrimmedFaceHasZeroBoundaryUnionDistance (5281 ms)
+[ RUN      ] ValidationRegression.MissingInputsCannotBecomeZeroErrorOrSuccessfulChecks
+[       OK ] ValidationRegression.MissingInputsCannotBecomeZeroErrorOrSuccessfulChecks (2 ms)
+[ RUN      ] ValidationRegression.SurfaceOnlyResultDoesNotClaimBoundaryOrAdjacencyChecks
+[       OK ] ValidationRegression.SurfaceOnlyResultDoesNotClaimBoundaryOrAdjacencyChecks (12 ms)
+[ RUN      ] ValidationRegression.OffsetWithinToleranceDoesNotFailAnInventedMeanErrorThreshold
+[       OK ] ValidationRegression.OffsetWithinToleranceDoesNotFailAnInventedMeanErrorThreshold (11 ms)
+[ RUN      ] ValidationRegression.FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns
+[       OK ] ValidationRegression.FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns (15 ms)
+[ RUN      ] ValidationRegression.FaceOrientationReversalIsNotNormalPreservation
+[       OK ] ValidationRegression.FaceOrientationReversalIsNotNormalPreservation (5261 ms)
+[ RUN      ] ValidationRegression.CoplanarActualNeighborsPassSeparateSharedEdgeG1Check
+[       OK ] ValidationRegression.CoplanarActualNeighborsPassSeparateSharedEdgeG1Check (487 ms)
+[ RUN      ] ValidationRegression.ActualSharedEdgeCreaseIsRejectedAtNinetyDegrees
+[       OK ] ValidationRegression.ActualSharedEdgeCreaseIsRejectedAtNinetyDegrees (215 ms)
+[ RUN      ] ValidationRegression.ReferenceEdgeMustLieOnBothTrimmedBoundaries
+[       OK ] ValidationRegression.ReferenceEdgeMustLieOnBothTrimmedBoundaries (14 ms)
+[ RUN      ] ValidationRegression.PerformanceReportsOnlyCompletedOperationPairs
+[       OK ] ValidationRegression.PerformanceReportsOnlyCompletedOperationPairs (1055 ms)
+[ RUN      ] ValidationRegression.IndependentFullDomainBoundsCoverAllFiveAnalyticFamilies
+[       OK ] ValidationRegression.IndependentFullDomainBoundsCoverAllFiveAnalyticFamilies (143 ms)
+[ RUN      ] ValidationRegression.FacePlacementIsAppliedBeforeComparisonWithWorldSpaceAnalyticSupport
+[       OK ] ValidationRegression.FacePlacementIsAppliedBeforeComparisonWithWorldSpaceAnalyticSupport (1987 ms)
+[ RUN      ] ValidationRegression.NormalPreservationUsesCorrespondingWorldPointsAcrossParameterizations
+[       OK ] ValidationRegression.NormalPreservationUsesCorrespondingWorldPointsAcrossParameterizations (2024 ms)
+[ RUN      ] ValidationRegression.FailedSourceEvaluationCannotBeDiscardedFromStatistics
+[       OK ] ValidationRegression.FailedSourceEvaluationCannotBeDiscardedFromStatistics (20 ms)
+[ RUN      ] ValidationRegression.ReverseBoundaryDirectionDetectsAnExtraInteriorHole
+[       OK ] ValidationRegression.ReverseBoundaryDirectionDetectsAnExtraInteriorHole (2018 ms)
+[ RUN      ] ValidationRegression.BoundaryLimitStaysOneEminusFiveWhenSupportToleranceIsRelaxed
+[       OK ] ValidationRegression.BoundaryLimitStaysOneEminusFiveWhenSupportToleranceIsRelaxed (1823 ms)
+[ RUN      ] ValidationRegression.OriginalPeriodicRepresentationsReceiveFullDomainCertificates
+[       OK ] ValidationRegression.OriginalPeriodicRepresentationsReceiveFullDomainCertificates (145 ms)
+[ RUN      ] ValidationRegression.LowMultiplicityPeriodicSeamBoundsTheOriginalSurfaceAcrossWrap
+[       OK ] ValidationRegression.LowMultiplicityPeriodicSeamBoundsTheOriginalSurfaceAcrossWrap (28 ms)
+[ RUN      ] ValidationRegression.UnclampedHighEndpointCannotDropTheLastControlPoleFromItsBound
+[       OK ] ValidationRegression.UnclampedHighEndpointCannotDropTheLastControlPoleFromItsBound (16 ms)
+[ RUN      ] ValidationRegression.IdentityCertificateCannotHideAnInvalidSourceControlPoint
+[       OK ] ValidationRegression.IdentityCertificateCannotHideAnInvalidSourceControlPoint (2 ms)
+[ RUN      ] ValidationRegression.ReversedNeighborCannotPassTheSpecifiedOrientedNormalAngleGate
+[       OK ] ValidationRegression.ReversedNeighborCannotPassTheSpecifiedOrientedNormalAngleGate (212 ms)
+[ RUN      ] ValidationRegression.EmptyBooleanResultsCannotPublishACompletedSpeedupPair
+[       OK ] ValidationRegression.EmptyBooleanResultsCannotPublishACompletedSpeedupPair (1094 ms)
+[ RUN      ] ValidationRegression.ConversionWithActualNeighborsAcceptsSmoothAndRejectsCreasedFaces
+[       OK ] ValidationRegression.ConversionWithActualNeighborsAcceptsSmoothAndRejectsCreasedFaces (4257 ms)
+[----------] 24 tests from ValidationRegression (26140 ms total)
+
+[----------] Global test environment tear-down
+[==========] 46 tests from 3 test suites ran. (65569 ms total)
+[  PASSED  ] 46 tests.

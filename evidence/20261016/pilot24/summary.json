@@ -1,0 +1,4 @@
+{
+"schema":1,"backend":"OpenCASCADE","backend_version":"7.7.0","sgk_1_7_verified":false,"scope":"synthetic directed support conversion, not a complete face/adjacency benchmark",
+"seed":42,"count":24,"true_positive":20,"true_negative":4,"false_positive":0,"false_negative":0,"inconsistent":0,"outside_50_200_control_points":0,"maximum_accepted_directed_bound_mm":1.9478958414039852e-06,"decision_mean_ms":2.5239503750000001,"decision_p50_ms":2.183481,"decision_p95_ms":7.3341750000000001,"decision_p99_ms":9.7143929999999994,"decision_max_ms":9.7143929999999994,"decision_10ms_pass":true,"cad_operations_50_percent_verified":false,"inputs_saved":true
+}

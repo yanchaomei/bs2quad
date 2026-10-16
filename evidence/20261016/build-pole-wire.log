@@ -1,0 +1,12 @@
+Consolidate compiler generated dependencies of target bs2quad_lib
+[  3%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/BS2QuadCore.cpp.o
+[  6%] Linking CXX static library libbs2quad_lib.a
+[ 48%] Built target bs2quad_lib
+[ 51%] Linking CXX executable bs2quad_main
+[ 55%] Linking CXX executable bs2quad_evidence
+[ 58%] Linking CXX executable unit_tests
+[ 62%] Linking CXX executable performance_tests
+[ 65%] Built target bs2quad_evidence
+[ 68%] Built target bs2quad_main
+[ 79%] Built target performance_tests
+[100%] Built target unit_tests

@@ -1,0 +1,14 @@
+Consolidate compiler generated dependencies of target bs2quad_lib
+[  4%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/CylinderFitter.cpp.o
+[  8%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/PointFitting.cpp.o
+[ 13%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/ConeFitter.cpp.o
+[ 17%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/SphereFitter.cpp.o
+[ 21%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/PlaneFitter.cpp.o
+[ 26%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/TorusFitter.cpp.o
+[ 30%] Linking CXX static library libbs2quad_lib.a
+[ 65%] Built target bs2quad_lib
+Consolidate compiler generated dependencies of target unit_tests
+[ 69%] Building CXX object CMakeFiles/unit_tests.dir/tests/unit_tests/test_validation_regression.cpp.o
+[ 73%] Building CXX object CMakeFiles/unit_tests.dir/tests/unit_tests/test_point_fitting.cpp.o
+[ 78%] Linking CXX executable unit_tests
+[100%] Built target unit_tests

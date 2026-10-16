@@ -1,0 +1,10 @@
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******[0m
+[32;1m
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******[0m
+[32;1m******        Transferring Shape, ShapeType = 4                      ******[0m
+[32;1m** WorkSession : Sending all data[0m
+[32;1m Step File Name : /work/evidence/final-release/cli/run-9HrPbbe4/converted.step(130 ents)  Write  Done[0m
+{"backend":"OpenCASCADE","sgk_1_7_verified":false,"success":true,"type":"Plane","error":"Success","message":"converted trimmed face; boundary and normal checks complete; adjacency requires neighbor context","decision_ms":0.54217199999999999,"conversion_ms":86.416799999999995,"directed_support_bound_mm":0,"sampled_max_mm":0,"sampled_boundary_hausdorff_mm":0,"normal_deviation_degrees":0,"adjacency_checked":false}

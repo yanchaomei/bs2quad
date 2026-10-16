@@ -1,0 +1,11 @@
+PASS equal bounded projection distances accepted
+PASS changed projection distances rejected
+PASS empty section cannot count as fast
+PASS empty Boolean cannot count as fast
+PASS identical nonempty section accepted
+PASS spatially changed section rejected
+PASS identical nonempty Boolean accepted
+PASS changed Boolean area rejected
+PASS projection respects finite trim instead of unbounded support
+PASS negative-period torus trim retains the true interior projection
+PASS converted torus face preserves known negative-period interior projection

@@ -1,0 +1,112 @@
+Running main() from ./googletest/src/gtest_main.cc
+Note: Google Test filter = ValidationRegression.*
+[==========] Running 7 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 7 tests from ValidationRegression
+[ RUN      ] ValidationRegression.RejectsNonPositiveOrNonFiniteToleranceWithoutChangingState
+tests/unit_tests/test_validation_regression.cpp:24: Failure
+Expected: AccuracyValidator(0.0) throws an exception of type std::invalid_argument.
+  Actual: it throws nothing.
+tests/unit_tests/test_validation_regression.cpp:25: Failure
+Expected: AccuracyValidator(-1.0) throws an exception of type std::invalid_argument.
+  Actual: it throws nothing.
+tests/unit_tests/test_validation_regression.cpp:26: Failure
+Expected: AccuracyValidator(std::numeric_limits<double>::infinity()) throws an exception of type std::invalid_argument.
+  Actual: it throws nothing.
+tests/unit_tests/test_validation_regression.cpp:27: Failure
+Expected: AccuracyValidator(std::numeric_limits<double>::quiet_NaN()) throws an exception of type std::invalid_argument.
+  Actual: it throws nothing.
+tests/unit_tests/test_validation_regression.cpp:29: Failure
+Expected: validator.SetTolerance(0.0) throws an exception of type std::invalid_argument.
+  Actual: it throws nothing.
+tests/unit_tests/test_validation_regression.cpp:30: Failure
+Expected: validator.SetTolerance(std::numeric_limits<double>::quiet_NaN()) throws an exception of type std::invalid_argument.
+  Actual: it throws nothing.
+tests/unit_tests/test_validation_regression.cpp:31: Failure
+Expected equality of these values:
+  validator.GetTolerance()
+    Which is: nan
+  Precision::DEFAULT_TOLERANCE
+    Which is: 1.0000000000000001e-05
+[  FAILED  ] ValidationRegression.RejectsNonPositiveOrNonFiniteToleranceWithoutChangingState (0 ms)
+[ RUN      ] ValidationRegression.IdenticalTrimmedFaceHasZeroBoundaryUnionDistance
+tests/unit_tests/test_validation_regression.cpp:38: Failure
+Value of: result.meetsRequirements
+  Actual: false
+Expected: true
+tests/unit_tests/test_validation_regression.cpp:39: Failure
+The difference between result.hausdorffDistance and 0.0 is 9, which exceeds 1e-10, where
+result.hausdorffDistance evaluates to 9,
+0.0 evaluates to 0, and
+1e-10 evaluates to 1e-10.
+[  FAILED  ] ValidationRegression.IdenticalTrimmedFaceHasZeroBoundaryUnionDistance (2179 ms)
+[ RUN      ] ValidationRegression.MissingInputsCannotBecomeZeroErrorOrSuccessfulChecks
+tests/unit_tests/test_validation_regression.cpp:53: Failure
+Value of: result.message.empty()
+  Actual: true
+Expected: false
+[  FAILED  ] ValidationRegression.MissingInputsCannotBecomeZeroErrorOrSuccessfulChecks (0 ms)
+[ RUN      ] ValidationRegression.SurfaceOnlyResultDoesNotClaimBoundaryOrAdjacencyChecks
+tests/unit_tests/test_validation_regression.cpp:60: Failure
+Value of: result.validationComplete
+  Actual: false
+Expected: true
+tests/unit_tests/test_validation_regression.cpp:61: Failure
+Value of: result.surfaceChecked
+  Actual: false
+Expected: true
+tests/unit_tests/test_validation_regression.cpp:62: Failure
+Value of: result.maxDistanceCertified
+  Actual: false
+Expected: true
+tests/unit_tests/test_validation_regression.cpp:63: Failure
+Expected: (result.certifiedMaxDistance) <= (Precision::DEFAULT_TOLERANCE), actual: inf vs 1e-05
+tests/unit_tests/test_validation_regression.cpp:64: Failure
+Expected: (result.sampleCount) > (0u), actual: 0 vs 0
+[  FAILED  ] ValidationRegression.SurfaceOnlyResultDoesNotClaimBoundaryOrAdjacencyChecks (3 ms)
+[ RUN      ] ValidationRegression.OffsetWithinToleranceDoesNotFailAnInventedMeanErrorThreshold
+tests/unit_tests/test_validation_regression.cpp:76: Failure
+Value of: result.meetsRequirements
+  Actual: false
+Expected: true
+[  FAILED  ] ValidationRegression.OffsetWithinToleranceDoesNotFailAnInventedMeanErrorThreshold (3 ms)
+[ RUN      ] ValidationRegression.FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns
+tests/unit_tests/test_validation_regression.cpp:99: Failure
+Value of: result.meetsRequirements
+  Actual: true
+Expected: false
+tests/unit_tests/test_validation_regression.cpp:100: Failure
+Value of: result.maxDistanceCertified
+  Actual: false
+Expected: true
+[  FAILED  ] ValidationRegression.FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns (3 ms)
+[ RUN      ] ValidationRegression.FaceOrientationReversalIsNotNormalPreservation
+tests/unit_tests/test_validation_regression.cpp:111: Failure
+Value of: result.normalChecked
+  Actual: false
+Expected: true
+tests/unit_tests/test_validation_regression.cpp:112: Failure
+The difference between result.normalDeviationDegrees and 180.0 is inf, which exceeds 1e-8, where
+result.normalDeviationDegrees evaluates to inf,
+180.0 evaluates to 180, and
+1e-8 evaluates to 1e-08.
+tests/unit_tests/test_validation_regression.cpp:114: Failure
+Value of: std::isinf(result.g1ContinuityError)
+  Actual: false
+Expected: true
+[  FAILED  ] ValidationRegression.FaceOrientationReversalIsNotNormalPreservation (2177 ms)
+[----------] 7 tests from ValidationRegression (4365 ms total)
+
+[----------] Global test environment tear-down
+[==========] 7 tests from 1 test suite ran. (4365 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 7 tests, listed below:
+[  FAILED  ] ValidationRegression.RejectsNonPositiveOrNonFiniteToleranceWithoutChangingState
+[  FAILED  ] ValidationRegression.IdenticalTrimmedFaceHasZeroBoundaryUnionDistance
+[  FAILED  ] ValidationRegression.MissingInputsCannotBecomeZeroErrorOrSuccessfulChecks
+[  FAILED  ] ValidationRegression.SurfaceOnlyResultDoesNotClaimBoundaryOrAdjacencyChecks
+[  FAILED  ] ValidationRegression.OffsetWithinToleranceDoesNotFailAnInventedMeanErrorThreshold
+[  FAILED  ] ValidationRegression.FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns
+[  FAILED  ] ValidationRegression.FaceOrientationReversalIsNotNormalPreservation
+
+ 7 FAILED TESTS

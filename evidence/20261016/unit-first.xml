@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="39" failures="11" disabled="0" errors="0" time="0.256" timestamp="2026-10-16T13:36:37.791" name="AllTests">
+  <testsuite name="SurfaceAnalyzerTest" tests="8" failures="4" disabled="0" skipped="0" errors="0" time="0.002" timestamp="2026-10-16T13:36:37.791">
+    <testcase name="AnalyzeCylinder" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.791" classname="SurfaceAnalyzerTest">
+      <failure message="/work/source/tests/unit_tests/test_surface_analyzer.cpp:37&#x0A;Value of: result.IsSuccess()&#x0A;  Actual: false&#x0A;Expected: true" type=""><![CDATA[/work/source/tests/unit_tests/test_surface_analyzer.cpp:37
+Value of: result.IsSuccess()
+  Actual: false
+Expected: true]]></failure>
+      <failure message="/work/source/tests/unit_tests/test_surface_analyzer.cpp:38&#x0A;Expected equality of these values:&#x0A;  result.type&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  QuadricType::CYLINDER&#x0A;    Which is: 4-byte object &lt;02-00 00-00&gt;" type=""><![CDATA[/work/source/tests/unit_tests/test_surface_analyzer.cpp:38
+Expected equality of these values:
+  result.type
+    Which is: 4-byte object <00-00 00-00>
+  QuadricType::CYLINDER
+    Which is: 4-byte object <02-00 00-00>]]></failure>
+      <failure message="/work/source/tests/unit_tests/test_surface_analyzer.cpp:39&#x0A;Expected: (result.confidence) &gt; (0.5), actual: 0 vs 0.5" type=""><![CDATA[/work/source/tests/unit_tests/test_surface_analyzer.cpp:39
+Expected: (result.confidence) > (0.5), actual: 0 vs 0.5]]></failure>
+    </testcase>
+    <testcase name="AnalyzeSphere" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.792" classname="SurfaceAnalyzerTest">
+      <failure message="/work/source/tests/unit_tests/test_surface_analyzer.cpp:51&#x0A;Value of: result.IsSuccess()&#x0A;  Actual: false&#x0A;Expected: true" type=""><![CDATA[/work/source/tests/unit_tests/test_surface_analyzer.cpp:51
+Value of: result.IsSuccess()
+  Actual: false
+Expected: true]]></failure>
+      <failure message="/work/source/tests/unit_tests/test_surface_analyzer.cpp:52&#x0A;Expected equality of these values:&#x0A;  result.type&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  QuadricType::SPHERE&#x0A;    Which is: 4-byte object &lt;04-00 00-00&gt;" type=""><![CDATA[/work/source/tests/unit_tests/test_surface_analyzer.cpp:52
+Expected equality of these values:
+  result.type
+    Which is: 4-byte object <00-00 00-00>
+  QuadricType::SPHERE
+    Which is: 4-byte object <04-00 00-00>]]></failure>
+      <failure message="/work/source/tests/unit_tests/test_surface_analyzer.cpp:53&#x0A;Expected: (result.confidence) &gt; (0.5), actual: 0 vs 0.5" type=""><![CDATA[/work/source/tests/unit_tests/test_surface_analyzer.cpp:53
+Expected: (result.confidence) > (0.5), actual: 0 vs 0.5]]></failure>
+    </testcase>
+    <testcase name="AnalyzePlane" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.792" classname="SurfaceAnalyzerTest" />
+    <testcase name="AnalyzeCone" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.792" classname="SurfaceAnalyzerTest">
+      <failure message="/work/source/tests/unit_tests/test_surface_analyzer.cpp:79&#x0A;Value of: result.IsSuccess()&#x0A;  Actual: false&#x0A;Expected: true" type=""><![CDATA[/work/source/tests/unit_tests/test_surface_analyzer.cpp:79
+Value of: result.IsSuccess()
+  Actual: false
+Expected: true]]></failure>
+      <failure message="/work/source/tests/unit_tests/test_surface_analyzer.cpp:80&#x0A;Expected equality of these values:&#x0A;  result.type&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  QuadricType::CONE&#x0A;    Which is: 4-byte object &lt;03-00 00-00&gt;" type=""><![CDATA[/work/source/tests/unit_tests/test_surface_analyzer.cpp:80
+Expected equality of these values:
+  result.type
+    Which is: 4-byte object <00-00 00-00>
+  QuadricType::CONE
+    Which is: 4-byte object <03-00 00-00>]]></failure>
+    </testcase>
+    <testcase name="AnalyzeFreeForm" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.792" classname="SurfaceAnalyzerTest" />
+    <testcase name="AnalyzeNullSurface" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.793" classname="SurfaceAnalyzerTest" />
+    <testcase name="SetSampleSize" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.793" classname="SurfaceAnalyzerTest">
+      <failure message="/work/source/tests/unit_tests/test_surface_analyzer.cpp:118&#x0A;Value of: result.IsSuccess()&#x0A;  Actual: false&#x0A;Expected: true" type=""><![CDATA[/work/source/tests/unit_tests/test_surface_analyzer.cpp:118
+Value of: result.IsSuccess()
+  Actual: false
+Expected: true]]></failure>
+    </testcase>
+    <testcase name="SetTolerance" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.793" classname="SurfaceAnalyzerTest" />
+  </testsuite>
+  <testsuite name="CylinderFitterTest" tests="2" failures="2" disabled="0" skipped="0" errors="0" time="0" timestamp="2026-10-16T13:36:37.793">
+    <testcase name="FitStandardCylinder" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.793" classname="CylinderFitterTest">
+      <failure message="/work/source/tests/unit_tests/test_quadric_fitter.cpp:38&#x0A;Value of: success&#x0A;  Actual: false&#x0A;Expected: true" type=""><![CDATA[/work/source/tests/unit_tests/test_quadric_fitter.cpp:38
+Value of: success
+  Actual: false
+Expected: true]]></failure>
+      <failure message="/work/source/tests/unit_tests/test_quadric_fitter.cpp:39&#x0A;Value of: quadricSurface.IsNull()&#x0A;  Actual: true&#x0A;Expected: false" type=""><![CDATA[/work/source/tests/unit_tests/test_quadric_fitter.cpp:39
+Value of: quadricSurface.IsNull()
+  Actual: true
+Expected: false]]></failure>
+      <failure message="/work/source/tests/unit_tests/test_quadric_fitter.cpp:40&#x0A;Expected: (fitter-&gt;GetFittingError()) &lt;= (Precision::DEFAULT_TOLERANCE), actual: inf vs 1e-05" type=""><![CDATA[/work/source/tests/unit_tests/test_quadric_fitter.cpp:40
+Expected: (fitter->GetFittingError()) <= (Precision::DEFAULT_TOLERANCE), actual: inf vs 1e-05]]></failure>
+    </testcase>
+    <testcase name="CheckCylinderParameters" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.793" classname="CylinderFitterTest">
+      <failure message="/work/source/tests/unit_tests/test_quadric_fitter.cpp:50&#x0A;The difference between radius and 5.0 is 4, which exceeds 0.5, where&#x0A;radius evaluates to 1,&#x0A;5.0 evaluates to 5, and&#x0A;0.5 evaluates to 0.5." type=""><![CDATA[/work/source/tests/unit_tests/test_quadric_fitter.cpp:50
+The difference between radius and 5.0 is 4, which exceeds 0.5, where
+radius evaluates to 1,
+5.0 evaluates to 5, and
+0.5 evaluates to 0.5.]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="SphereFitterTest" tests="2" failures="2" disabled="0" skipped="0" errors="0" time="0" timestamp="2026-10-16T13:36:37.793">
+    <testcase name="FitStandardSphere" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.793" classname="SphereFitterTest">
+      <failure message="/work/source/tests/unit_tests/test_quadric_fitter.cpp:74&#x0A;Value of: success&#x0A;  Actual: false&#x0A;Expected: true" type=""><![CDATA[/work/source/tests/unit_tests/test_quadric_fitter.cpp:74
+Value of: success
+  Actual: false
+Expected: true]]></failure>
+      <failure message="/work/source/tests/unit_tests/test_quadric_fitter.cpp:75&#x0A;Value of: quadricSurface.IsNull()&#x0A;  Actual: true&#x0A;Expected: false" type=""><![CDATA[/work/source/tests/unit_tests/test_quadric_fitter.cpp:75
+Value of: quadricSurface.IsNull()
+  Actual: true
+Expected: false]]></failure>
+      <failure message="/work/source/tests/unit_tests/test_quadric_fitter.cpp:76&#x0A;Expected: (fitter-&gt;GetFittingError()) &lt;= (Precision::DEFAULT_TOLERANCE), actual: inf vs 1e-05" type=""><![CDATA[/work/source/tests/unit_tests/test_quadric_fitter.cpp:76
+Expected: (fitter->GetFittingError()) <= (Precision::DEFAULT_TOLERANCE), actual: inf vs 1e-05]]></failure>
+    </testcase>
+    <testcase name="CheckSphereParameters" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.794" classname="SphereFitterTest">
+      <failure message="/work/source/tests/unit_tests/test_quadric_fitter.cpp:86&#x0A;The difference between radius and 5.0 is 4, which exceeds 0.5, where&#x0A;radius evaluates to 1,&#x0A;5.0 evaluates to 5, and&#x0A;0.5 evaluates to 0.5." type=""><![CDATA[/work/source/tests/unit_tests/test_quadric_fitter.cpp:86
+The difference between radius and 5.0 is 4, which exceeds 0.5, where
+radius evaluates to 1,
+5.0 evaluates to 5, and
+0.5 evaluates to 0.5.]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="PlaneFitterTest" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0" timestamp="2026-10-16T13:36:37.794">
+    <testcase name="FitStandardPlane" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.794" classname="PlaneFitterTest" />
+  </testsuite>
+  <testsuite name="AccuracyValidatorTest" tests="2" failures="2" disabled="0" skipped="0" errors="0" time="0" timestamp="2026-10-16T13:36:37.794">
+    <testcase name="ValidateConversionAccuracy" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.794" classname="AccuracyValidatorTest">
+      <failure message="/work/source/tests/unit_tests/test_accuracy_validator.cpp:39&#x0A;Expected: (result.maxDistance) &lt;= (Precision::DEFAULT_TOLERANCE), actual: inf vs 1e-05" type=""><![CDATA[/work/source/tests/unit_tests/test_accuracy_validator.cpp:39
+Expected: (result.maxDistance) <= (Precision::DEFAULT_TOLERANCE), actual: inf vs 1e-05]]></failure>
+      <failure message="/work/source/tests/unit_tests/test_accuracy_validator.cpp:40&#x0A;Expected: (result.avgDistance) &lt;= (Precision::DEFAULT_TOLERANCE), actual: inf vs 1e-05" type=""><![CDATA[/work/source/tests/unit_tests/test_accuracy_validator.cpp:40
+Expected: (result.avgDistance) <= (Precision::DEFAULT_TOLERANCE), actual: inf vs 1e-05]]></failure>
+      <failure message="/work/source/tests/unit_tests/test_accuracy_validator.cpp:41&#x0A;Expected: (result.rmsDistance) &lt;= (Precision::DEFAULT_TOLERANCE), actual: inf vs 1e-05" type=""><![CDATA[/work/source/tests/unit_tests/test_accuracy_validator.cpp:41
+Expected: (result.rmsDistance) <= (Precision::DEFAULT_TOLERANCE), actual: inf vs 1e-05]]></failure>
+      <failure message="/work/source/tests/unit_tests/test_accuracy_validator.cpp:42&#x0A;Value of: result.meetsRequirements&#x0A;  Actual: false&#x0A;Expected: true" type=""><![CDATA[/work/source/tests/unit_tests/test_accuracy_validator.cpp:42
+Value of: result.meetsRequirements
+  Actual: false
+Expected: true]]></failure>
+    </testcase>
+    <testcase name="ComparePerformance" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.794" classname="AccuracyValidatorTest">
+      <failure message="/work/source/tests/unit_tests/test_accuracy_validator.cpp:54&#x0A;Expected: (result.GetProjectionSpeedup()) &gt; (0.0), actual: nan vs 0" type=""><![CDATA[/work/source/tests/unit_tests/test_accuracy_validator.cpp:54
+Expected: (result.GetProjectionSpeedup()) > (0.0), actual: nan vs 0]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="ExceptionHandlerTest" tests="3" failures="0" disabled="0" skipped="0" errors="0" time="0" timestamp="2026-10-16T13:36:37.794">
+    <testcase name="DetectNullSurface" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.795" classname="ExceptionHandlerTest" />
+    <testcase name="DetectFreeFormSurface" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.795" classname="ExceptionHandlerTest" />
+    <testcase name="GenerateErrorReport" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.795" classname="ExceptionHandlerTest" />
+  </testsuite>
+  <testsuite name="ConversionContract" tests="5" failures="0" disabled="0" skipped="0" errors="0" time="0.012" timestamp="2026-10-16T13:36:37.795">
+    <testcase name="GeneratorProducesExactRationalCylinder" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.795" classname="ConversionContract" />
+    <testcase name="ConvertsTranslatedRotatedPartialCylinder" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.795" classname="ConversionContract" />
+    <testcase name="FaceConversionReturnsValidTrimmedFace" status="run" result="completed" time="0.011" timestamp="2026-10-16T13:36:37.796" classname="ConversionContract" />
+    <testcase name="RejectsInvalidTolerance" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.807" classname="ConversionContract" />
+    <testcase name="NullBatchItemDoesNotPreventNextConversion" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.807" classname="ConversionContract" />
+  </testsuite>
+  <testsuite name="ValidationRegression" tests="16" failures="1" disabled="0" skipped="0" errors="0" time="0.239" timestamp="2026-10-16T13:36:37.807">
+    <testcase name="RejectsNonPositiveOrNonFiniteToleranceWithoutChangingState" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.807" classname="ValidationRegression" />
+    <testcase name="IdenticalTrimmedFaceHasZeroBoundaryUnionDistance" status="run" result="completed" time="0.094" timestamp="2026-10-16T13:36:37.807" classname="ValidationRegression" />
+    <testcase name="MissingInputsCannotBecomeZeroErrorOrSuccessfulChecks" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.902" classname="ValidationRegression" />
+    <testcase name="SurfaceOnlyResultDoesNotClaimBoundaryOrAdjacencyChecks" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.902" classname="ValidationRegression" />
+    <testcase name="OffsetWithinToleranceDoesNotFailAnInventedMeanErrorThreshold" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.902" classname="ValidationRegression" />
+    <testcase name="FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.902" classname="ValidationRegression" />
+    <testcase name="FaceOrientationReversalIsNotNormalPreservation" status="run" result="completed" time="0.093" timestamp="2026-10-16T13:36:37.902" classname="ValidationRegression" />
+    <testcase name="CoplanarActualNeighborsPassSeparateSharedEdgeG1Check" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.995" classname="ValidationRegression" />
+    <testcase name="ActualSharedEdgeCreaseIsRejectedAtNinetyDegrees" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.996" classname="ValidationRegression" />
+    <testcase name="ReferenceEdgeMustLieOnBothTrimmedBoundaries" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:37.996" classname="ValidationRegression" />
+    <testcase name="PerformanceReportsOnlyCompletedOperationPairs" status="run" result="completed" time="0.025" timestamp="2026-10-16T13:36:37.996" classname="ValidationRegression" />
+    <testcase name="IndependentFullDomainBoundsCoverAllFiveAnalyticFamilies" status="run" result="completed" time="0.003" timestamp="2026-10-16T13:36:38.022" classname="ValidationRegression" />
+    <testcase name="FacePlacementIsAppliedBeforeComparisonWithWorldSpaceAnalyticSupport" status="run" result="completed" time="0.007" timestamp="2026-10-16T13:36:38.025" classname="ValidationRegression" />
+    <testcase name="NormalPreservationUsesCorrespondingWorldPointsAcrossParameterizations" status="run" result="completed" time="0.007" timestamp="2026-10-16T13:36:38.032" classname="ValidationRegression" />
+    <testcase name="FailedSourceEvaluationCannotBeDiscardedFromStatistics" status="run" result="completed" time="0" timestamp="2026-10-16T13:36:38.040" classname="ValidationRegression" />
+    <testcase name="ReverseBoundaryDirectionDetectsAnExtraInteriorHole" status="run" result="completed" time="0.006" timestamp="2026-10-16T13:36:38.040" classname="ValidationRegression">
+      <failure message="/work/source/tests/unit_tests/test_validation_regression.cpp:274&#x0A;Value of: result.boundaryChecked&#x0A;  Actual: false&#x0A;Expected: true&#x0A;boundary projection failed" type=""><![CDATA[/work/source/tests/unit_tests/test_validation_regression.cpp:274
+Value of: result.boundaryChecked
+  Actual: false
+Expected: true
+boundary projection failed]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>

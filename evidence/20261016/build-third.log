@@ -1,0 +1,13 @@
+Consolidate compiler generated dependencies of target bs2quad_lib
+[ 48%] Built target bs2quad_lib
+Consolidate compiler generated dependencies of target bs2quad_main
+Consolidate compiler generated dependencies of target performance_tests
+Consolidate compiler generated dependencies of target unit_tests
+[ 51%] Building CXX object CMakeFiles/bs2quad_evidence.dir/src/evidence_main.cpp.o
+[ 55%] Building CXX object CMakeFiles/bs2quad_main.dir/src/main.cpp.o
+[ 68%] Built target performance_tests
+[ 93%] Built target unit_tests
+[ 96%] Linking CXX executable bs2quad_main
+[100%] Linking CXX executable bs2quad_evidence
+[100%] Built target bs2quad_main
+[100%] Built target bs2quad_evidence

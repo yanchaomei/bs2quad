@@ -1,0 +1,41 @@
+Running main() from ./googletest/src/gtest_main.cc
+Note: Google Test filter = ConversionContract.*
+[==========] Running 11 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 11 tests from ConversionContract
+[ RUN      ] ConversionContract.GeneratorProducesExactRationalCylinder
+[       OK ] ConversionContract.GeneratorProducesExactRationalCylinder (0 ms)
+[ RUN      ] ConversionContract.ConvertsTranslatedRotatedPartialCylinder
+[       OK ] ConversionContract.ConvertsTranslatedRotatedPartialCylinder (0 ms)
+[ RUN      ] ConversionContract.FaceConversionReturnsValidTrimmedFace
+[       OK ] ConversionContract.FaceConversionReturnsValidTrimmedFace (71 ms)
+[ RUN      ] ConversionContract.RejectsInvalidTolerance
+[       OK ] ConversionContract.RejectsInvalidTolerance (0 ms)
+[ RUN      ] ConversionContract.NullBatchItemDoesNotPreventNextConversion
+[       OK ] ConversionContract.NullBatchItemDoesNotPreventNextConversion (0 ms)
+[ RUN      ] ConversionContract.AllFiveExactFamiliesAndDegreeElevatedSurfacesAreAccepted
+[       OK ] ConversionContract.AllFiveExactFamiliesAndDegreeElevatedSurfacesAreAccepted (50 ms)
+[ RUN      ] ConversionContract.PlacedFaceReturnsWorldSpaceSurfaceWithoutChangingInput
+[       OK ] ConversionContract.PlacedFaceReturnsWorldSpaceSurfaceWithoutChangingInput (91 ms)
+[ RUN      ] ConversionContract.CannotClaimItselfAsItsOwnTangentNeighbor
+[       OK ] ConversionContract.CannotClaimItselfAsItsOwnTangentNeighbor (80 ms)
+[ RUN      ] ConversionContract.RejectsNonQuadricAndCorruptControlPointsWithoutThrowing
+[       OK ] ConversionContract.RejectsNonQuadricAndCorruptControlPointsWithoutThrowing (0 ms)
+[ RUN      ] ConversionContract.PartialSphereConeAndTorusKeepValidTrimmedFaces
+[       OK ] ConversionContract.PartialSphereConeAndTorusKeepValidTrimmedFaces (240 ms)
+[ RUN      ] ConversionContract.CompleteClosedCylinderSphereAndTorusReturnTrimmedFaces
+/work/source/tests/unit_tests/test_conversion_contract.cpp:167: Failure
+Value of: result.success
+  Actual: false
+Expected: true
+family=1 TOPOLOGY_FAILURE: invalid reconstructed face
+[  FAILED  ] ConversionContract.CompleteClosedCylinderSphereAndTorusReturnTrimmedFaces (233 ms)
+[----------] 11 tests from ConversionContract (770 ms total)
+
+[----------] Global test environment tear-down
+[==========] 11 tests from 1 test suite ran. (770 ms total)
+[  PASSED  ] 10 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] ConversionContract.CompleteClosedCylinderSphereAndTorusReturnTrimmedFaces
+
+ 1 FAILED TEST

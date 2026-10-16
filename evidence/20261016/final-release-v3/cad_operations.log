@@ -1,0 +1,15 @@
+plane projection valid=1 gain=0.332603 target_pass=0
+plane intersection valid=1 gain=0.872543 target_pass=1
+plane boolean valid=1 gain=0.41404 target_pass=0
+cylinder projection valid=1 gain=0.537138 target_pass=1
+cylinder intersection valid=1 gain=0.839466 target_pass=1
+cylinder boolean valid=1 gain=0.513712 target_pass=1
+sphere projection valid=1 gain=0.400069 target_pass=0
+sphere intersection valid=1 gain=0.854995 target_pass=1
+sphere boolean valid=1 gain=0.563163 target_pass=1
+cone projection valid=1 gain=0.469558 target_pass=0
+cone intersection valid=1 gain=0.852749 target_pass=1
+cone boolean valid=1 gain=0.512087 target_pass=1
+torus projection valid=1 gain=0.400583 target_pass=0
+torus intersection valid=1 gain=0.858611 target_pass=1
+torus boolean valid=1 gain=0.0908163 target_pass=0

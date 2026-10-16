@@ -1,0 +1,11 @@
+no_step 0 exit=0 None
+controller 0 exit=1 (2916, 136)
+init 0 exit=1 (2916, 136)
+writes 1 exit=1 (2964, 138)
+writes 10 exit=1 (2964, 138)
+writes 100 exit=1 (2964, 138)
+clear1 1 exit=1 (2964, 138)
+clear7 1 exit=1 (2964, 138)
+purge 1 exit=1 (2964, 138)
+nullalg 1 exit=1 (2964, 138)
+PASS: 10 controls, exact leak counts, successful STEP completions, clean build, metadata and source receipts present

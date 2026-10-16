@@ -1,0 +1,33 @@
+{
+  "scope": "Historical path-alias fixtures stored as metadata only; raw logs retained; no data files removed",
+  "links": [
+    {
+      "path": "final-release-v2/cli/run-PfUeJmho/alias.brep",
+      "target": "/work/evidence/final-release-v2/surface1000/inputs/case_0.brep"
+    },
+    {
+      "path": "final-release-v2/cli/run-PfUeJmho/parent-alias",
+      "target": "/work/evidence/final-release-v2/cli/run-PfUeJmho/real"
+    },
+    {
+      "path": "final-release-v3/cli/run-tqKA5AhO/alias.brep",
+      "target": "/work/evidence/final-release-v3/surface1000/inputs/case_0.brep"
+    },
+    {
+      "path": "final-release-v3/cli/run-tqKA5AhO/parent-alias",
+      "target": "/work/evidence/final-release-v3/cli/run-tqKA5AhO/real"
+    },
+    {
+      "path": "cli/alias.brep",
+      "target": "/work/evidence/run1000/inputs/case_0.brep"
+    },
+    {
+      "path": "final-release/cli/run-9HrPbbe4/alias.brep",
+      "target": "/work/evidence/final-release/surface1000/inputs/case_0.brep"
+    },
+    {
+      "path": "final-release/cli/run-9HrPbbe4/parent-alias",
+      "target": "/work/evidence/final-release/cli/run-9HrPbbe4/real"
+    }
+  ]
+}

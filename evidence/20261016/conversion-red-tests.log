@@ -1,0 +1,196 @@
+Running main() from ./googletest/src/gtest_main.cc
+Note: Google Test filter = ConversionContract.*
+[==========] Running 5 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 5 tests from ConversionContract
+[ RUN      ] ConversionContract.GeneratorProducesExactRationalCylinder
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.20031179540941402, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.799688204590586,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.42244955621630442, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.5775504437836956,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.38035634518024342, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.6196436548197566,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.30601255475674538, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.6939874452432546,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.29765622275048553, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.7023437772495145,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.2924696253465493, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.7075303746534507,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.29661863391219878, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.7033813660878012,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.30138771266369613, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.6986122873363039,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.29490353068077013, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.7050964693192299,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.2929598571857337, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.7070401428142663,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.29944382440391148, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.7005561755960885,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.29951297103522911, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.7004870289647709,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.29299339657458123, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.7070066034254188,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.2948383986640577, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.7051616013359423,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.30136281085163663, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.6986371891483634,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.29669465000040329, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.7033053499995967,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.29246272092546022, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.7075372790745398,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.29757900631234246, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.7024209936876575,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.3009586299838789, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.6990413700161211,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.29413846385335951, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.7058615361466405,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.29344954804626422, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.7065504519537358,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.30025478330853517, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.6997452166914648,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.29861054797439124, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.7013894520256088,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.29264822058684725, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.7073517794131527,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.29569365756170196, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.704306342438298,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.30153661979264079, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.6984633802073592,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.35658791170253679, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.6434120882974632,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.42634791197417155, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.5736520880258285,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+tests/unit_tests/test_conversion_contract.cpp:26: Failure
+The difference between std::hypot(p.X(),p.Y()) and 5.0 is 0.29820043651562145, which exceeds 1e-10, where
+std::hypot(p.X(),p.Y()) evaluates to 4.7017995634843786,
+5.0 evaluates to 5, and
+1e-10 evaluates to 1e-10.
+[  FAILED  ] ConversionContract.GeneratorProducesExactRationalCylinder (0 ms)
+[ RUN      ] ConversionContract.ConvertsTranslatedRotatedPartialCylinder
+tests/unit_tests/test_conversion_contract.cpp:39: Failure
+Value of: result.success
+  Actual: false
+Expected: true
+转换精度不满足要求：最大误差=2.479712mm
+[  FAILED  ] ConversionContract.ConvertsTranslatedRotatedPartialCylinder (23 ms)
+[ RUN      ] ConversionContract.FaceConversionReturnsValidTrimmedFace
+tests/unit_tests/test_conversion_contract.cpp:52: Failure
+Value of: result.quadricFace.IsNull()
+  Actual: true
+Expected: false
+[  FAILED  ] ConversionContract.FaceConversionReturnsValidTrimmedFace (5 ms)
+[ RUN      ] ConversionContract.RejectsInvalidTolerance
+tests/unit_tests/test_conversion_contract.cpp:58: Failure
+Expected: BS2QuadCore(-1.0) throws an exception of type std::invalid_argument.
+  Actual: it throws nothing.
+tests/unit_tests/test_conversion_contract.cpp:59: Failure
+Expected: BS2QuadCore(std::numeric_limits<double>::quiet_NaN()) throws an exception of type std::invalid_argument.
+  Actual: it throws nothing.
+tests/unit_tests/test_conversion_contract.cpp:61: Failure
+Expected: core.SetTolerance(0) throws an exception of type std::invalid_argument.
+  Actual: it throws nothing.
+tests/unit_tests/test_conversion_contract.cpp:62: Failure
+Expected equality of these values:
+  core.GetTolerance()
+    Which is: 0
+  1e-5
+    Which is: 1.0000000000000001e-05
+[  FAILED  ] ConversionContract.RejectsInvalidTolerance (0 ms)
+[ RUN      ] ConversionContract.NullBatchItemDoesNotPreventNextConversion
+[       OK ] ConversionContract.NullBatchItemDoesNotPreventNextConversion (5 ms)
+[----------] 5 tests from ConversionContract (35 ms total)
+
+[----------] Global test environment tear-down
+[==========] 5 tests from 1 test suite ran. (35 ms total)
+[  PASSED  ] 1 test.
+[  FAILED  ] 4 tests, listed below:
+[  FAILED  ] ConversionContract.GeneratorProducesExactRationalCylinder
+[  FAILED  ] ConversionContract.ConvertsTranslatedRotatedPartialCylinder
+[  FAILED  ] ConversionContract.FaceConversionReturnsValidTrimmedFace
+[  FAILED  ] ConversionContract.RejectsInvalidTolerance
+
+ 4 FAILED TESTS

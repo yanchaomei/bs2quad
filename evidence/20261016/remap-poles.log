@@ -1,0 +1,17 @@
+Running main() from ./googletest/src/gtest_main.cc
+Note: Google Test filter = ConversionContract.CompleteClosedCylinderSphereAndTorusReturnTrimmedFaces:ValidationRegression.UnclampedHighEndpointCannotDropTheLastControlPoleFromItsBound
+[==========] Running 2 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 1 test from ConversionContract
+[ RUN      ] ConversionContract.CompleteClosedCylinderSphereAndTorusReturnTrimmedFaces
+[       OK ] ConversionContract.CompleteClosedCylinderSphereAndTorusReturnTrimmedFaces (446 ms)
+[----------] 1 test from ConversionContract (446 ms total)
+
+[----------] 1 test from ValidationRegression
+[ RUN      ] ValidationRegression.UnclampedHighEndpointCannotDropTheLastControlPoleFromItsBound
+[       OK ] ValidationRegression.UnclampedHighEndpointCannotDropTheLastControlPoleFromItsBound (0 ms)
+[----------] 1 test from ValidationRegression (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 2 test suites ran. (446 ms total)
+[  PASSED  ] 2 tests.

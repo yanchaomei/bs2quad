@@ -1,0 +1,60 @@
+Consolidate compiler generated dependencies of target bs2quad_lib
+[  6%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/ImplicitCertificate.cpp.o
+[  6%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/PointFitting.cpp.o
+[  9%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/BS2QuadCore.cpp.o
+[ 12%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/CylinderFitter.cpp.o
+/work/source/src/PointFitting.cpp: In function 'bool BS2Quad::{anonymous}::LeastSquares(const Matrix&, const std::vector<double>&, std::vector<double>&)':
+/work/source/src/PointFitting.cpp:56:5: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+   56 |     if(rows.empty())return false;const int n=static_cast<int>(rows[0].size());Matrix a(n,std::vector<double>(n));std::vector<double>b(n);
+      |     ^~
+/work/source/src/PointFitting.cpp:56:34: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+   56 |     if(rows.empty())return false;const int n=static_cast<int>(rows[0].size());Matrix a(n,std::vector<double>(n));std::vector<double>b(n);
+      |                                  ^~~~~
+/work/source/src/PointFitting.cpp: In function 'bool BS2Quad::{anonymous}::Circle(const std::vector<std::array<double, 2> >&, std::array<double, 3>&)':
+/work/source/src/PointFitting.cpp:92:5: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+   92 |     if(!LeastSquares(rows,b,x))return false;const double r2=x[0]*x[0]+x[1]*x[1]+x[2];if(r2<=1e-14)return false;circle={{x[0],x[1],std::sqrt(r2)}};return true;
+      |     ^~
+/work/source/src/PointFitting.cpp:92:45: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+   92 |     if(!LeastSquares(rows,b,x))return false;const double r2=x[0]*x[0]+x[1]*x[1]+x[2];if(r2<=1e-14)return false;circle={{x[0],x[1],std::sqrt(r2)}};return true;
+      |                                             ^~~~~
+/work/source/src/PointFitting.cpp: In function 'BS2Quad::PointFitResult BS2Quad::FitFinitePoints(const std::vector<gp_Pnt>&, BS2Quad::QuadricType, double, bool)':
+/work/source/src/PointFitting.cpp:141:13: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+  141 |             if(!LeastSquares(rows,b,p))return result;const double r2=p[0]*p[0]+p[1]*p[1]+p[2]*p[2]+p[3];if(r2<=0)return result;p[3]=std::sqrt(r2);seeds.push_back(p);
+      |             ^~
+/work/source/src/PointFitting.cpp:141:54: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+  141 |             if(!LeastSquares(rows,b,p))return result;const double r2=p[0]*p[0]+p[1]*p[1]+p[2]*p[2]+p[3];if(r2<=0)return result;p[3]=std::sqrt(r2);seeds.push_back(p);
+      |                                                      ^~~~~
+[ 15%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/ConeFitter.cpp.o
+[ 18%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/SphereFitter.cpp.o
+[ 21%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/PlaneFitter.cpp.o
+[ 24%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/TorusFitter.cpp.o
+[ 27%] Linking CXX static library libbs2quad_lib.a
+[ 45%] Built target bs2quad_lib
+Consolidate compiler generated dependencies of target bs2quad_evidence
+Consolidate compiler generated dependencies of target bs2quad_main
+Consolidate compiler generated dependencies of target unit_tests
+[ 48%] Building CXX object CMakeFiles/bs2quad_cad_benchmark.dir/src/cad_benchmark.cpp.o
+[ 51%] Building CXX object CMakeFiles/bs2quad_evidence.dir/src/evidence_main.cpp.o
+[ 54%] Building CXX object CMakeFiles/bs2quad_main.dir/src/main.cpp.o
+[ 57%] Building CXX object CMakeFiles/unit_tests.dir/tests/unit_tests/test_quadric_fitter.cpp.o
+[ 60%] Linking CXX executable bs2quad_main
+[ 63%] Building CXX object CMakeFiles/unit_tests.dir/tests/unit_tests/test_accuracy_validator.cpp.o
+[ 66%] Linking CXX executable bs2quad_evidence
+[ 66%] Built target bs2quad_main
+Consolidate compiler generated dependencies of target performance_tests
+[ 69%] Building CXX object CMakeFiles/performance_tests.dir/tests/performance_tests/test_conversion_performance.cpp.o
+[ 69%] Built target bs2quad_evidence
+[ 72%] Building CXX object CMakeFiles/unit_tests.dir/tests/unit_tests/test_conversion_contract.cpp.o
+[ 75%] Linking CXX executable bs2quad_cad_benchmark
+/work/source/tests/unit_tests/test_conversion_contract.cpp: In member function 'virtual void ConversionContract_CompleteClosedCylinderSphereAndTorusReturnTrimmedFaces_Test::TestBody()':
+/work/source/tests/unit_tests/test_conversion_contract.cpp:168:11: warning: suggest explicit braces to avoid ambiguous 'else' [-Wdangling-else]
+  168 |         if(result.success) EXPECT_TRUE(BRepCheck_Analyzer(result.quadricFace).IsValid());
+      |           ^
+[ 78%] Building CXX object CMakeFiles/unit_tests.dir/tests/unit_tests/test_point_fitting.cpp.o
+[ 78%] Built target bs2quad_cad_benchmark
+[ 81%] Building CXX object CMakeFiles/performance_tests.dir/tests/performance_tests/test_cad_operations.cpp.o
+[ 84%] Building CXX object CMakeFiles/performance_tests.dir/tests/performance_tests/test_stability.cpp.o
+[ 87%] Linking CXX executable unit_tests
+[ 90%] Linking CXX executable performance_tests
+[100%] Built target unit_tests
+[100%] Built target performance_tests

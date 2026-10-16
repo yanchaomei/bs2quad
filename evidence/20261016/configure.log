@@ -1,0 +1,22 @@
+-- OpenCASCADE found: /work/occt770/lib/cmake/opencascade
+-- OpenCASCADE version: 7.7.0
+-- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+-- Found OpenMP: TRUE (found version "4.5")  
+-- OpenMP found
+-- Found GTest: /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfig.cmake (found version "1.11.0")  
+-- Google Test found
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+-- ==================================
+-- BS2Quad Configuration Summary
+-- ==================================
+-- Build type: Release
+-- C++ compiler: /usr/bin/c++
+-- C++ standard: C++17
+-- OpenCASCADE: 7.7.0
+-- OpenMP: TRUE
+-- GTest: TRUE
+-- Doxygen: FALSE
+-- ==================================
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /work/build

@@ -1,0 +1,20 @@
+Running main() from ./googletest/src/gtest_main.cc
+Note: Google Test filter = ValidationRegression.IdentityCertificateCannotHideAnInvalidSourceControlPoint
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ValidationRegression
+[ RUN      ] ValidationRegression.IdentityCertificateCannotHideAnInvalidSourceControlPoint
+/work/source/tests/unit_tests/test_validation_regression.cpp:354: Failure
+Value of: result.certified
+  Actual: true
+Expected: false
+[  FAILED  ] ValidationRegression.IdentityCertificateCannotHideAnInvalidSourceControlPoint (0 ms)
+[----------] 1 test from ValidationRegression (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] ValidationRegression.IdentityCertificateCannotHideAnInvalidSourceControlPoint
+
+ 1 FAILED TEST

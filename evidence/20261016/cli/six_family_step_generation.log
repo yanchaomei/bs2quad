@@ -1,0 +1,55 @@
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******[0m
+[32;1m
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******[0m
+[32;1m******        Transferring Shape, ShapeType = 4                      ******[0m
+[32;1m** WorkSession : Sending all data[0m
+[32;1m Step File Name : /work/evidence/cli/generated/plane_0.step(217 ents)  Write  Done[0m
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******[0m
+[32;1m
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******[0m
+[32;1m******        Transferring Shape, ShapeType = 4                      ******[0m
+[32;1m** WorkSession : Sending all data[0m
+[32;1m Step File Name : /work/evidence/cli/generated/cylinder_1.step(234 ents)  Write  Done[0m
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******[0m
+[32;1m
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******[0m
+[32;1m******        Transferring Shape, ShapeType = 4                      ******[0m
+[32;1m** WorkSession : Sending all data[0m
+[32;1m Step File Name : /work/evidence/cli/generated/cone_2.step(159 ents)  Write  Done[0m
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******[0m
+[32;1m
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******[0m
+[32;1m******        Transferring Shape, ShapeType = 4                      ******[0m
+[32;1m** WorkSession : Sending all data[0m
+[32;1m Step File Name : /work/evidence/cli/generated/sphere_3.step(100 ents)  Write  Done[0m
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******[0m
+[32;1m
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******[0m
+[32;1m******        Transferring Shape, ShapeType = 4                      ******[0m
+[32;1m** WorkSession : Sending all data[0m
+[32;1m Step File Name : /work/evidence/cli/generated/torus_4.step(205 ents)  Write  Done[0m
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******[0m
+[32;1m
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******[0m
+[32;1m******        Transferring Shape, ShapeType = 4                      ******[0m
+[32;1m** WorkSession : Sending all data[0m
+[32;1m Step File Name : /work/evidence/cli/generated/freeform_5.step(254 ents)  Write  Done[0m
+generated=6; directory=/work/evidence/cli/generated; seed=42

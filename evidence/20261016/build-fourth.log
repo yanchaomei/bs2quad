@@ -1,0 +1,38 @@
+[ 10%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/CylinderFitter.cpp.o
+[ 10%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/SurfaceAnalyzer.cpp.o
+[ 10%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/ImplicitCertificate.cpp.o
+[ 13%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/ConeFitter.cpp.o
+[ 17%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/SphereFitter.cpp.o
+[ 20%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/PlaneFitter.cpp.o
+[ 24%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/TorusFitter.cpp.o
+/work/source/src/PlaneFitter.cpp: In member function 'void BS2Quad::PlaneFitter::FitPlaneUsingSVD(const std::vector<gp_Pnt>&, gp_Dir&, gp_Pnt&)':
+/work/source/src/PlaneFitter.cpp:162:12: warning: unused variable 'A' [-Wunused-variable]
+  162 |     double A = 0, B = 0, C = 0;
+      |            ^
+/work/source/src/PlaneFitter.cpp:162:19: warning: unused variable 'B' [-Wunused-variable]
+  162 |     double A = 0, B = 0, C = 0;
+      |                   ^
+/work/source/src/PlaneFitter.cpp:162:26: warning: unused variable 'C' [-Wunused-variable]
+  162 |     double A = 0, B = 0, C = 0;
+      |                          ^
+/work/source/src/TorusFitter.cpp: In member function 'double BS2Quad::TorusFitter::DistanceToTorus(const gp_Pnt&, const gp_Ax1&, double, double) const':
+/work/source/src/TorusFitter.cpp:212:12: warning: unused variable 'distToAxis' [-Wunused-variable]
+  212 |     double distToAxis = point.Distance(projOnAxis);
+      |            ^~~~~~~~~~
+[ 27%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/AccuracyValidator.cpp.o
+[ 31%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/ExceptionHandler.cpp.o
+[ 34%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/TestDataGenerator.cpp.o
+[ 37%] Linking CXX static library libbs2quad_lib.a
+[ 48%] Built target bs2quad_lib
+Consolidate compiler generated dependencies of target bs2quad_evidence
+Consolidate compiler generated dependencies of target bs2quad_main
+[ 51%] Linking CXX executable bs2quad_evidence
+[ 55%] Linking CXX executable performance_tests
+[ 58%] Linking CXX executable bs2quad_main
+[ 62%] Building CXX object CMakeFiles/unit_tests.dir/tests/unit_tests/test_conversion_contract.cpp.o
+[ 65%] Built target bs2quad_evidence
+[ 68%] Built target bs2quad_main
+[ 72%] Building CXX object CMakeFiles/unit_tests.dir/tests/unit_tests/test_validation_regression.cpp.o
+[ 82%] Built target performance_tests
+[ 86%] Linking CXX executable unit_tests
+[100%] Built target unit_tests

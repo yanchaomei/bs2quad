@@ -1,0 +1,9 @@
+PASS equal bounded projection distances accepted
+FAIL changed projection distances rejected
+FAIL empty section cannot count as fast
+FAIL empty Boolean cannot count as fast
+PASS identical nonempty section accepted
+FAIL spatially changed section rejected
+PASS identical nonempty Boolean accepted
+FAIL changed Boolean area rejected
+PASS projection respects finite trim instead of unbounded support

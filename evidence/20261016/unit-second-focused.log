@@ -1,0 +1,60 @@
+Running main() from ./googletest/src/gtest_main.cc
+Note: Google Test filter = SurfaceAnalyzerTest.*:CylinderFitterTest.*:SphereFitterTest.*:AccuracyValidatorTest.*:ConversionContract.*
+[==========] Running 19 tests from 5 test suites.
+[----------] Global test environment set-up.
+[----------] 8 tests from SurfaceAnalyzerTest
+[ RUN      ] SurfaceAnalyzerTest.AnalyzeCylinder
+[       OK ] SurfaceAnalyzerTest.AnalyzeCylinder (2 ms)
+[ RUN      ] SurfaceAnalyzerTest.AnalyzeSphere
+[       OK ] SurfaceAnalyzerTest.AnalyzeSphere (2 ms)
+[ RUN      ] SurfaceAnalyzerTest.AnalyzePlane
+[       OK ] SurfaceAnalyzerTest.AnalyzePlane (0 ms)
+[ RUN      ] SurfaceAnalyzerTest.AnalyzeCone
+[       OK ] SurfaceAnalyzerTest.AnalyzeCone (2 ms)
+[ RUN      ] SurfaceAnalyzerTest.AnalyzeFreeForm
+[       OK ] SurfaceAnalyzerTest.AnalyzeFreeForm (0 ms)
+[ RUN      ] SurfaceAnalyzerTest.AnalyzeNullSurface
+[       OK ] SurfaceAnalyzerTest.AnalyzeNullSurface (0 ms)
+[ RUN      ] SurfaceAnalyzerTest.SetSampleSize
+[       OK ] SurfaceAnalyzerTest.SetSampleSize (1 ms)
+[ RUN      ] SurfaceAnalyzerTest.SetTolerance
+[       OK ] SurfaceAnalyzerTest.SetTolerance (0 ms)
+[----------] 8 tests from SurfaceAnalyzerTest (9 ms total)
+
+[----------] 2 tests from CylinderFitterTest
+[ RUN      ] CylinderFitterTest.FitStandardCylinder
+[       OK ] CylinderFitterTest.FitStandardCylinder (1 ms)
+[ RUN      ] CylinderFitterTest.CheckCylinderParameters
+[       OK ] CylinderFitterTest.CheckCylinderParameters (1 ms)
+[----------] 2 tests from CylinderFitterTest (3 ms total)
+
+[----------] 2 tests from SphereFitterTest
+[ RUN      ] SphereFitterTest.FitStandardSphere
+[       OK ] SphereFitterTest.FitStandardSphere (2 ms)
+[ RUN      ] SphereFitterTest.CheckSphereParameters
+[       OK ] SphereFitterTest.CheckSphereParameters (2 ms)
+[----------] 2 tests from SphereFitterTest (5 ms total)
+
+[----------] 2 tests from AccuracyValidatorTest
+[ RUN      ] AccuracyValidatorTest.ValidateConversionAccuracy
+[       OK ] AccuracyValidatorTest.ValidateConversionAccuracy (4 ms)
+[ RUN      ] AccuracyValidatorTest.ComparePerformance
+[       OK ] AccuracyValidatorTest.ComparePerformance (431 ms)
+[----------] 2 tests from AccuracyValidatorTest (435 ms total)
+
+[----------] 5 tests from ConversionContract
+[ RUN      ] ConversionContract.GeneratorProducesExactRationalCylinder
+[       OK ] ConversionContract.GeneratorProducesExactRationalCylinder (0 ms)
+[ RUN      ] ConversionContract.ConvertsTranslatedRotatedPartialCylinder
+[       OK ] ConversionContract.ConvertsTranslatedRotatedPartialCylinder (0 ms)
+[ RUN      ] ConversionContract.FaceConversionReturnsValidTrimmedFace
+[       OK ] ConversionContract.FaceConversionReturnsValidTrimmedFace (67 ms)
+[ RUN      ] ConversionContract.RejectsInvalidTolerance
+[       OK ] ConversionContract.RejectsInvalidTolerance (0 ms)
+[ RUN      ] ConversionContract.NullBatchItemDoesNotPreventNextConversion
+[       OK ] ConversionContract.NullBatchItemDoesNotPreventNextConversion (0 ms)
+[----------] 5 tests from ConversionContract (68 ms total)
+
+[----------] Global test environment tear-down
+[==========] 19 tests from 5 test suites ran. (523 ms total)
+[  PASSED  ] 19 tests.

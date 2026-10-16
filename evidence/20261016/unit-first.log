@@ -1,0 +1,207 @@
+Running main() from ./googletest/src/gtest_main.cc
+[==========] Running 39 tests from 8 test suites.
+[----------] Global test environment set-up.
+[----------] 8 tests from SurfaceAnalyzerTest
+[ RUN      ] SurfaceAnalyzerTest.AnalyzeCylinder
+/work/source/tests/unit_tests/test_surface_analyzer.cpp:37: Failure
+Value of: result.IsSuccess()
+  Actual: false
+Expected: true
+/work/source/tests/unit_tests/test_surface_analyzer.cpp:38: Failure
+Expected equality of these values:
+  result.type
+    Which is: 4-byte object <00-00 00-00>
+  QuadricType::CYLINDER
+    Which is: 4-byte object <02-00 00-00>
+/work/source/tests/unit_tests/test_surface_analyzer.cpp:39: Failure
+Expected: (result.confidence) > (0.5), actual: 0 vs 0.5
+[  FAILED  ] SurfaceAnalyzerTest.AnalyzeCylinder (0 ms)
+[ RUN      ] SurfaceAnalyzerTest.AnalyzeSphere
+/work/source/tests/unit_tests/test_surface_analyzer.cpp:51: Failure
+Value of: result.IsSuccess()
+  Actual: false
+Expected: true
+/work/source/tests/unit_tests/test_surface_analyzer.cpp:52: Failure
+Expected equality of these values:
+  result.type
+    Which is: 4-byte object <00-00 00-00>
+  QuadricType::SPHERE
+    Which is: 4-byte object <04-00 00-00>
+/work/source/tests/unit_tests/test_surface_analyzer.cpp:53: Failure
+Expected: (result.confidence) > (0.5), actual: 0 vs 0.5
+[  FAILED  ] SurfaceAnalyzerTest.AnalyzeSphere (0 ms)
+[ RUN      ] SurfaceAnalyzerTest.AnalyzePlane
+[       OK ] SurfaceAnalyzerTest.AnalyzePlane (0 ms)
+[ RUN      ] SurfaceAnalyzerTest.AnalyzeCone
+/work/source/tests/unit_tests/test_surface_analyzer.cpp:79: Failure
+Value of: result.IsSuccess()
+  Actual: false
+Expected: true
+/work/source/tests/unit_tests/test_surface_analyzer.cpp:80: Failure
+Expected equality of these values:
+  result.type
+    Which is: 4-byte object <00-00 00-00>
+  QuadricType::CONE
+    Which is: 4-byte object <03-00 00-00>
+[  FAILED  ] SurfaceAnalyzerTest.AnalyzeCone (0 ms)
+[ RUN      ] SurfaceAnalyzerTest.AnalyzeFreeForm
+[       OK ] SurfaceAnalyzerTest.AnalyzeFreeForm (0 ms)
+[ RUN      ] SurfaceAnalyzerTest.AnalyzeNullSurface
+[       OK ] SurfaceAnalyzerTest.AnalyzeNullSurface (0 ms)
+[ RUN      ] SurfaceAnalyzerTest.SetSampleSize
+/work/source/tests/unit_tests/test_surface_analyzer.cpp:118: Failure
+Value of: result.IsSuccess()
+  Actual: false
+Expected: true
+[  FAILED  ] SurfaceAnalyzerTest.SetSampleSize (0 ms)
+[ RUN      ] SurfaceAnalyzerTest.SetTolerance
+[       OK ] SurfaceAnalyzerTest.SetTolerance (0 ms)
+[----------] 8 tests from SurfaceAnalyzerTest (2 ms total)
+
+[----------] 2 tests from CylinderFitterTest
+[ RUN      ] CylinderFitterTest.FitStandardCylinder
+/work/source/tests/unit_tests/test_quadric_fitter.cpp:38: Failure
+Value of: success
+  Actual: false
+Expected: true
+/work/source/tests/unit_tests/test_quadric_fitter.cpp:39: Failure
+Value of: quadricSurface.IsNull()
+  Actual: true
+Expected: false
+/work/source/tests/unit_tests/test_quadric_fitter.cpp:40: Failure
+Expected: (fitter->GetFittingError()) <= (Precision::DEFAULT_TOLERANCE), actual: inf vs 1e-05
+[  FAILED  ] CylinderFitterTest.FitStandardCylinder (0 ms)
+[ RUN      ] CylinderFitterTest.CheckCylinderParameters
+/work/source/tests/unit_tests/test_quadric_fitter.cpp:50: Failure
+The difference between radius and 5.0 is 4, which exceeds 0.5, where
+radius evaluates to 1,
+5.0 evaluates to 5, and
+0.5 evaluates to 0.5.
+[  FAILED  ] CylinderFitterTest.CheckCylinderParameters (0 ms)
+[----------] 2 tests from CylinderFitterTest (0 ms total)
+
+[----------] 2 tests from SphereFitterTest
+[ RUN      ] SphereFitterTest.FitStandardSphere
+/work/source/tests/unit_tests/test_quadric_fitter.cpp:74: Failure
+Value of: success
+  Actual: false
+Expected: true
+/work/source/tests/unit_tests/test_quadric_fitter.cpp:75: Failure
+Value of: quadricSurface.IsNull()
+  Actual: true
+Expected: false
+/work/source/tests/unit_tests/test_quadric_fitter.cpp:76: Failure
+Expected: (fitter->GetFittingError()) <= (Precision::DEFAULT_TOLERANCE), actual: inf vs 1e-05
+[  FAILED  ] SphereFitterTest.FitStandardSphere (0 ms)
+[ RUN      ] SphereFitterTest.CheckSphereParameters
+/work/source/tests/unit_tests/test_quadric_fitter.cpp:86: Failure
+The difference between radius and 5.0 is 4, which exceeds 0.5, where
+radius evaluates to 1,
+5.0 evaluates to 5, and
+0.5 evaluates to 0.5.
+[  FAILED  ] SphereFitterTest.CheckSphereParameters (0 ms)
+[----------] 2 tests from SphereFitterTest (0 ms total)
+
+[----------] 1 test from PlaneFitterTest
+[ RUN      ] PlaneFitterTest.FitStandardPlane
+[       OK ] PlaneFitterTest.FitStandardPlane (0 ms)
+[----------] 1 test from PlaneFitterTest (0 ms total)
+
+[----------] 2 tests from AccuracyValidatorTest
+[ RUN      ] AccuracyValidatorTest.ValidateConversionAccuracy
+/work/source/tests/unit_tests/test_accuracy_validator.cpp:39: Failure
+Expected: (result.maxDistance) <= (Precision::DEFAULT_TOLERANCE), actual: inf vs 1e-05
+/work/source/tests/unit_tests/test_accuracy_validator.cpp:40: Failure
+Expected: (result.avgDistance) <= (Precision::DEFAULT_TOLERANCE), actual: inf vs 1e-05
+/work/source/tests/unit_tests/test_accuracy_validator.cpp:41: Failure
+Expected: (result.rmsDistance) <= (Precision::DEFAULT_TOLERANCE), actual: inf vs 1e-05
+/work/source/tests/unit_tests/test_accuracy_validator.cpp:42: Failure
+Value of: result.meetsRequirements
+  Actual: false
+Expected: true
+[  FAILED  ] AccuracyValidatorTest.ValidateConversionAccuracy (0 ms)
+[ RUN      ] AccuracyValidatorTest.ComparePerformance
+/work/source/tests/unit_tests/test_accuracy_validator.cpp:54: Failure
+Expected: (result.GetProjectionSpeedup()) > (0.0), actual: nan vs 0
+[  FAILED  ] AccuracyValidatorTest.ComparePerformance (0 ms)
+[----------] 2 tests from AccuracyValidatorTest (0 ms total)
+
+[----------] 3 tests from ExceptionHandlerTest
+[ RUN      ] ExceptionHandlerTest.DetectNullSurface
+[       OK ] ExceptionHandlerTest.DetectNullSurface (0 ms)
+[ RUN      ] ExceptionHandlerTest.DetectFreeFormSurface
+[       OK ] ExceptionHandlerTest.DetectFreeFormSurface (0 ms)
+[ RUN      ] ExceptionHandlerTest.GenerateErrorReport
+[       OK ] ExceptionHandlerTest.GenerateErrorReport (0 ms)
+[----------] 3 tests from ExceptionHandlerTest (0 ms total)
+
+[----------] 5 tests from ConversionContract
+[ RUN      ] ConversionContract.GeneratorProducesExactRationalCylinder
+[       OK ] ConversionContract.GeneratorProducesExactRationalCylinder (0 ms)
+[ RUN      ] ConversionContract.ConvertsTranslatedRotatedPartialCylinder
+[       OK ] ConversionContract.ConvertsTranslatedRotatedPartialCylinder (0 ms)
+[ RUN      ] ConversionContract.FaceConversionReturnsValidTrimmedFace
+[       OK ] ConversionContract.FaceConversionReturnsValidTrimmedFace (11 ms)
+[ RUN      ] ConversionContract.RejectsInvalidTolerance
+[       OK ] ConversionContract.RejectsInvalidTolerance (0 ms)
+[ RUN      ] ConversionContract.NullBatchItemDoesNotPreventNextConversion
+[       OK ] ConversionContract.NullBatchItemDoesNotPreventNextConversion (0 ms)
+[----------] 5 tests from ConversionContract (12 ms total)
+
+[----------] 16 tests from ValidationRegression
+[ RUN      ] ValidationRegression.RejectsNonPositiveOrNonFiniteToleranceWithoutChangingState
+[       OK ] ValidationRegression.RejectsNonPositiveOrNonFiniteToleranceWithoutChangingState (0 ms)
+[ RUN      ] ValidationRegression.IdenticalTrimmedFaceHasZeroBoundaryUnionDistance
+[       OK ] ValidationRegression.IdenticalTrimmedFaceHasZeroBoundaryUnionDistance (94 ms)
+[ RUN      ] ValidationRegression.MissingInputsCannotBecomeZeroErrorOrSuccessfulChecks
+[       OK ] ValidationRegression.MissingInputsCannotBecomeZeroErrorOrSuccessfulChecks (0 ms)
+[ RUN      ] ValidationRegression.SurfaceOnlyResultDoesNotClaimBoundaryOrAdjacencyChecks
+[       OK ] ValidationRegression.SurfaceOnlyResultDoesNotClaimBoundaryOrAdjacencyChecks (0 ms)
+[ RUN      ] ValidationRegression.OffsetWithinToleranceDoesNotFailAnInventedMeanErrorThreshold
+[       OK ] ValidationRegression.OffsetWithinToleranceDoesNotFailAnInventedMeanErrorThreshold (0 ms)
+[ RUN      ] ValidationRegression.FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns
+[       OK ] ValidationRegression.FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns (0 ms)
+[ RUN      ] ValidationRegression.FaceOrientationReversalIsNotNormalPreservation
+[       OK ] ValidationRegression.FaceOrientationReversalIsNotNormalPreservation (93 ms)
+[ RUN      ] ValidationRegression.CoplanarActualNeighborsPassSeparateSharedEdgeG1Check
+[       OK ] ValidationRegression.CoplanarActualNeighborsPassSeparateSharedEdgeG1Check (0 ms)
+[ RUN      ] ValidationRegression.ActualSharedEdgeCreaseIsRejectedAtNinetyDegrees
+[       OK ] ValidationRegression.ActualSharedEdgeCreaseIsRejectedAtNinetyDegrees (0 ms)
+[ RUN      ] ValidationRegression.ReferenceEdgeMustLieOnBothTrimmedBoundaries
+[       OK ] ValidationRegression.ReferenceEdgeMustLieOnBothTrimmedBoundaries (0 ms)
+[ RUN      ] ValidationRegression.PerformanceReportsOnlyCompletedOperationPairs
+[       OK ] ValidationRegression.PerformanceReportsOnlyCompletedOperationPairs (25 ms)
+[ RUN      ] ValidationRegression.IndependentFullDomainBoundsCoverAllFiveAnalyticFamilies
+[       OK ] ValidationRegression.IndependentFullDomainBoundsCoverAllFiveAnalyticFamilies (3 ms)
+[ RUN      ] ValidationRegression.FacePlacementIsAppliedBeforeComparisonWithWorldSpaceAnalyticSupport
+[       OK ] ValidationRegression.FacePlacementIsAppliedBeforeComparisonWithWorldSpaceAnalyticSupport (7 ms)
+[ RUN      ] ValidationRegression.NormalPreservationUsesCorrespondingWorldPointsAcrossParameterizations
+[       OK ] ValidationRegression.NormalPreservationUsesCorrespondingWorldPointsAcrossParameterizations (7 ms)
+[ RUN      ] ValidationRegression.FailedSourceEvaluationCannotBeDiscardedFromStatistics
+[       OK ] ValidationRegression.FailedSourceEvaluationCannotBeDiscardedFromStatistics (0 ms)
+[ RUN      ] ValidationRegression.ReverseBoundaryDirectionDetectsAnExtraInteriorHole
+/work/source/tests/unit_tests/test_validation_regression.cpp:274: Failure
+Value of: result.boundaryChecked
+  Actual: false
+Expected: true
+boundary projection failed
+[  FAILED  ] ValidationRegression.ReverseBoundaryDirectionDetectsAnExtraInteriorHole (6 ms)
+[----------] 16 tests from ValidationRegression (239 ms total)
+
+[----------] Global test environment tear-down
+[==========] 39 tests from 8 test suites ran. (256 ms total)
+[  PASSED  ] 28 tests.
+[  FAILED  ] 11 tests, listed below:
+[  FAILED  ] SurfaceAnalyzerTest.AnalyzeCylinder
+[  FAILED  ] SurfaceAnalyzerTest.AnalyzeSphere
+[  FAILED  ] SurfaceAnalyzerTest.AnalyzeCone
+[  FAILED  ] SurfaceAnalyzerTest.SetSampleSize
+[  FAILED  ] CylinderFitterTest.FitStandardCylinder
+[  FAILED  ] CylinderFitterTest.CheckCylinderParameters
+[  FAILED  ] SphereFitterTest.FitStandardSphere
+[  FAILED  ] SphereFitterTest.CheckSphereParameters
+[  FAILED  ] AccuracyValidatorTest.ValidateConversionAccuracy
+[  FAILED  ] AccuracyValidatorTest.ComparePerformance
+[  FAILED  ] ValidationRegression.ReverseBoundaryDirectionDetectsAnExtraInteriorHole
+
+11 FAILED TESTS

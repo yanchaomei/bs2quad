@@ -1,0 +1,865 @@
+PROBE mode=clear1 count=1
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******[0m
+[32;1m
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******[0m
+[32;1m******        Transferring Shape, ShapeType = 4                      ******[0m
+[32;1m** WorkSession : Sending all data[0m
+[32;1m Step File Name : /work/evidence/occt-step-control/probe.step(94 ents)  Write  Done[0m
+PROBE completed writes=1
+
+=================================================================
+==40020==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 328 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77ba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7ff4883eb7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7ff489d064b9 in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x2344b9)
+    #3 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #4 0x7ff489cf776a in XSAlgo::Init() (/work/occt770/lib/libTKXSBase.so.7.7+0x22576a)
+    #5 0x7ff48a61dd0d in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327d0d)
+    #6 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #7 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #8 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #9 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #10 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Direct leak of 328 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77ba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7ff4883eb7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7ff489d064b9 in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x2344b9)
+    #3 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #4 0x7ff48a61c374 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x326374)
+    #5 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #6 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #7 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #8 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #9 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #10 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Direct leak of 264 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77ba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7ff4883eb7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7ff489d064b9 in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x2344b9)
+    #3 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #4 0x7ff48a61bfe4 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x325fe4)
+    #5 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #6 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #7 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #8 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #9 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #10 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Direct leak of 232 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77ba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7ff4883eb7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7ff489d064b9 in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x2344b9)
+    #3 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #4 0x7ff48a61bf07 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x325f07)
+    #5 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #6 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #7 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #8 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #9 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #10 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Direct leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77ba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7ff4883eb7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7ff489d064b9 in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x2344b9)
+    #3 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #4 0x7ff48a61c23b in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32623b)
+    #5 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #6 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #7 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #8 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #9 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #10 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Direct leak of 200 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77ba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7ff4883eb7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7ff489d064b9 in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x2344b9)
+    #3 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #4 0x7ff48a61c1a3 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x3261a3)
+    #5 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #6 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #7 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #8 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #9 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #10 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Direct leak of 184 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77ba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7ff4883eb7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7ff489c28854 in IFSelect_Editor::IFSelect_Editor(int) (/work/occt770/lib/libTKXSBase.so.7.7+0x156854)
+    #3 0x7ff48a59adb4 in STEPEdit_EditSDR::STEPEdit_EditSDR() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a4db4)
+    #4 0x7ff48a61d74b in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32774b)
+    #5 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #6 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #7 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #8 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #9 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #10 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Direct leak of 168 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77ba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7ff4883eb7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7ff489c28854 in IFSelect_Editor::IFSelect_Editor(int) (/work/occt770/lib/libTKXSBase.so.7.7+0x156854)
+    #3 0x7ff489cef754 in APIHeaderSection_EditHeader::APIHeaderSection_EditHeader() (/work/occt770/lib/libTKXSBase.so.7.7+0x21d754)
+    #4 0x7ff48a61d5eb in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x3275eb)
+    #5 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #6 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #7 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #8 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #9 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #10 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Direct leak of 88 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77ba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7ff4883eb7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7ff489c28854 in IFSelect_Editor::IFSelect_Editor(int) (/work/occt770/lib/libTKXSBase.so.7.7+0x156854)
+    #3 0x7ff48a5997be in STEPEdit_EditContext::STEPEdit_EditContext() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a37be)
+    #4 0x7ff48a61d69c in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32769c)
+    #5 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #6 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #7 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #8 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #9 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #10 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Direct leak of 44 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77d357 in operator new[](unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:102
+    #1 0x7ff489c288b5 in IFSelect_Editor::IFSelect_Editor(int) (/work/occt770/lib/libTKXSBase.so.7.7+0x1568b5)
+    #2 0x7ff48a59adb4 in STEPEdit_EditSDR::STEPEdit_EditSDR() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a4db4)
+    #3 0x7ff48a61d74b in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32774b)
+    #4 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #5 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #6 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #7 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #9 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Direct leak of 44 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77d357 in operator new[](unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:102
+    #1 0x7ff489c288e0 in IFSelect_Editor::IFSelect_Editor(int) (/work/occt770/lib/libTKXSBase.so.7.7+0x1568e0)
+    #2 0x7ff48a59adb4 in STEPEdit_EditSDR::STEPEdit_EditSDR() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a4db4)
+    #3 0x7ff48a61d74b in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32774b)
+    #4 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #5 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #6 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #7 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #9 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Direct leak of 40 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77d357 in operator new[](unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:102
+    #1 0x7ff489c288b5 in IFSelect_Editor::IFSelect_Editor(int) (/work/occt770/lib/libTKXSBase.so.7.7+0x1568b5)
+    #2 0x7ff489cef754 in APIHeaderSection_EditHeader::APIHeaderSection_EditHeader() (/work/occt770/lib/libTKXSBase.so.7.7+0x21d754)
+    #3 0x7ff48a61d5eb in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x3275eb)
+    #4 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #5 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #6 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #7 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #9 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Direct leak of 40 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77d357 in operator new[](unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:102
+    #1 0x7ff489c288e0 in IFSelect_Editor::IFSelect_Editor(int) (/work/occt770/lib/libTKXSBase.so.7.7+0x1568e0)
+    #2 0x7ff489cef754 in APIHeaderSection_EditHeader::APIHeaderSection_EditHeader() (/work/occt770/lib/libTKXSBase.so.7.7+0x21d754)
+    #3 0x7ff48a61d5eb in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x3275eb)
+    #4 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #5 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #6 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #7 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #9 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Direct leak of 24 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77d357 in operator new[](unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:102
+    #1 0x7ff48a5a7bda in GeomToStep_MakeDirection::GeomToStep_MakeDirection(gp_Dir const&) (/work/occt770/lib/libTKSTEP.so.7.7+0x2b1bda)
+    #2 0x7ff48a59d8f3  (/work/occt770/lib/libTKSTEP.so.7.7+0x2a78f3)
+    #3 0x7ff48a59e14c in GeomToStep_MakeAxis2Placement3d::GeomToStep_MakeAxis2Placement3d() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a814c)
+    #4 0x7ff48a579e35 in STEPConstruct_ContextTool::GetDefaultAxis() (/work/occt770/lib/libTKSTEP.so.7.7+0x283e35)
+    #5 0x7ff48a612a43 in STEPControl_ActorWrite::TransferShape(opencascade::handle<Transfer_Finder> const&, opencascade::handle<StepShape_ShapeDefinitionRepresentation> const&, opencascade::handle<Transfer_FinderProcess> const&, opencascade::handle<TopTools_HSequenceOfShape> const&, bool, Message_ProgressRange const&) (/work/occt770/lib/libTKSTEP.so.7.7+0x31ca43)
+    #6 0x7ff48a61800d in STEPControl_ActorWrite::Transfer(opencascade::handle<Transfer_Finder> const&, opencascade::handle<Transfer_FinderProcess> const&, Message_ProgressRange const&) (/work/occt770/lib/libTKSTEP.so.7.7+0x32200d)
+    #7 0x7ff489bf7520 in Transfer_ActorOfFinderProcess::Transferring(opencascade::handle<Transfer_Finder> const&, opencascade::handle<Transfer_ProcessForFinder> const&, Message_ProgressRange const&) (/work/occt770/lib/libTKXSBase.so.7.7+0x125520)
+    #8 0x7ff489c01bf5 in Transfer_ProcessForFinder::TransferProduct(opencascade::handle<Transfer_Finder> const&, Message_ProgressRange const&) (/work/occt770/lib/libTKXSBase.so.7.7+0x12fbf5)
+    #9 0x7ff489c049aa in Transfer_ProcessForFinder::Transferring(opencascade::handle<Transfer_Finder> const&, Message_ProgressRange const&) (/work/occt770/lib/libTKXSBase.so.7.7+0x1329aa)
+    #10 0x7ff489c0549d in Transfer_ProcessForFinder::Transfer(opencascade::handle<Transfer_Finder> const&, Message_ProgressRange const&) (/work/occt770/lib/libTKXSBase.so.7.7+0x13349d)
+    #11 0x7ff489c8a4e9  (/work/occt770/lib/libTKXSBase.so.7.7+0x1b84e9)
+    #12 0x7ff489c8aa58 in XSControl_Controller::TransferWriteShape(TopoDS_Shape const&, opencascade::handle<Transfer_FinderProcess> const&, opencascade::handle<Interface_InterfaceModel> const&, int, Message_ProgressRange const&) const (/work/occt770/lib/libTKXSBase.so.7.7+0x1b8a58)
+    #13 0x7ff48a61bc59 in STEPControl_Controller::TransferWriteShape(TopoDS_Shape const&, opencascade::handle<Transfer_FinderProcess> const&, opencascade::handle<Interface_InterfaceModel> const&, int, Message_ProgressRange const&) const (/work/occt770/lib/libTKSTEP.so.7.7+0x325c59)
+    #14 0x7ff489cb0f10 in XSControl_TransferWriter::TransferWriteShape(opencascade::handle<Interface_InterfaceModel> const&, TopoDS_Shape const&, Message_ProgressRange const&) (/work/occt770/lib/libTKXSBase.so.7.7+0x1def10)
+    #15 0x7ff489cb88f4 in XSControl_WorkSession::TransferWriteShape(TopoDS_Shape const&, bool, Message_ProgressRange const&) (/work/occt770/lib/libTKXSBase.so.7.7+0x1e68f4)
+    #16 0x55a1135c5cce in main /work/evidence/occt-step-control/probe.cpp:25
+    #17 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #18 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #19 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Direct leak of 24 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77d357 in operator new[](unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:102
+    #1 0x7ff48a5a7bda in GeomToStep_MakeDirection::GeomToStep_MakeDirection(gp_Dir const&) (/work/occt770/lib/libTKSTEP.so.7.7+0x2b1bda)
+    #2 0x7ff48a59d903  (/work/occt770/lib/libTKSTEP.so.7.7+0x2a7903)
+    #3 0x7ff48a59e14c in GeomToStep_MakeAxis2Placement3d::GeomToStep_MakeAxis2Placement3d() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a814c)
+    #4 0x7ff48a579e35 in STEPConstruct_ContextTool::GetDefaultAxis() (/work/occt770/lib/libTKSTEP.so.7.7+0x283e35)
+    #5 0x7ff48a612a43 in STEPControl_ActorWrite::TransferShape(opencascade::handle<Transfer_Finder> const&, opencascade::handle<StepShape_ShapeDefinitionRepresentation> const&, opencascade::handle<Transfer_FinderProcess> const&, opencascade::handle<TopTools_HSequenceOfShape> const&, bool, Message_ProgressRange const&) (/work/occt770/lib/libTKSTEP.so.7.7+0x31ca43)
+    #6 0x7ff48a61800d in STEPControl_ActorWrite::Transfer(opencascade::handle<Transfer_Finder> const&, opencascade::handle<Transfer_FinderProcess> const&, Message_ProgressRange const&) (/work/occt770/lib/libTKSTEP.so.7.7+0x32200d)
+    #7 0x7ff489bf7520 in Transfer_ActorOfFinderProcess::Transferring(opencascade::handle<Transfer_Finder> const&, opencascade::handle<Transfer_ProcessForFinder> const&, Message_ProgressRange const&) (/work/occt770/lib/libTKXSBase.so.7.7+0x125520)
+    #8 0x7ff489c01bf5 in Transfer_ProcessForFinder::TransferProduct(opencascade::handle<Transfer_Finder> const&, Message_ProgressRange const&) (/work/occt770/lib/libTKXSBase.so.7.7+0x12fbf5)
+    #9 0x7ff489c049aa in Transfer_ProcessForFinder::Transferring(opencascade::handle<Transfer_Finder> const&, Message_ProgressRange const&) (/work/occt770/lib/libTKXSBase.so.7.7+0x1329aa)
+    #10 0x7ff489c0549d in Transfer_ProcessForFinder::Transfer(opencascade::handle<Transfer_Finder> const&, Message_ProgressRange const&) (/work/occt770/lib/libTKXSBase.so.7.7+0x13349d)
+    #11 0x7ff489c8a4e9  (/work/occt770/lib/libTKXSBase.so.7.7+0x1b84e9)
+    #12 0x7ff489c8aa58 in XSControl_Controller::TransferWriteShape(TopoDS_Shape const&, opencascade::handle<Transfer_FinderProcess> const&, opencascade::handle<Interface_InterfaceModel> const&, int, Message_ProgressRange const&) const (/work/occt770/lib/libTKXSBase.so.7.7+0x1b8a58)
+    #13 0x7ff48a61bc59 in STEPControl_Controller::TransferWriteShape(TopoDS_Shape const&, opencascade::handle<Transfer_FinderProcess> const&, opencascade::handle<Interface_InterfaceModel> const&, int, Message_ProgressRange const&) const (/work/occt770/lib/libTKSTEP.so.7.7+0x325c59)
+    #14 0x7ff489cb0f10 in XSControl_TransferWriter::TransferWriteShape(opencascade::handle<Interface_InterfaceModel> const&, TopoDS_Shape const&, Message_ProgressRange const&) (/work/occt770/lib/libTKXSBase.so.7.7+0x1def10)
+    #15 0x7ff489cb88f4 in XSControl_WorkSession::TransferWriteShape(TopoDS_Shape const&, bool, Message_ProgressRange const&) (/work/occt770/lib/libTKXSBase.so.7.7+0x1e68f4)
+    #16 0x55a1135c5cce in main /work/evidence/occt-step-control/probe.cpp:25
+    #17 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #18 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #19 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Direct leak of 20 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77d357 in operator new[](unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:102
+    #1 0x7ff489c288e0 in IFSelect_Editor::IFSelect_Editor(int) (/work/occt770/lib/libTKXSBase.so.7.7+0x1568e0)
+    #2 0x7ff48a5997be in STEPEdit_EditContext::STEPEdit_EditContext() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a37be)
+    #3 0x7ff48a61d69c in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32769c)
+    #4 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #5 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #6 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #7 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #9 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Direct leak of 20 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77d357 in operator new[](unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:102
+    #1 0x7ff489c288b5 in IFSelect_Editor::IFSelect_Editor(int) (/work/occt770/lib/libTKXSBase.so.7.7+0x1568b5)
+    #2 0x7ff48a5997be in STEPEdit_EditContext::STEPEdit_EditContext() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a37be)
+    #3 0x7ff48a61d69c in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32769c)
+    #4 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #5 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #6 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #7 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #9 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 44 byte(s) in 10 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489d0655a in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x23455a)
+    #4 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #5 0x7ff48a61c374 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x326374)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 44 byte(s) in 6 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489d0655a in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x23455a)
+    #4 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #5 0x7ff48a61bfe4 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x325fe4)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 44 byte(s) in 10 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489d0655a in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x23455a)
+    #4 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #5 0x7ff489cf776a in XSAlgo::Init() (/work/occt770/lib/libTKXSBase.so.7.7+0x22576a)
+    #6 0x7ff48a61dd0d in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327d0d)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 36 byte(s) in 9 object(s) allocated from:
+    #0 0x7ff48a77ba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7ff4883eb7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7ff4883ff4f8 in TCollection_AsciiString::TCollection_AsciiString() (/work/occt770/lib/libTKernel.so.7.7+0xc44f8)
+    #3 0x7ff489d064e7 in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x2344e7)
+    #4 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #5 0x7ff48a61c1a3 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x3261a3)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 36 byte(s) in 9 object(s) allocated from:
+    #0 0x7ff48a77ba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7ff4883eb7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7ff4883ff4f8 in TCollection_AsciiString::TCollection_AsciiString() (/work/occt770/lib/libTKernel.so.7.7+0xc44f8)
+    #3 0x7ff489d064e7 in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x2344e7)
+    #4 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #5 0x7ff48a61c374 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x326374)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 36 byte(s) in 9 object(s) allocated from:
+    #0 0x7ff48a77ba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7ff4883eb7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7ff4883ff4f8 in TCollection_AsciiString::TCollection_AsciiString() (/work/occt770/lib/libTKernel.so.7.7+0xc44f8)
+    #3 0x7ff489d064e7 in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x2344e7)
+    #4 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #5 0x7ff48a61bf07 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x325f07)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 36 byte(s) in 9 object(s) allocated from:
+    #0 0x7ff48a77ba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7ff4883eb7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7ff4883ff4f8 in TCollection_AsciiString::TCollection_AsciiString() (/work/occt770/lib/libTKernel.so.7.7+0xc44f8)
+    #3 0x7ff489d064e7 in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x2344e7)
+    #4 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #5 0x7ff48a61c23b in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32623b)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 36 byte(s) in 9 object(s) allocated from:
+    #0 0x7ff48a77ba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7ff4883eb7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7ff4883ff4f8 in TCollection_AsciiString::TCollection_AsciiString() (/work/occt770/lib/libTKernel.so.7.7+0xc44f8)
+    #3 0x7ff489d064e7 in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x2344e7)
+    #4 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #5 0x7ff489cf776a in XSAlgo::Init() (/work/occt770/lib/libTKXSBase.so.7.7+0x22576a)
+    #6 0x7ff48a61dd0d in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327d0d)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 36 byte(s) in 4 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489d0655a in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x23455a)
+    #4 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #5 0x7ff48a61bf07 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x325f07)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 36 byte(s) in 9 object(s) allocated from:
+    #0 0x7ff48a77ba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7ff4883eb7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7ff4883ff4f8 in TCollection_AsciiString::TCollection_AsciiString() (/work/occt770/lib/libTKernel.so.7.7+0xc44f8)
+    #3 0x7ff489d064e7 in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x2344e7)
+    #4 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #5 0x7ff48a61bfe4 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x325fe4)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 28 byte(s) in 3 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489d0655a in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x23455a)
+    #4 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #5 0x7ff48a61c23b in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32623b)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 12 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff48a59ae23 in STEPEdit_EditSDR::STEPEdit_EditSDR() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a4e23)
+    #5 0x7ff48a61d74b in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32774b)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 12 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff48a5998de in STEPEdit_EditContext::STEPEdit_EditContext() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a38de)
+    #5 0x7ff48a61d69c in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32769c)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 12 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff48a599886 in STEPEdit_EditContext::STEPEdit_EditContext() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a3886)
+    #5 0x7ff48a61d69c in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32769c)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 12 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489d05962 in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x233962)
+    #4 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #5 0x7ff48a61bf07 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x325f07)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 12 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff489cefa0a in APIHeaderSection_EditHeader::APIHeaderSection_EditHeader() (/work/occt770/lib/libTKXSBase.so.7.7+0x21da0a)
+    #5 0x7ff48a61d5eb in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x3275eb)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 12 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff48a59af97 in STEPEdit_EditSDR::STEPEdit_EditSDR() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a4f97)
+    #5 0x7ff48a61d74b in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32774b)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 12 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489d05962 in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x233962)
+    #4 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #5 0x7ff48a61c1a3 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x3261a3)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 12 byte(s) in 2 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489d0655a in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x23455a)
+    #4 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #5 0x7ff48a61c1a3 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x3261a3)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 12 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff48a59aedd in STEPEdit_EditSDR::STEPEdit_EditSDR() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a4edd)
+    #5 0x7ff48a61d74b in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32774b)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 12 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff48a59ae80 in STEPEdit_EditSDR::STEPEdit_EditSDR() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a4e80)
+    #5 0x7ff48a61d74b in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32774b)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff48a59998e in STEPEdit_EditContext::STEPEdit_EditContext() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a398e)
+    #5 0x7ff48a61d69c in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32769c)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff48a599936 in STEPEdit_EditContext::STEPEdit_EditContext() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a3936)
+    #5 0x7ff48a61d69c in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32769c)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489d05962 in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x233962)
+    #4 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #5 0x7ff48a61c23b in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32623b)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff489cefaba in APIHeaderSection_EditHeader::APIHeaderSection_EditHeader() (/work/occt770/lib/libTKXSBase.so.7.7+0x21daba)
+    #5 0x7ff48a61d5eb in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x3275eb)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff489cefb18 in APIHeaderSection_EditHeader::APIHeaderSection_EditHeader() (/work/occt770/lib/libTKXSBase.so.7.7+0x21db18)
+    #5 0x7ff48a61d5eb in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x3275eb)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489d05962 in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x233962)
+    #4 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #5 0x7ff48a61bfe4 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x325fe4)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff489cefa62 in APIHeaderSection_EditHeader::APIHeaderSection_EditHeader() (/work/occt770/lib/libTKXSBase.so.7.7+0x21da62)
+    #5 0x7ff48a61d5eb in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x3275eb)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff489cef950 in APIHeaderSection_EditHeader::APIHeaderSection_EditHeader() (/work/occt770/lib/libTKXSBase.so.7.7+0x21d950)
+    #5 0x7ff48a61d5eb in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x3275eb)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff48a59b1c3 in STEPEdit_EditSDR::STEPEdit_EditSDR() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a51c3)
+    #5 0x7ff48a61d74b in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32774b)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff48a59b165 in STEPEdit_EditSDR::STEPEdit_EditSDR() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a5165)
+    #5 0x7ff48a61d74b in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32774b)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff489cef9ad in APIHeaderSection_EditHeader::APIHeaderSection_EditHeader() (/work/occt770/lib/libTKXSBase.so.7.7+0x21d9ad)
+    #5 0x7ff48a61d5eb in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x3275eb)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff48a59b107 in STEPEdit_EditSDR::STEPEdit_EditSDR() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a5107)
+    #5 0x7ff48a61d74b in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32774b)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff48a59b0a9 in STEPEdit_EditSDR::STEPEdit_EditSDR() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a50a9)
+    #5 0x7ff48a61d74b in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32774b)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff489cef896 in APIHeaderSection_EditHeader::APIHeaderSection_EditHeader() (/work/occt770/lib/libTKXSBase.so.7.7+0x21d896)
+    #5 0x7ff48a61d5eb in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x3275eb)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff48a59b051 in STEPEdit_EditSDR::STEPEdit_EditSDR() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a5051)
+    #5 0x7ff48a61d74b in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32774b)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff48a59aff4 in STEPEdit_EditSDR::STEPEdit_EditSDR() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a4ff4)
+    #5 0x7ff48a61d74b in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32774b)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff489cef839 in APIHeaderSection_EditHeader::APIHeaderSection_EditHeader() (/work/occt770/lib/libTKXSBase.so.7.7+0x21d839)
+    #5 0x7ff48a61d5eb in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x3275eb)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff48a59af3a in STEPEdit_EditSDR::STEPEdit_EditSDR() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a4f3a)
+    #5 0x7ff48a61d74b in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32774b)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff489cef7c6 in APIHeaderSection_EditHeader::APIHeaderSection_EditHeader() (/work/occt770/lib/libTKXSBase.so.7.7+0x21d7c6)
+    #5 0x7ff48a61d5eb in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x3275eb)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 4 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff48a59982e in STEPEdit_EditContext::STEPEdit_EditContext() (/work/occt770/lib/libTKSTEP.so.7.7+0x2a382e)
+    #5 0x7ff48a61d69c in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32769c)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 4 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489d05962 in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x233962)
+    #4 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #5 0x7ff489cf776a in XSAlgo::Init() (/work/occt770/lib/libTKXSBase.so.7.7+0x22576a)
+    #6 0x7ff48a61dd0d in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327d0d)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 4 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489c280fd in IFSelect_Editor::SetValue(int, opencascade::handle<Interface_TypedValue> const&, char const*, IFSelect_EditValue) (/work/occt770/lib/libTKXSBase.so.7.7+0x1560fd)
+    #4 0x7ff489cef8f3 in APIHeaderSection_EditHeader::APIHeaderSection_EditHeader() (/work/occt770/lib/libTKXSBase.so.7.7+0x21d8f3)
+    #5 0x7ff48a61d5eb in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x3275eb)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+Indirect leak of 4 byte(s) in 1 object(s) allocated from:
+    #0 0x7ff48a77bc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7ff4883eb84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7ff488400019 in TCollection_AsciiString::Copy(TCollection_AsciiString const&) (/work/occt770/lib/libTKernel.so.7.7+0xc5019)
+    #3 0x7ff489d05962 in MoniTool_TypedValue::AddEnum(char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x233962)
+    #4 0x7ff489bf3c02 in Interface_Static::Init(char const*, char const*, char, char const*) (/work/occt770/lib/libTKXSBase.so.7.7+0x121c02)
+    #5 0x7ff48a61c374 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x326374)
+    #6 0x7ff48a61dce3 in STEPControl_Controller::Init() (/work/occt770/lib/libTKSTEP.so.7.7+0x327ce3)
+    #7 0x7ff48a623b5a in STEPControl_Writer::STEPControl_Writer() (/work/occt770/lib/libTKSTEP.so.7.7+0x32db5a)
+    #8 0x55a1135c6bf8 in main /work/evidence/occt-step-control/probe.cpp:24
+    #9 0x7ff4877d1d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x7ff4877d1e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #11 0x55a1135c48e4 in _start (/work/evidence/occt-step-control/occt-step-lsan-probe+0x358e4)
+
+SUMMARY: AddressSanitizer: 2964 byte(s) leaked in 138 allocation(s).

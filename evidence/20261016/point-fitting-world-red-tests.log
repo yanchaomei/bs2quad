@@ -1,0 +1,28 @@
+Running main() from ./googletest/src/gtest_main.cc
+Note: Google Test filter = PointFitting.WorldCoordinate*
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PointFitting
+[ RUN      ] PointFitting.WorldCoordinateRoundingMustNotBypassTheResidualGate
+tests/unit_tests/test_point_fitting.cpp:110: Failure
+Value of: sphere.FitFromPoints(points,fitted)
+  Actual: true
+Expected: false
+tests/unit_tests/test_point_fitting.cpp:110: Failure
+Value of: fitted.IsNull()
+  Actual: false
+Expected: true
+tests/unit_tests/test_point_fitting.cpp:111: Failure
+Value of: std::isinf(sphere.GetFittingError())
+  Actual: false
+Expected: true
+[  FAILED  ] PointFitting.WorldCoordinateRoundingMustNotBypassTheResidualGate (0 ms)
+[----------] 1 test from PointFitting (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] PointFitting.WorldCoordinateRoundingMustNotBypassTheResidualGate
+
+ 1 FAILED TEST

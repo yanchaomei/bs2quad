@@ -1,0 +1,3 @@
+torus projection valid=0 gain=-inf target_pass=0
+torus intersection valid=1 gain=0.860308 target_pass=1
+torus boolean valid=0 gain=-inf target_pass=0

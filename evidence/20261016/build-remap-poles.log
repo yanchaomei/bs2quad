@@ -1,0 +1,26 @@
+Consolidate compiler generated dependencies of target bs2quad_lib
+[  3%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/BS2QuadCore.cpp.o
+[  6%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/PointFitting.cpp.o
+[  9%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/CylinderFitter.cpp.o
+[ 12%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/ConeFitter.cpp.o
+[ 15%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/SphereFitter.cpp.o
+[ 18%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/PlaneFitter.cpp.o
+[ 21%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/TorusFitter.cpp.o
+[ 24%] Linking CXX static library libbs2quad_lib.a
+[ 45%] Built target bs2quad_lib
+Consolidate compiler generated dependencies of target bs2quad_cad_benchmark
+Consolidate compiler generated dependencies of target bs2quad_evidence
+Consolidate compiler generated dependencies of target bs2quad_main
+Consolidate compiler generated dependencies of target unit_tests
+[ 48%] Linking CXX executable bs2quad_evidence
+[ 51%] Linking CXX executable bs2quad_cad_benchmark
+[ 54%] Linking CXX executable bs2quad_main
+[ 57%] Building CXX object CMakeFiles/unit_tests.dir/tests/unit_tests/test_conversion_contract.cpp.o
+[ 60%] Built target bs2quad_cad_benchmark
+Consolidate compiler generated dependencies of target performance_tests
+[ 63%] Linking CXX executable performance_tests
+[ 66%] Built target bs2quad_evidence
+[ 69%] Built target bs2quad_main
+[ 78%] Built target performance_tests
+[ 81%] Linking CXX executable unit_tests
+[100%] Built target unit_tests

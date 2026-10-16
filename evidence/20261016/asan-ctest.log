@@ -1,0 +1,159 @@
+Internal ctest changing into directory: /work/build-asan
+Test project /work/build-asan
+    Start 1: UnitTests
+1/5 Test #1: UnitTests ........................   Passed    5.22 sec
+    Start 2: CADSemanticContracts
+2/5 Test #2: CADSemanticContracts .............   Passed    0.64 sec
+    Start 3: CreateCLIFixtures
+3/5 Test #3: CreateCLIFixtures ................   Passed    0.09 sec
+    Start 4: CLIContracts
+4/5 Test #4: CLIContracts .....................***Failed    1.79 sec
+PASS help (exit 0)
+PASS invalid_nan (exit 2)
+PASS invalid_inf (exit 2)
+PASS invalid_negative (exit 2)
+PASS invalid_zero (exit 2)
+PASS trailing_text (exit 2)
+PASS missing_tolerance (exit 2)
+PASS missing_count (exit 2)
+PASS invalid_count (exit 2)
+PASS overflow_count (exit 2)
+PASS unknown_option (exit 2)
+PASS missing_input (exit 2)
+PASS corrupt_input (exit 2)
+PASS same_input_output (exit 2)
+PASS same_input_report (exit 2)
+PASS aliased_input_output (exit 2)
+PASS aliased_new_output_report (exit 2)
+PASS valid_brep (exit 0)
+FAIL valid_step_export: expected exit 0, received 1
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******[0m
+[32;1m
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******[0m
+[32;1m******        Transferring Shape, ShapeType = 4                      ******[0m
+[32;1m** WorkSession : Sending all data[0m
+[32;1m Step File Name : /work/build-asan/cli-logs/run-X1VLapbt/converted.step(130 ents)  Write  Done[0m
+{"backend":"OpenCASCADE","sgk_1_7_verified":false,"success":true,"type":"Plane","error":"Success","message":"converted trimmed face; boundary and normal checks complete; adjacency requires neighbor context","decision_ms":1.486918,"conversion_ms":241.17137099999999,"directed_support_bound_mm":0,"sampled_max_mm":0,"sampled_boundary_hausdorff_mm":0,"normal_deviation_degrees":0,"adjacency_checked":false}
+
+=================================================================
+==39800==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 440 byte(s) in 3 object(s) allocated from:
+    #0 0x7fc0c46dba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7fc0c17bc7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+
+Direct leak of 328 byte(s) in 1 object(s) allocated from:
+    #0 0x7fc0c46dba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7fc0c17bc7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7fc0c30ca76a in XSAlgo::Init() (/work/occt770/lib/libTKXSBase.so.7.7+0x22576a)
+
+Direct leak of 328 byte(s) in 1 object(s) allocated from:
+    #0 0x7fc0c46dba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7fc0c17bc7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7fc0c39ed374 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x326374)
+
+Direct leak of 264 byte(s) in 1 object(s) allocated from:
+    #0 0x7fc0c46dba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7fc0c17bc7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7fc0c39ecfe4 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x325fe4)
+
+Direct leak of 232 byte(s) in 1 object(s) allocated from:
+    #0 0x7fc0c46dba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7fc0c17bc7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7fc0c39ecf07 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x325f07)
+
+Direct leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fc0c46dba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7fc0c17bc7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7fc0c39ed23b in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x32623b)
+
+Direct leak of 200 byte(s) in 1 object(s) allocated from:
+    #0 0x7fc0c46dba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7fc0c17bc7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+    #2 0x7fc0c39ed1a3 in STEPControl_Controller::STEPControl_Controller() (/work/occt770/lib/libTKSTEP.so.7.7+0x3261a3)
+
+Direct leak of 104 byte(s) in 3 object(s) allocated from:
+    #0 0x7fc0c46dd357 in operator new[](unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:102
+    #1 0x7fc0c2ffb8b5 in IFSelect_Editor::IFSelect_Editor(int) (/work/occt770/lib/libTKXSBase.so.7.7+0x1568b5)
+
+Direct leak of 104 byte(s) in 3 object(s) allocated from:
+    #0 0x7fc0c46dd357 in operator new[](unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:102
+    #1 0x7fc0c2ffb8e0 in IFSelect_Editor::IFSelect_Editor(int) (/work/occt770/lib/libTKXSBase.so.7.7+0x1568e0)
+
+Direct leak of 48 byte(s) in 2 object(s) allocated from:
+    #0 0x7fc0c46dd357 in operator new[](unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:102
+    #1 0x7fc0c3978bda in GeomToStep_MakeDirection::GeomToStep_MakeDirection(gp_Dir const&) (/work/occt770/lib/libTKSTEP.so.7.7+0x2b1bda)
+
+Indirect leak of 228 byte(s) in 38 object(s) allocated from:
+    #0 0x7fc0c46dbc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7fc0c17bc84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+
+Indirect leak of 216 byte(s) in 54 object(s) allocated from:
+    #0 0x7fc0c46dba57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x7fc0c17bc7f6 in Standard_MMgrRaw::Allocate(unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb07f6)
+
+Indirect leak of 48 byte(s) in 4 object(s) allocated from:
+    #0 0x7fc0c46dbc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7fc0c17bc84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7fc000000008  (<unknown module>)
+
+Indirect leak of 48 byte(s) in 6 object(s) allocated from:
+    #0 0x7fc0c46dbc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7fc0c17bc84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7fc000000006  (<unknown module>)
+
+Indirect leak of 36 byte(s) in 3 object(s) allocated from:
+    #0 0x7fc0c46dbc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7fc0c17bc84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7fc000000007  (<unknown module>)
+
+Indirect leak of 32 byte(s) in 4 object(s) allocated from:
+    #0 0x7fc0c46dbc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7fc0c17bc84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7fc000000004  (<unknown module>)
+
+Indirect leak of 24 byte(s) in 3 object(s) allocated from:
+    #0 0x7fc0c46dbc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7fc0c17bc84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7fc000000005  (<unknown module>)
+
+Indirect leak of 24 byte(s) in 2 object(s) allocated from:
+    #0 0x7fc0c46dbc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7fc0c17bc84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x503000000007  (<unknown module>)
+
+Indirect leak of 16 byte(s) in 2 object(s) allocated from:
+    #0 0x7fc0c46dbc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7fc0c17bc84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7fc000000003  (<unknown module>)
+
+Indirect leak of 16 byte(s) in 2 object(s) allocated from:
+    #0 0x7fc0c46dbc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7fc0c17bc84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x503000000004  (<unknown module>)
+
+Indirect leak of 8 byte(s) in 2 object(s) allocated from:
+    #0 0x7fc0c46dbc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7fc0c17bc84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x503000000002  (<unknown module>)
+
+Indirect leak of 4 byte(s) in 1 object(s) allocated from:
+    #0 0x7fc0c46dbc38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x7fc0c17bc84a in Standard_MMgrRaw::Reallocate(void*, unsigned long) (/work/occt770/lib/libTKernel.so.7.7+0xb084a)
+    #2 0x7fc000000002  (<unknown module>)
+
+SUMMARY: AddressSanitizer: 2964 byte(s) leaked in 138 allocation(s).
+
+    Start 5: OutputFailureContracts
+5/5 Test #5: OutputFailureContracts ...........   Passed    3.27 sec
+
+80% tests passed, 1 tests failed out of 5
+
+Total Test time (real) =  11.01 sec
+
+The following tests FAILED:
+	  4 - CLIContracts (Failed)
+Errors while running CTest

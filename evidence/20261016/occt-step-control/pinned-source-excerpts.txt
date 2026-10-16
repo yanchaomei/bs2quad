@@ -1,0 +1,98 @@
+STEPControl_Controller.cxx:423-433 (one-time global controller registration)
+   423	Standard_Boolean STEPControl_Controller::Init ()
+   424	{
+   425	  static Standard_Boolean inic = Standard_False;
+   426	  if (!inic) {
+   427	    Handle(STEPControl_Controller) STEPCTL = new STEPControl_Controller;
+   428	    STEPCTL->AutoRecord();  // avec les noms donnes a la construction
+   429	    XSAlgo::Init();                                                                                                        
+   430	    inic = Standard_True;
+   431	  }
+   432	  return Standard_True;
+   433	}
+XSControl_WorkSession.hxx:44-63 (documented RAII destructor and cleanup modes)
+    44	//! are given by the user, according to the transfer to be
+    45	//! i.e. it is interpreted by the Actors
+    46	//! Each item is accessed by a Name
+    47	class XSControl_WorkSession : public IFSelect_WorkSession
+    48	{
+    49	 public:
+    50	  
+    51	  Standard_EXPORT XSControl_WorkSession();
+    52	  
+    53	  ~XSControl_WorkSession()
+    54	  { ClearBinders(); }
+    55	
+    56	  //! In addition to basic ClearData, clears Transfer and Management
+    57	  //! for interactive use, for mode = 0,1,2 and over 4
+    58	  //! Plus : mode = 5 to clear Transfers (both ways) only
+    59	  //! mode = 6 to clear enforced results
+    60	  //! mode = 7 to clear transfers, results
+    61	  Standard_EXPORT virtual void ClearData (const Standard_Integer theMode) Standard_OVERRIDE;
+    62	  
+    63	  //! Selects a Norm defined by its name.
+XSControl_WorkSession.cxx:490-525 (destructor cleanup implementation)
+   490	void XSControl_WorkSession::ClearBinders()
+   491	{
+   492	  const Handle(Transfer_FinderProcess) &FP = myTransferWriter->FinderProcess();
+   493	  //Due to big number of chains of binders it is necessary to 
+   494	  //collect head binders of each chain in the sequence
+   495	  TColStd_SequenceOfTransient aSeqBnd;
+   496	  TColStd_SequenceOfTransient aSeqShapes;
+   497	  Standard_Integer i =1;
+   498	  for( ; i <= FP->NbMapped();i++) {
+   499	    Handle(Transfer_Binder) bnd = FP->MapItem ( i );
+   500	    if(!bnd.IsNull())
+   501	      aSeqBnd.Append(bnd);
+   502	    Handle(Standard_Transient) ash (FP->Mapped(i));
+   503	    aSeqShapes.Append(ash);
+   504	  }
+   505	  //removing finder process containing result of translation.
+   506	  FP->Clear();
+   507	  ClearData(1);
+   508	  ClearData(5);
+   509	  
+   510	  //removing each chain of binders
+   511	  while(aSeqBnd.Length() >0) {
+   512	    Handle(Transfer_Binder) aBnd = Handle(Transfer_Binder)::DownCast(aSeqBnd.Value(1));
+   513	    Handle(Standard_Transient) ash =aSeqShapes.Value(1);
+   514	    aSeqBnd.Remove(1);
+   515	    aSeqShapes.Remove(1);
+   516	    ash.Nullify();
+   517	    while(!aBnd.IsNull()) {
+   518	      Handle(Transfer_Binder) aBndNext = aBnd->NextResult();
+   519	      aBnd.Nullify();
+   520	      aBnd = aBndNext;
+   521	    }
+   522	    
+   523	  }
+   524	
+   525	}
+STEPConstruct_ContextTool.cxx:445-452 (cached default axis)
+   445	Handle(StepGeom_Axis2Placement3d) STEPConstruct_ContextTool::GetDefaultAxis ()
+   446	{
+   447	  if ( myAxis.IsNull() ) {
+   448	    GeomToStep_MakeAxis2Placement3d mkax;
+   449	    myAxis = mkax.Value();
+   450	  }
+   451	  return myAxis;
+   452	}
+NCollection_Array1.hxx:153-164,426-431 (shifted data pointer and RAII release)
+   153	  NCollection_Array1(const Standard_Integer theLower,
+   154	                     const Standard_Integer theUpper) :
+   155	                myLowerBound                             (theLower),
+   156	                myUpperBound                             (theUpper),
+   157	                myDeletable                              (Standard_True)
+   158	  {
+   159	    Standard_RangeError_Raise_if (theUpper < theLower, "NCollection_Array1::Create");
+   160	    TheItemType* pBegin = new TheItemType[Length()];
+   161	    Standard_OutOfMemory_Raise_if (!pBegin, "NCollection_Array1 : Allocation failed");
+   162	
+   163	    myData = pBegin - theLower;
+   164	  }
+   426	  //! Destructor - releases the memory
+   427	  ~NCollection_Array1 (void)
+   428	  { 
+   429	    if (myDeletable) 
+   430	      delete [] &(myData[myLowerBound]);
+   431	  }

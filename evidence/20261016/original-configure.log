@@ -1,0 +1,25 @@
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Error at CMakeLists.txt:27 (find_package):
+  By not providing "FindOpenCASCADE.cmake" in CMAKE_MODULE_PATH this project
+  has asked CMake to find a package configuration file provided by
+  "OpenCASCADE", but CMake did not find one.
+
+  Could not find a package configuration file provided by "OpenCASCADE"
+  (requested version 7.7.0) with any of the following names:
+
+    OpenCASCADEConfig.cmake
+    opencascade-config.cmake
+
+  Add the installation prefix of "OpenCASCADE" to CMAKE_PREFIX_PATH or set
+  "OpenCASCADE_DIR" to a directory containing one of the above files.  If
+  "OpenCASCADE" provides a separate development package or SDK, be sure it
+  has been installed.
+
+
+-- Configuring incomplete, errors occurred!
+See also "/work/build-original/CMakeFiles/CMakeOutput.log".

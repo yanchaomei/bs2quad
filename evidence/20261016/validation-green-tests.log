@@ -1,0 +1,46 @@
+Running main() from ./googletest/src/gtest_main.cc
+Note: Google Test filter = ValidationRegression.*
+[==========] Running 18 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 18 tests from ValidationRegression
+[ RUN      ] ValidationRegression.RejectsNonPositiveOrNonFiniteToleranceWithoutChangingState
+[       OK ] ValidationRegression.RejectsNonPositiveOrNonFiniteToleranceWithoutChangingState (0 ms)
+[ RUN      ] ValidationRegression.IdenticalTrimmedFaceHasZeroBoundaryUnionDistance
+[       OK ] ValidationRegression.IdenticalTrimmedFaceHasZeroBoundaryUnionDistance (204 ms)
+[ RUN      ] ValidationRegression.MissingInputsCannotBecomeZeroErrorOrSuccessfulChecks
+[       OK ] ValidationRegression.MissingInputsCannotBecomeZeroErrorOrSuccessfulChecks (0 ms)
+[ RUN      ] ValidationRegression.SurfaceOnlyResultDoesNotClaimBoundaryOrAdjacencyChecks
+[       OK ] ValidationRegression.SurfaceOnlyResultDoesNotClaimBoundaryOrAdjacencyChecks (0 ms)
+[ RUN      ] ValidationRegression.OffsetWithinToleranceDoesNotFailAnInventedMeanErrorThreshold
+[       OK ] ValidationRegression.OffsetWithinToleranceDoesNotFailAnInventedMeanErrorThreshold (0 ms)
+[ RUN      ] ValidationRegression.FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns
+[       OK ] ValidationRegression.FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns (0 ms)
+[ RUN      ] ValidationRegression.FaceOrientationReversalIsNotNormalPreservation
+[       OK ] ValidationRegression.FaceOrientationReversalIsNotNormalPreservation (204 ms)
+[ RUN      ] ValidationRegression.CoplanarActualNeighborsPassSeparateSharedEdgeG1Check
+[       OK ] ValidationRegression.CoplanarActualNeighborsPassSeparateSharedEdgeG1Check (6 ms)
+[ RUN      ] ValidationRegression.ActualSharedEdgeCreaseIsRejectedAtNinetyDegrees
+[       OK ] ValidationRegression.ActualSharedEdgeCreaseIsRejectedAtNinetyDegrees (3 ms)
+[ RUN      ] ValidationRegression.ReferenceEdgeMustLieOnBothTrimmedBoundaries
+[       OK ] ValidationRegression.ReferenceEdgeMustLieOnBothTrimmedBoundaries (0 ms)
+[ RUN      ] ValidationRegression.PerformanceReportsOnlyCompletedOperationPairs
+[       OK ] ValidationRegression.PerformanceReportsOnlyCompletedOperationPairs (37 ms)
+[ RUN      ] ValidationRegression.IndependentFullDomainBoundsCoverAllFiveAnalyticFamilies
+[       OK ] ValidationRegression.IndependentFullDomainBoundsCoverAllFiveAnalyticFamilies (4 ms)
+[ RUN      ] ValidationRegression.FacePlacementIsAppliedBeforeComparisonWithWorldSpaceAnalyticSupport
+[       OK ] ValidationRegression.FacePlacementIsAppliedBeforeComparisonWithWorldSpaceAnalyticSupport (51 ms)
+[ RUN      ] ValidationRegression.NormalPreservationUsesCorrespondingWorldPointsAcrossParameterizations
+[       OK ] ValidationRegression.NormalPreservationUsesCorrespondingWorldPointsAcrossParameterizations (54 ms)
+[ RUN      ] ValidationRegression.FailedSourceEvaluationCannotBeDiscardedFromStatistics
+[       OK ] ValidationRegression.FailedSourceEvaluationCannotBeDiscardedFromStatistics (0 ms)
+[ RUN      ] ValidationRegression.ReverseBoundaryDirectionDetectsAnExtraInteriorHole
+[       OK ] ValidationRegression.ReverseBoundaryDirectionDetectsAnExtraInteriorHole (33 ms)
+[ RUN      ] ValidationRegression.BoundaryLimitStaysOneEminusFiveWhenSupportToleranceIsRelaxed
+[       OK ] ValidationRegression.BoundaryLimitStaysOneEminusFiveWhenSupportToleranceIsRelaxed (45 ms)
+[ RUN      ] ValidationRegression.OriginalPeriodicRepresentationsReceiveFullDomainCertificates
+[       OK ] ValidationRegression.OriginalPeriodicRepresentationsReceiveFullDomainCertificates (6 ms)
+[----------] 18 tests from ValidationRegression (653 ms total)
+
+[----------] Global test environment tear-down
+[==========] 18 tests from 1 test suite ran. (653 ms total)
+[  PASSED  ] 18 tests.

@@ -1,0 +1,3 @@
+torus projection valid=1 gain=0.472835 target_pass=0
+torus intersection valid=1 gain=0.856191 target_pass=1
+torus boolean valid=1 gain=0.148045 target_pass=0

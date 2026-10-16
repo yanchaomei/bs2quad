@@ -1,0 +1,79 @@
+Running main() from ./googletest/src/gtest_main.cc
+[==========] Running 7 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 7 tests from PointFitting
+[ RUN      ] PointFitting.PlaneUsesTheLeastVarianceDirectionAndAcceptedGetter
+[       OK ] PointFitting.PlaneUsesTheLeastVarianceDirectionAndAcceptedGetter (0 ms)
+[ RUN      ] PointFitting.SphereRecoversTranslatedCenterFromPartialPatch
+tests/unit_tests/test_point_fitting.cpp:43: Failure
+Value of: fitter.FitFromPoints(points,fitted)
+  Actual: false
+Expected: true
+[  FAILED  ] PointFitting.SphereRecoversTranslatedCenterFromPartialPatch (0 ms)
+[ RUN      ] PointFitting.CylinderRecoversThinPartialPatchAxisRatherThanDominantPCAAxis
+tests/unit_tests/test_point_fitting.cpp:48: Failure
+Value of: fitter.FitFromPoints(points,fitted)
+  Actual: false
+Expected: true
+[  FAILED  ] PointFitting.CylinderRecoversThinPartialPatchAxisRatherThanDominantPCAAxis (0 ms)
+[ RUN      ] PointFitting.ConeRecoversApexInsteadOfUsingPointCentroid
+tests/unit_tests/test_point_fitting.cpp:54: Failure
+Value of: fitter.FitFromPoints(points,fitted)
+  Actual: false
+Expected: true
+[  FAILED  ] PointFitting.ConeRecoversApexInsteadOfUsingPointCentroid (0 ms)
+[ RUN      ] PointFitting.TorusRecoversMajorAndMinorRadiiFromRotatedFullSamples
+tests/unit_tests/test_point_fitting.cpp:59: Failure
+Value of: fitter.FitFromPoints(points,fitted)
+  Actual: false
+Expected: true
+[  FAILED  ] PointFitting.TorusRecoversMajorAndMinorRadiiFromRotatedFullSamples (0 ms)
+[ RUN      ] PointFitting.EveryFamilyRejectsNonfiniteRepeatedAndCollinearInputsWithoutLeakingOutput
+tests/unit_tests/test_point_fitting.cpp:69: Failure
+Value of: fitter->FitFromPoints(points,output)
+  Actual: true
+Expected: false
+tests/unit_tests/test_point_fitting.cpp:69: Failure
+Value of: output.IsNull()
+  Actual: false
+Expected: true
+tests/unit_tests/test_point_fitting.cpp:69: Failure
+Value of: std::isinf(fitter->GetFittingError())
+  Actual: false
+Expected: true
+tests/unit_tests/test_point_fitting.cpp:69: Failure
+Value of: std::isinf(fitter->GetFittingError())
+  Actual: false
+Expected: true
+tests/unit_tests/test_point_fitting.cpp:69: Failure
+Value of: std::isinf(fitter->GetFittingError())
+  Actual: false
+Expected: true
+tests/unit_tests/test_point_fitting.cpp:69: Failure
+Value of: fitter->FitFromPoints(points,output)
+  Actual: true
+Expected: false
+tests/unit_tests/test_point_fitting.cpp:69: Failure
+Value of: output.IsNull()
+  Actual: false
+Expected: true
+tests/unit_tests/test_point_fitting.cpp:69: Failure
+Value of: std::isinf(fitter->GetFittingError())
+  Actual: false
+Expected: true
+[  FAILED  ] PointFitting.EveryFamilyRejectsNonfiniteRepeatedAndCollinearInputsWithoutLeakingOutput (0 ms)
+[ RUN      ] PointFitting.MaximumResidualGateRejectsOneOutlierEvenWhenRMSWouldFitTolerance
+[       OK ] PointFitting.MaximumResidualGateRejectsOneOutlierEvenWhenRMSWouldFitTolerance (0 ms)
+[----------] 7 tests from PointFitting (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 7 tests from 1 test suite ran. (1 ms total)
+[  PASSED  ] 2 tests.
+[  FAILED  ] 5 tests, listed below:
+[  FAILED  ] PointFitting.SphereRecoversTranslatedCenterFromPartialPatch
+[  FAILED  ] PointFitting.CylinderRecoversThinPartialPatchAxisRatherThanDominantPCAAxis
+[  FAILED  ] PointFitting.ConeRecoversApexInsteadOfUsingPointCentroid
+[  FAILED  ] PointFitting.TorusRecoversMajorAndMinorRadiiFromRotatedFullSamples
+[  FAILED  ] PointFitting.EveryFamilyRejectsNonfiniteRepeatedAndCollinearInputsWithoutLeakingOutput
+
+ 5 FAILED TESTS

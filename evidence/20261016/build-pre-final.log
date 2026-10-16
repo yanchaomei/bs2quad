@@ -1,0 +1,26 @@
+Consolidate compiler generated dependencies of target bs2quad_lib
+[  3%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/AccuracyValidator.cpp.o
+[  6%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/BS2QuadCore.cpp.o
+[  9%] Linking CXX static library libbs2quad_lib.a
+[ 45%] Built target bs2quad_lib
+Consolidate compiler generated dependencies of target bs2quad_evidence
+Consolidate compiler generated dependencies of target bs2quad_main
+Consolidate compiler generated dependencies of target bs2quad_cad_benchmark
+Consolidate compiler generated dependencies of target unit_tests
+[ 48%] Building CXX object CMakeFiles/bs2quad_evidence.dir/src/evidence_main.cpp.o
+[ 51%] Building CXX object CMakeFiles/bs2quad_cad_benchmark.dir/src/cad_benchmark.cpp.o
+[ 54%] Building CXX object CMakeFiles/bs2quad_main.dir/src/main.cpp.o
+[ 57%] Building CXX object CMakeFiles/unit_tests.dir/tests/unit_tests/test_conversion_contract.cpp.o
+[ 60%] Linking CXX executable bs2quad_main
+[ 63%] Linking CXX executable bs2quad_evidence
+[ 63%] Built target bs2quad_main
+Consolidate compiler generated dependencies of target performance_tests
+[ 66%] Building CXX object CMakeFiles/performance_tests.dir/tests/performance_tests/test_conversion_performance.cpp.o
+[ 66%] Built target bs2quad_evidence
+[ 69%] Building CXX object CMakeFiles/performance_tests.dir/tests/performance_tests/test_stability.cpp.o
+[ 72%] Linking CXX executable unit_tests
+[ 90%] Built target unit_tests
+[ 93%] Linking CXX executable bs2quad_cad_benchmark
+[ 93%] Built target bs2quad_cad_benchmark
+[ 96%] Linking CXX executable performance_tests
+[100%] Built target performance_tests

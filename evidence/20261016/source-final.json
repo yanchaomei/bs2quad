@@ -1,0 +1,263 @@
+{
+  "schema": 1,
+  "scope": "sources, tests, verification recipes; generated documents/evidence excluded",
+  "aggregate_method": "SHA256 of sorted path+NUL+hex_file_sha256+LF records",
+  "aggregate_sha256": "d2d09dfd362b48bb46204c7ad4052468414664a050d246d8c1a1bdcf5caceefc",
+  "files": [
+    {
+      "path": ".dockerignore",
+      "bytes": 55,
+      "sha256": "2fbf1be092909cbf98314dcc256614f6599e720c62ccd38bbeba3d94ea321b9a"
+    },
+    {
+      "path": "CMakeLists.txt",
+      "bytes": 7522,
+      "sha256": "fbeec046dc426fe9764e006e3414b44267e0efc1ab6a170d42233d477df51daa"
+    },
+    {
+      "path": "Dockerfile",
+      "bytes": 877,
+      "sha256": "5768671a0a75e78eb7683abc38f719f7b3158b48096c55e69a6ffef271fb2726"
+    },
+    {
+      "path": "include/AccuracyValidator.h",
+      "bytes": 3123,
+      "sha256": "0556d2aab30dc15cea5e3a7b1d2047f02731252e984803066b0e975323479914"
+    },
+    {
+      "path": "include/AnalyticRecovery.h",
+      "bytes": 804,
+      "sha256": "a6d0e2a90830b126468fc381f31a60a24e6de9b61381b26b31d2660c454ab503"
+    },
+    {
+      "path": "include/BS2QuadCore.h",
+      "bytes": 4725,
+      "sha256": "d9b6f059ee95aed78e94d8a7cb244b228d010bdf621e5ece82f6345d9d558f6b"
+    },
+    {
+      "path": "include/CheckedOutput.h",
+      "bytes": 564,
+      "sha256": "5f4158f12e7fca22cce780984784fee8459ba85484acd992eee46ec507fc4b0c"
+    },
+    {
+      "path": "include/Common.h",
+      "bytes": 8049,
+      "sha256": "354d2aa146f2ccb2c38ad04c297ba6e79bd0d1b5fd2391ebeeca4ddad78c3fc3"
+    },
+    {
+      "path": "include/ConeFitter.h",
+      "bytes": 2096,
+      "sha256": "3d2d176c404aa30b868c1b17e7c3cadfd2dfea4a67eb73649d354095b6588b17"
+    },
+    {
+      "path": "include/CylinderFitter.h",
+      "bytes": 2001,
+      "sha256": "b0cfed2c1ead09512289e173c5f47d2cf17369d454ad70f546c9f491db3ab448"
+    },
+    {
+      "path": "include/ExceptionHandler.h",
+      "bytes": 5594,
+      "sha256": "ba46392b79c529c33a795699756ea9927bab8814f3824b2aa33dcd06e3dc79d7"
+    },
+    {
+      "path": "include/ImplicitCertificate.h",
+      "bytes": 994,
+      "sha256": "2ea44593e45bc7af7cd87cadd8958b2b8d975b6bb0fc5529f6004b92ebdda0ec"
+    },
+    {
+      "path": "include/PlaneFitter.h",
+      "bytes": 1952,
+      "sha256": "bd1a545e9747d818f222e124d638cac07001af691c8b95e4cb14f4739b67756b"
+    },
+    {
+      "path": "include/PointFitting.h",
+      "bytes": 1118,
+      "sha256": "87e135c4cdc731174d640ccff159e3b1a345099f9969a8233a0e8b9cb0eaa71c"
+    },
+    {
+      "path": "include/QuadricFitter.h",
+      "bytes": 3310,
+      "sha256": "d94cd98b51a8d29a9f53ccd79c9897d19ec6fe9cac275fe3225b538d8ddde8d9"
+    },
+    {
+      "path": "include/SphereFitter.h",
+      "bytes": 1948,
+      "sha256": "aa1700e2fa492390cdcfa4460afa9864a6a1a8f1bb7e53de52a92f6c2fc57c64"
+    },
+    {
+      "path": "include/SurfaceAnalyzer.h",
+      "bytes": 5023,
+      "sha256": "3255362b41c2a5d5e5b136d8cd77bac1ecd1d8fa791f0f54a17d556766876f99"
+    },
+    {
+      "path": "include/TestDataGenerator.h",
+      "bytes": 6511,
+      "sha256": "96996fb1882e3a7780f2a6ec587948c3aadb73986b0132c338954418965afbb0"
+    },
+    {
+      "path": "include/TorusFitter.h",
+      "bytes": 2164,
+      "sha256": "71e486548a9c5c5b58c1f11f6f2fc660e68cc9a6357b80b9aedcd8981e574fd6"
+    },
+    {
+      "path": "scripts/bootstrap_occt.sh",
+      "bytes": 1235,
+      "sha256": "ca0b0eb328c397b5f8db569e4ff7c5b23ebbf825db7db9b17871dfe5ae42f3fb"
+    },
+    {
+      "path": "scripts/check_cli.sh",
+      "bytes": 2669,
+      "sha256": "414f575248124b4e603ceeee2a8f26aaf3a7544b710d96b7dfa37fc7c0b8e3f1"
+    },
+    {
+      "path": "scripts/check_output_failures.sh",
+      "bytes": 1592,
+      "sha256": "4b4e5e82cf4119bc3fa6d5acd99ba4f7fb823bb8970d0bfc58d124a94e8da448"
+    },
+    {
+      "path": "scripts/source_manifest.py",
+      "bytes": 1503,
+      "sha256": "9e7d1ee3f39e9f46034b1046bb62931b2576f56d322a866f1053e399cee0df92"
+    },
+    {
+      "path": "scripts/verify.sh",
+      "bytes": 1817,
+      "sha256": "abb758c5e409d7512cee9c01f2c1025c9e4f8a262db7b3e63d01bbb239920708"
+    },
+    {
+      "path": "src/AccuracyValidator.cpp",
+      "bytes": 29015,
+      "sha256": "1436e6b3119dbdd83295d213bac60032257996446eec78404c8cf941ee9989d1"
+    },
+    {
+      "path": "src/AnalyticRecovery.cpp",
+      "bytes": 4361,
+      "sha256": "c856c0d51c8f0f06b55a792e4da8707e14a3bfe050432b12f0cb47e6d5fb0aa8"
+    },
+    {
+      "path": "src/BS2QuadCore.cpp",
+      "bytes": 21048,
+      "sha256": "c46d5277caa22af5646bd92d7e1bc0bf2676812107f50071b7168af8fd668f3d"
+    },
+    {
+      "path": "src/ConeFitter.cpp",
+      "bytes": 1926,
+      "sha256": "0498343d38454d512f79821dd58fe85fc6a995f7afefa62344ba8f22eff02446"
+    },
+    {
+      "path": "src/CylinderFitter.cpp",
+      "bytes": 1990,
+      "sha256": "379e1a30150543c02ef4903d6dc4949072c6dafd6db2d7ab0542e78ce2e3d1b2"
+    },
+    {
+      "path": "src/ExceptionHandler.cpp",
+      "bytes": 10802,
+      "sha256": "f064c0b342417e71ddae1c070853832b51c1bac65f431d19227963d2ef55121e"
+    },
+    {
+      "path": "src/ImplicitCertificate.cpp",
+      "bytes": 16979,
+      "sha256": "607c72116a7cc241804c2db1c8d875084a70a03a55bd4373b5d6dfd8e17a49aa"
+    },
+    {
+      "path": "src/PlaneFitter.cpp",
+      "bytes": 1858,
+      "sha256": "fe28a2d17a22bc8b5e80ef4b2936e134c4fabe7e5b5ed825f32d69a1cec69490"
+    },
+    {
+      "path": "src/PointFitting.cpp",
+      "bytes": 16637,
+      "sha256": "e2768a96bcb3d29ab12b682dd822fdffe3660a807064ba37c44be2a49fdac300"
+    },
+    {
+      "path": "src/QuadricFitter.cpp",
+      "bytes": 2835,
+      "sha256": "5dff4279d8ab3948ef0fd7caee8c6595fe69797ccb7e9c4d57113bc74709d306"
+    },
+    {
+      "path": "src/SphereFitter.cpp",
+      "bytes": 1902,
+      "sha256": "c5a63490c57fde350025d4582fdba8472a43bba5916a43ec30f91fee6ebe1a83"
+    },
+    {
+      "path": "src/SurfaceAnalyzer.cpp",
+      "bytes": 2565,
+      "sha256": "612f00c40a7ed0977ef91c180e5083103d1c3816fedf47d5e47a2f519af179a2"
+    },
+    {
+      "path": "src/TestDataGenerator.cpp",
+      "bytes": 11971,
+      "sha256": "663bcd2f2447a4bc82d8edcd4b4213266169c337fd411ba72fc393619b6f788c"
+    },
+    {
+      "path": "src/TorusFitter.cpp",
+      "bytes": 1941,
+      "sha256": "b3315ccfcb43f1fe6700d00832cc9e63331b23454b449a4937306e344be96de4"
+    },
+    {
+      "path": "src/cad_benchmark.cpp",
+      "bytes": 27203,
+      "sha256": "a92b28e7f48b800ad1cbd7898ca8e4a2ac427a51b97a6d937d8ae89d5177cf0d"
+    },
+    {
+      "path": "src/evidence_main.cpp",
+      "bytes": 8415,
+      "sha256": "d7c2797da3234d8b4b137e4e1533d4796f79e452ed8a3e4bdf236ca2776933f0"
+    },
+    {
+      "path": "src/main.cpp",
+      "bytes": 8555,
+      "sha256": "0313efca547f0b06808bd5f483c7eb726d3ce60978f4bd6f51b4f473fb2894d7"
+    },
+    {
+      "path": "tests/performance_tests/test_cad_operations.cpp",
+      "bytes": 2228,
+      "sha256": "50c39a4eb5d19c74911f29fa1c7e267604643e720fbc929c522e93dfb743eb85"
+    },
+    {
+      "path": "tests/performance_tests/test_conversion_performance.cpp",
+      "bytes": 3348,
+      "sha256": "8c51e6116c4fba00f380d5985fb56c0c321fe395485a2b396a519b483d3ad112"
+    },
+    {
+      "path": "tests/performance_tests/test_stability.cpp",
+      "bytes": 4080,
+      "sha256": "83f353642b68e94e06bf950d7968c89959de1a897184fb08f8493bbb06f9f60a"
+    },
+    {
+      "path": "tests/unit_tests/test_accuracy_validator.cpp",
+      "bytes": 1727,
+      "sha256": "e648d463ef119a6d2b914cb05bfd5b44a60c55f5be8bf68fe0c1cd1eba291dac"
+    },
+    {
+      "path": "tests/unit_tests/test_conversion_contract.cpp",
+      "bytes": 8014,
+      "sha256": "75191d09f76dabbeefb287de76f0520c7c24661bbc51fb823077094d014c056b"
+    },
+    {
+      "path": "tests/unit_tests/test_exception_handler.cpp",
+      "bytes": 1521,
+      "sha256": "78b957740e3cf3888d0193b8abd2a0c57e62168da76d81a3310f43252a943439"
+    },
+    {
+      "path": "tests/unit_tests/test_point_fitting.cpp",
+      "bytes": 6919,
+      "sha256": "c31c6f2e820f84f78707cba868a3f75a8ae451f83e4e46426dab9cab205024ae"
+    },
+    {
+      "path": "tests/unit_tests/test_quadric_fitter.cpp",
+      "bytes": 3211,
+      "sha256": "eb44371f2e198876ed49689d63205da52a35343a1b5406fd1b56f77634d935e0"
+    },
+    {
+      "path": "tests/unit_tests/test_surface_analyzer.cpp",
+      "bytes": 3518,
+      "sha256": "fe5600dd8a2f46075e05f50cdcf8047681714cb60f80114484199339bb9398b5"
+    },
+    {
+      "path": "tests/unit_tests/test_validation_regression.cpp",
+      "bytes": 19875,
+      "sha256": "5b7249b76f283e3338e1ce5dcaeab21902cb946125de2ed21c67d1c22e5356f1"
+    }
+  ]
+}

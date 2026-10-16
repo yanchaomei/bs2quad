@@ -1,454 +1,57 @@
-# BS2Quad 用户指南
+# API 与证据说明
 
-## 快速入门
+## 转换接口
 
-### 基本用法
+| 接口 | 检查范围 | 使用注意 |
+|---|---|---|
+| `Convert(Geom_BSplineSurface)` | 候选恢复、输入检查、完整参数域支撑面距离界、诊断采样 | 不隐含边界或 G1 已检查 |
+| `Convert(TopoDS_Face)` | 以上检查，以及裁剪面重建、拓扑/面积/边界/裁剪覆盖/原面有向法向保持 | 返回的 `quadricSurface` 与 `quadricFace` 都对应输入世界位置 |
+| `Convert(face, tangentNeighbors)` | 裁剪面验收，以及指定真实共享边的邻面有向法向夹角 | 拒绝空邻面、自身邻面、无共享边和超过 0.1° 的邻面；锐边不要列入该参数 |
+| `ConvertBatch(vector<surface>)` | 逐项执行支撑面转换，失败项保留结果和消息 | 不把单项拒绝当成整批中断；统计信息可读取 |
+| `SetTolerance(d)` | 设置有限正距离容差，非法值抛 `invalid_argument` 且保留原值 | 边界阈值仍固定 `1e-5 mm` |
 
-```cpp
-#include "BS2QuadCore.h"
+一个转换器包含可变计数，不应在多个线程中无锁共享。独立实例可以由调用方安排并行，但本次证据来自串行处理。
 
-using namespace BS2Quad;
+## 精度字段
 
-int main() {
-    // 1. 创建转换引擎
-    BS2QuadCore core(1.0e-5);  // 设置容差为1e-5mm
-    
-    // 2. 加载NURBS曲面（从文件或生成）
-    TestDataGenerator generator;
-    auto surface = generator.GenerateCylinderSurface(5.0, 10.0, 10, 10);
-    
-    // 3. 执行转换
-    ConversionResult result = core.Convert(surface);
-    
-    // 4. 检查结果
-    if (result.success) {
-        std::cout << "转换成功！\n";
-        std::cout << "类型: " << QuadricTypeToString(result.quadricType) << "\n";
-        std::cout << "最大误差: " << result.accuracyResult.maxDistance << " mm\n";
-    } else {
-        std::cout << "转换失败: " << result.message << "\n";
-    }
-    
-    return 0;
-}
-```
+- `maxDistanceCertified`：完整源参数域到解析支撑面的单向距离界是否构造成功。
+- `certifiedMaxDistance`：该界的数值；它用于支撑面接受门槛。
+- `maxDistance/avgDistance/rmsDistance`：诊断采样误差，不称作连续域实测最大值。
+- `boundaryChecked/hausdorffDistance`：双向边界并集采样到完整目标边的距离。
+- `normalChecked/normalDeviationDegrees`：原面与转换面对应空间位置的有向法向保持。
+- `adjacencyChecked/g1ContinuityError`：提供邻面上下文后沿共享边的有向法向夹角。
+- `validationComplete`：本次请求的检查是否完整；`meetsRequirements` 另表示结果是否满足对应门槛。
 
-## API参考
+未执行或失败的未知量保留无穷值，CLI JSON 使用 `null`，避免把未检查写成零误差。程序必须检查 `success`；失败结果不发布可直接使用的转换面。
 
-### BS2QuadCore类
+`decisionTime` 是候选恢复和支撑面几何验收耗时；`conversionTime` 包括该调用中的拓扑重建、邻面检查及可选旧版性能诊断。正式 CAD 性能结论使用独立受控基准。
 
-主要转换引擎类。
+## 有限点拟合
 
-#### 构造函数
-```cpp
-BS2QuadCore(double tolerance = 1.0e-5);
-```
+五个 fitter 的 `Fit(NURBS)` 使用内核候选和独立完整域距离界。`FitFromPoints` 仅拟合有限点，不对点间曲面发证，返回最大残差验收结果。失败会清空输出并把拟合误差设为无穷值；参数 getter 保存最后接受的参数，首次接受前不能当作拟合证据。
 
-#### 主要方法
+最少点数为平面 3、球面 4、圆柱 6、圆锥 10、环状圆环 12。算法检查秩与条件数，并对真正存储的世界坐标几何再次计算最大残差。有界优化最多使用 6 个初值、每个 100 步；病态或不足以确定类型的局部点集可能被安全拒绝。`SetOptimize(false)` 关闭这一有限点几何细化，不能关闭主转换路径的距离验收。旧 `BS2QuadCore::SetEnableOptimization` 已标记弃用兼容入口，固定的解析恢复/证书流程不提供绕过开关。
 
-**Convert** - 转换单个曲面
-```cpp
-ConversionResult Convert(const Handle(Geom_BSplineSurface)& surface);
-ConversionResult Convert(const TopoDS_Face& face);
-```
-
-**ConvertBatch** - 批量转换
-```cpp
-std::vector<ConversionResult> ConvertBatch(
-    const std::vector<Handle(Geom_BSplineSurface)>& surfaces
-);
-```
-
-**SetTolerance** - 设置容差
-```cpp
-void SetTolerance(double tolerance);
-```
-
-**SetEnablePerformanceTest** - 启用性能测试
-```cpp
-void SetEnablePerformanceTest(bool enable);
-```
-
-**GetStatistics** - 获取统计信息
-```cpp
-std::string GetStatistics() const;
-```
-
-### ConversionResult结构
-
-转换结果包含以下字段：
-
-```cpp
-struct ConversionResult {
-    bool success;                          // 是否成功
-    QuadricType quadricType;               // 曲面类型
-    Handle(Geom_Surface) quadricSurface;   // 转换后的二次曲面
-    AccuracyResult accuracyResult;         // 精度验证结果
-    PerformanceResult performanceResult;   // 性能对比结果
-    double conversionTime;                 // 转换耗时(ms)
-    std::string message;                   // 详细信息
-};
-```
-
-### 曲面类型枚举
-
-```cpp
-enum class QuadricType {
-    NONE,      // 无法转换
-    PLANE,     // 平面
-    CYLINDER,  // 圆柱面
-    CONE,      // 圆锥面
-    SPHERE,    // 球面
-    TORUS      // 圆环面
-};
-```
-
-## 高级用法
-
-### 自定义采样
-
-```cpp
-SurfaceAnalyzer analyzer;
-analyzer.SetSampleSize(50, 50);  // 设置采样点数
-analyzer.SetTolerance(1e-6);     // 设置容差
-```
-
-### 性能测试
-
-```cpp
-BS2QuadCore core;
-core.SetEnablePerformanceTest(true);
-
-ConversionResult result = core.Convert(surface);
-
-// 获取性能数据
-double projSpeedup = result.performanceResult.GetProjectionSpeedup();
-std::cout << "投影运算性能提升: " << (projSpeedup * 100) << "%\n";
-```
-
-### 批量处理
-
-```cpp
-// 生成测试数据
-TestDataGenerator generator;
-std::vector<Handle(Geom_BSplineSurface)> surfaces;
-
-for (int i = 0; i < 100; ++i) {
-    surfaces.push_back(generator.GenerateCylinderSurface(
-        2.0 + i * 0.1, 10.0, 10, 10
-    ));
-}
-
-// 批量转换
-BS2QuadCore core;
-auto results = core.ConvertBatch(surfaces);
-
-// 统计成功率
-int successCount = 0;
-for (const auto& result : results) {
-    if (result.success) successCount++;
-}
-std::cout << "成功率: " << (successCount * 100 / results.size()) << "%\n";
-```
-
-### 异常处理
-
-```cpp
-ExceptionHandler handler;
-
-// 检测异常
-ExceptionInfo info = handler.DetectExceptions(surface);
-
-if (!info.IsSuccess()) {
-    // 生成错误报告
-    std::string report = handler.GenerateErrorReport(info);
-    std::cout << report;
-    
-    // 如果可以简化，尝试简化
-    if (info.canSimplify) {
-        SimplificationResult simplification = handler.TrySimplify(surface);
-        if (simplification.success) {
-            std::cout << "简化成功: " << simplification.description << "\n";
-        }
-    }
-}
-```
-
-## 测试数据生成
-
-### 生成标准曲面
-
-```cpp
-TestDataGenerator generator;
-
-// 圆柱面
-auto cylinder = generator.GenerateCylinderSurface(
-    5.0,   // 半径
-    10.0,  // 高度
-    10,    // U方向控制点数
-    10     // V方向控制点数
-);
-
-// 球面
-auto sphere = generator.GenerateSphereSurface(5.0, 10, 10);
-
-// 平面
-auto plane = generator.GeneratePlaneSurface(10.0, 10.0, 5, 5);
-
-// 圆锥面
-auto cone = generator.GenerateConeSurface(5.0, 1.0, 10.0, 10, 10);
-
-// 圆环面
-auto torus = generator.GenerateTorusSurface(5.0, 1.0, 10, 10);
-```
-
-### 添加噪声
-
-```cpp
-auto noisySurface = generator.AddNoiseToSurface(cylinder, 1e-5);
-```
-
-### 生成复杂自由曲面
-
-```cpp
-auto freeForm = generator.GenerateFreeFormSurface(10, 10);
-```
-
-### 批量生成并导出
-
-```cpp
-generator.SetRandomSeed(42);
-auto surfaces = generator.GenerateBatchTestData(1000, "data/generated");
-```
-
-### 导出到文件
-
-```cpp
-generator.ExportToSTEP(cylinder, "cylinder.step");
-generator.ExportToIGES(sphere, "sphere.iges");
-```
-
-## 常见问题
-
-### Q: 如何提高转换精度？
-
-A: 可以：
-1. 减小容差：`core.SetTolerance(1e-6)`
-2. 增加采样点：`analyzer.SetSampleSize(100, 100)`
-3. 启用优化：`fitter.SetOptimize(true)`
-
-### Q: 转换速度太慢怎么办？
-
-A: 可以：
-1. 减少采样点（牺牲一些精度）
-2. 关闭性能测试：`core.SetEnablePerformanceTest(false)`
-3. 使用批量转换（利用并行优化）
-
-### Q: 如何判断曲面是否可转换？
-
-A: 使用SurfaceAnalyzer先分析：
-```cpp
-SurfaceAnalyzer analyzer;
-SurfaceAnalysisResult result = analyzer.Analyze(surface);
-
-if (result.IsSuccess()) {
-    std::cout << "可转换为: " << QuadricTypeToString(result.type) << "\n";
-    std::cout << "置信度: " << result.confidence << "\n";
-} else {
-    std::cout << "无法转换: " << result.message << "\n";
-}
-```
-
-### Q: 转换失败如何处理？
-
-A: 检查ConversionResult中的message字段：
-```cpp
-if (!result.success) {
-    std::cout << "失败原因: " << result.message << "\n";
-    
-    // 可能的原因：
-    // - 曲面不是二次曲面
-    // - 精度不满足要求
-    // - 数据损坏
-}
-```
-
-### Q: 如何获取转换后的二次曲面参数？
-
-A: 使用特定的Fitter类：
-```cpp
-CylinderFitter fitter;
-Handle(Geom_Surface) quadricSurf;
-if (fitter.Fit(surface, quadricSurf)) {
-    double radius = fitter.GetRadius();
-    gp_Ax1 axis = fitter.GetAxis();
-    std::cout << "半径: " << radius << "\n";
-}
-```
-
-## 性能优化建议
-
-### 批量处理优化
-
-```cpp
-// 不推荐：逐个转换
-for (auto& surf : surfaces) {
-    core.Convert(surf);  // 每次都初始化
-}
-
-// 推荐：批量转换
-auto results = core.ConvertBatch(surfaces);  // 一次性处理
-```
-
-### 内存管理
-
-```cpp
-// Handle自动管理内存，无需手动释放
-{
-    Handle(Geom_BSplineSurface) surface = ...;
-    // 离开作用域自动释放
-}
-```
-
-### 多线程处理
-
-```cpp
-#include <omp.h>
-
-std::vector<ConversionResult> results(surfaces.size());
-
-#pragma omp parallel for
-for (size_t i = 0; i < surfaces.size(); ++i) {
-    BS2QuadCore core;  // 每个线程独立的core
-    results[i] = core.Convert(surfaces[i]);
-}
-```
-
-## 完整示例
-
-### 示例1：船舶零件转换
-
-```cpp
-#include "BS2QuadCore.h"
-#include <STEPControl_Reader.hxx>
-
-int main() {
-    // 从STEP文件读取曲面
-    STEPControl_Reader reader;
-    reader.ReadFile("ship_part.step");
-    reader.TransferRoots();
-    TopoDS_Shape shape = reader.OneShape();
-    
-    // 提取曲面
-    TopExp_Explorer explorer(shape, TopAbs_FACE);
-    
-    BS2QuadCore core(1.0e-5);
-    int converted = 0;
-    
-    while (explorer.More()) {
-        TopoDS_Face face = TopoDS::Face(explorer.Current());
-        
-        ConversionResult result = core.Convert(face);
-        
-        if (result.success) {
-            converted++;
-            std::cout << "Face " << converted << ": "
-                      << QuadricTypeToString(result.quadricType)
-                      << " (误差: " << result.accuracyResult.maxDistance << "mm)\n";
-        }
-        
-        explorer.Next();
-    }
-    
-    std::cout << "\n转换统计:\n" << core.GetStatistics();
-    
-    return 0;
-}
-```
-
-### 示例2：大规模测试
-
-```cpp
-#include "BS2QuadCore.h"
-#include "TestDataGenerator.h"
-#include <iostream>
-#include <fstream>
-
-int main() {
-    TestDataGenerator generator;
-    BS2QuadCore core(1.0e-5);
-    
-    // 生成1000个测试曲面
-    std::cout << "生成测试数据...\n";
-    auto surfaces = generator.GenerateBatchTestData(1000, "data/generated");
-    
-    // 批量转换
-    std::cout << "开始转换...\n";
-    auto results = core.ConvertBatch(surfaces);
-    
-    // 统计结果
-    int success = 0;
-    double totalError = 0.0;
-    double totalTime = 0.0;
-    
-    std::ofstream csv("results.csv");
-    csv << "ID,Type,Success,MaxError,Time\n";
-    
-    for (size_t i = 0; i < results.size(); ++i) {
-        const auto& result = results[i];
-        
-        if (result.success) {
-            success++;
-            totalError += result.accuracyResult.maxDistance;
-            totalTime += result.conversionTime;
-        }
-        
-        csv << i << ","
-            << QuadricTypeToString(result.quadricType) << ","
-            << result.success << ","
-            << result.accuracyResult.maxDistance << ","
-            << result.conversionTime << "\n";
-    }
-    
-    csv.close();
-    
-    std::cout << "\n=== 测试报告 ===\n";
-    std::cout << "总数: " << results.size() << "\n";
-    std::cout << "成功: " << success << " (" << (success*100/results.size()) << "%)\n";
-    std::cout << "平均误差: " << (totalError/success) << " mm\n";
-    std::cout << "平均时间: " << (totalTime/success) << " ms\n";
-    
-    return 0;
-}
-```
-
-## 编译和运行
-
-### 编译
+## 运行和错误
 
 ```bash
-mkdir build && cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release
-make -j
+bs2quad_main --demo
+bs2quad_main --generate 6 --output-dir data/six-families --seed 42
+bs2quad_main --input source.brep --output converted.step --report result.json
 ```
 
-### 运行
+文件入口只接收一个 NURBS 面。退出码 `0/1/2` 分别表示成功、明确拒绝转换、参数/文件/内核错误。输入、输出和报告必须指向不同文件，含已有文件及父目录符号链接的别名。报告写入必须完成 flush/close 检查，否则返回错误。
 
-```bash
-# 运行演示
-./bs2quad_main --demo
+`DATA_CORRUPT`、`OUT_OF_RANGE`、`NON_QUADRIC`、`HIGH_ERROR` 和内核失败消息分别保留原因。`NON_QUADRIC` 表示当前候选恢复流程未找到可接受候选，不是对所有数学表达的不存在性证明。
 
-# 生成测试数据
-./bs2quad_main --generate 1000
+`TrySimplify` 仅在整张面有已验收解析结果时返回该结果，否则保留自由曲面并说明没有实施局部分割，不会把原始 NURBS 塞进解析结果列表冒充转换。
 
-# 运行测试
-./unit_tests
-./performance_tests
-```
+## 回执与性能口径
 
-## 支持与反馈
+`bs2quad_evidence` 的每行保存 case id、真值类型、实际类型、控制点数、是否接受、重复一致性、判定/总耗时、采样误差、全域界和诊断。全部输入由固定 case 配方生成并保存为 BRep；42 是固定配置种子，尺寸和位置实际由 case id 确定。
 
-- GitHub Issues: [项目地址]
-- Email: [联系邮箱]
-- 文档: docs/
+`bs2quad_cad_benchmark` 分别保存投影、Section、Common 的相同输入、操作数、结果 BRep、查询真值、逐次耗时和结果差异。进程成功仅表示测量完成且结果一致，`all_operation_targets_pass` 单独表示是否全部达到 50%。完整脚本检查性能标志，失败时退出非零，不能把 CTest 正确性通过当作赛事全项通过。
 
+## 当前限制
+
+SGK 1.7 和真实船舶数据尚未验收；边界/G1 为有限采样验收；装配级替换由上层集成实现；次数和环状圆环证书范围见方案。历史文档中的数值无原始回执支持，已转入 `docs/archive`，不作为当前结果。

@@ -1,0 +1,25 @@
+Running main() from ./googletest/src/gtest_main.cc
+Note: Google Test filter = ValidationRegression.ReversedNeighborCannotPassTheSpecifiedOrientedNormalAngleGate
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ValidationRegression
+[ RUN      ] ValidationRegression.ReversedNeighborCannotPassTheSpecifiedOrientedNormalAngleGate
+/work/source/tests/unit_tests/test_validation_regression.cpp:364: Failure
+Value of: result.meetsRequirements
+  Actual: true
+Expected: false
+/work/source/tests/unit_tests/test_validation_regression.cpp:365: Failure
+The difference between result.g1ContinuityError and 180.0 is 180, which exceeds 1e-8, where
+result.g1ContinuityError evaluates to 0,
+180.0 evaluates to 180, and
+1e-8 evaluates to 1e-08.
+[  FAILED  ] ValidationRegression.ReversedNeighborCannotPassTheSpecifiedOrientedNormalAngleGate (8 ms)
+[----------] 1 test from ValidationRegression (8 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (8 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] ValidationRegression.ReversedNeighborCannotPassTheSpecifiedOrientedNormalAngleGate
+
+ 1 FAILED TEST

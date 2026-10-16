@@ -1,0 +1,18 @@
+Running main() from ./googletest/src/gtest_main.cc
+Note: Google Test filter = ValidationRegression.UnclampedHighEndpointCannotDropTheLastControlPoleFromItsBound
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ValidationRegression
+[ RUN      ] ValidationRegression.UnclampedHighEndpointCannotDropTheLastControlPoleFromItsBound
+tests/unit_tests/test_validation_regression.cpp:346: Failure
+Expected: (certificate.upperBound) >= (endpointHeight-1e-12), actual: 0 vs 0.00166667
+[  FAILED  ] ValidationRegression.UnclampedHighEndpointCannotDropTheLastControlPoleFromItsBound (0 ms)
+[----------] 1 test from ValidationRegression (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] ValidationRegression.UnclampedHighEndpointCannotDropTheLastControlPoleFromItsBound
+
+ 1 FAILED TEST

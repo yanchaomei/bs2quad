@@ -1,0 +1,49 @@
+-- OpenCASCADE found: /work/occt770/lib/cmake/opencascade
+-- OpenCASCADE version: 7.7.0
+-- OpenMP found
+-- Google Test found
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+-- ==================================
+-- BS2Quad Configuration Summary
+-- ==================================
+-- Build type: Release
+-- C++ compiler: /usr/bin/c++
+-- C++ standard: C++17
+-- OpenCASCADE: 7.7.0
+-- OpenMP: TRUE
+-- GTest: TRUE
+-- Doxygen: FALSE
+-- ==================================
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /work/build
+Consolidate compiler generated dependencies of target bs2quad_lib
+[  3%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/ImplicitCertificate.cpp.o
+[  6%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/BS2QuadCore.cpp.o
+[  9%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/AccuracyValidator.cpp.o
+[ 12%] Linking CXX static library libbs2quad_lib.a
+[ 45%] Built target bs2quad_lib
+Consolidate compiler generated dependencies of target bs2quad_cad_benchmark
+Consolidate compiler generated dependencies of target bs2quad_evidence
+Consolidate compiler generated dependencies of target bs2quad_main
+Consolidate compiler generated dependencies of target unit_tests
+[ 48%] Building CXX object CMakeFiles/bs2quad_main.dir/src/main.cpp.o
+[ 51%] Building CXX object CMakeFiles/bs2quad_evidence.dir/src/evidence_main.cpp.o
+[ 54%] Building CXX object CMakeFiles/bs2quad_cad_benchmark.dir/src/cad_benchmark.cpp.o
+[ 57%] Building CXX object CMakeFiles/unit_tests.dir/tests/unit_tests/test_accuracy_validator.cpp.o
+[ 60%] Building CXX object CMakeFiles/unit_tests.dir/tests/unit_tests/test_conversion_contract.cpp.o
+[ 63%] Linking CXX executable bs2quad_main
+[ 66%] Linking CXX executable bs2quad_evidence
+[ 66%] Built target bs2quad_main
+Consolidate compiler generated dependencies of target performance_tests
+[ 69%] Building CXX object CMakeFiles/performance_tests.dir/tests/performance_tests/test_conversion_performance.cpp.o
+[ 69%] Built target bs2quad_evidence
+[ 72%] Building CXX object CMakeFiles/performance_tests.dir/tests/performance_tests/test_cad_operations.cpp.o
+[ 75%] Linking CXX executable bs2quad_cad_benchmark
+[ 75%] Built target bs2quad_cad_benchmark
+[ 78%] Building CXX object CMakeFiles/unit_tests.dir/tests/unit_tests/test_validation_regression.cpp.o
+[ 81%] Building CXX object CMakeFiles/performance_tests.dir/tests/performance_tests/test_stability.cpp.o
+[ 84%] Linking CXX executable performance_tests
+[ 84%] Built target performance_tests
+[ 87%] Linking CXX executable unit_tests
+[100%] Built target unit_tests

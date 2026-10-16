@@ -1,0 +1,10 @@
+Consolidate compiler generated dependencies of target bs2quad_lib
+[ 65%] Built target bs2quad_lib
+Consolidate compiler generated dependencies of target unit_tests
+[ 69%] Building CXX object CMakeFiles/unit_tests.dir/tests/unit_tests/test_validation_regression.cpp.o
+/work/source/tests/unit_tests/test_validation_regression.cpp: In member function 'virtual void ValidationRegression_ConversionWithActualNeighborsAcceptsSmoothAndRejectsCreasedFaces_Test::TestBody()':
+/work/source/tests/unit_tests/test_validation_regression.cpp:400:11: warning: suggest explicit braces to avoid ambiguous 'else' [-Wdangling-else]
+  400 |         if(crease) EXPECT_TRUE(result.quadricFace.IsNull());
+      |           ^
+[ 73%] Linking CXX executable unit_tests
+[100%] Built target unit_tests

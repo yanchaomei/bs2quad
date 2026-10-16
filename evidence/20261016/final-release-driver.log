@@ -1,0 +1,8 @@
+configure exit=0
+build exit=0
+correctness exit=0
+surface1000 exit=0
+decision_target exit=0
+cli exit=0
+cad_operations exit=0
+cad_target exit=1

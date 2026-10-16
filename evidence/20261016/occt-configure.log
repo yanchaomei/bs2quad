@@ -1,0 +1,26 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Info. Detecting doxygen
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) (Required is at least version "1.8.4")
+-- Info: Xlib is used by OCCT
+-- 
+Info: (13:28:47) Start collecting all OCCT header files into /work/occt-build/inc ...
+-- Info: (13:28:47) Compare FILES with files in package directories...
+-- Info: (13:28:49) Create header-links in inc folder...
+-- Info: (13:28:50) Checking headers in inc folder...
+-- Info: (13:28:50) End the collecting
+-- Info: (13:28:50) OCCT toolkits processed
+-- Info: (13:28:50) OCCT configuration files prepared
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /work/occt-build

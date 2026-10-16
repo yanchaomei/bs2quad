@@ -1,0 +1,124 @@
+Running main() from ./googletest/src/gtest_main.cc
+[==========] Running 47 tests from 8 test suites.
+[----------] Global test environment set-up.
+[----------] 8 tests from SurfaceAnalyzerTest
+[ RUN      ] SurfaceAnalyzerTest.AnalyzeCylinder
+[       OK ] SurfaceAnalyzerTest.AnalyzeCylinder (1 ms)
+[ RUN      ] SurfaceAnalyzerTest.AnalyzeSphere
+[       OK ] SurfaceAnalyzerTest.AnalyzeSphere (0 ms)
+[ RUN      ] SurfaceAnalyzerTest.AnalyzePlane
+[       OK ] SurfaceAnalyzerTest.AnalyzePlane (0 ms)
+[ RUN      ] SurfaceAnalyzerTest.AnalyzeCone
+[       OK ] SurfaceAnalyzerTest.AnalyzeCone (1 ms)
+[ RUN      ] SurfaceAnalyzerTest.AnalyzeFreeForm
+[       OK ] SurfaceAnalyzerTest.AnalyzeFreeForm (0 ms)
+[ RUN      ] SurfaceAnalyzerTest.AnalyzeNullSurface
+[       OK ] SurfaceAnalyzerTest.AnalyzeNullSurface (0 ms)
+[ RUN      ] SurfaceAnalyzerTest.SetSampleSize
+[       OK ] SurfaceAnalyzerTest.SetSampleSize (0 ms)
+[ RUN      ] SurfaceAnalyzerTest.SetTolerance
+[       OK ] SurfaceAnalyzerTest.SetTolerance (0 ms)
+[----------] 8 tests from SurfaceAnalyzerTest (4 ms total)
+
+[----------] 2 tests from CylinderFitterTest
+[ RUN      ] CylinderFitterTest.FitStandardCylinder
+[       OK ] CylinderFitterTest.FitStandardCylinder (0 ms)
+[ RUN      ] CylinderFitterTest.CheckCylinderParameters
+[       OK ] CylinderFitterTest.CheckCylinderParameters (0 ms)
+[----------] 2 tests from CylinderFitterTest (1 ms total)
+
+[----------] 2 tests from SphereFitterTest
+[ RUN      ] SphereFitterTest.FitStandardSphere
+[       OK ] SphereFitterTest.FitStandardSphere (0 ms)
+[ RUN      ] SphereFitterTest.CheckSphereParameters
+[       OK ] SphereFitterTest.CheckSphereParameters (0 ms)
+[----------] 2 tests from SphereFitterTest (1 ms total)
+
+[----------] 1 test from PlaneFitterTest
+[ RUN      ] PlaneFitterTest.FitStandardPlane
+[       OK ] PlaneFitterTest.FitStandardPlane (0 ms)
+[----------] 1 test from PlaneFitterTest (0 ms total)
+
+[----------] 2 tests from AccuracyValidatorTest
+[ RUN      ] AccuracyValidatorTest.ValidateConversionAccuracy
+[       OK ] AccuracyValidatorTest.ValidateConversionAccuracy (1 ms)
+[ RUN      ] AccuracyValidatorTest.ComparePerformance
+[       OK ] AccuracyValidatorTest.ComparePerformance (433 ms)
+[----------] 2 tests from AccuracyValidatorTest (435 ms total)
+
+[----------] 3 tests from ExceptionHandlerTest
+[ RUN      ] ExceptionHandlerTest.DetectNullSurface
+[       OK ] ExceptionHandlerTest.DetectNullSurface (0 ms)
+[ RUN      ] ExceptionHandlerTest.DetectFreeFormSurface
+[       OK ] ExceptionHandlerTest.DetectFreeFormSurface (0 ms)
+[ RUN      ] ExceptionHandlerTest.GenerateErrorReport
+[       OK ] ExceptionHandlerTest.GenerateErrorReport (0 ms)
+[----------] 3 tests from ExceptionHandlerTest (0 ms total)
+
+[----------] 10 tests from ConversionContract
+[ RUN      ] ConversionContract.GeneratorProducesExactRationalCylinder
+[       OK ] ConversionContract.GeneratorProducesExactRationalCylinder (0 ms)
+[ RUN      ] ConversionContract.ConvertsTranslatedRotatedPartialCylinder
+[       OK ] ConversionContract.ConvertsTranslatedRotatedPartialCylinder (0 ms)
+[ RUN      ] ConversionContract.FaceConversionReturnsValidTrimmedFace
+[       OK ] ConversionContract.FaceConversionReturnsValidTrimmedFace (69 ms)
+[ RUN      ] ConversionContract.RejectsInvalidTolerance
+[       OK ] ConversionContract.RejectsInvalidTolerance (0 ms)
+[ RUN      ] ConversionContract.NullBatchItemDoesNotPreventNextConversion
+[       OK ] ConversionContract.NullBatchItemDoesNotPreventNextConversion (0 ms)
+[ RUN      ] ConversionContract.AllFiveExactFamiliesAndDegreeElevatedSurfacesAreAccepted
+[       OK ] ConversionContract.AllFiveExactFamiliesAndDegreeElevatedSurfacesAreAccepted (48 ms)
+[ RUN      ] ConversionContract.PlacedFaceReturnsWorldSpaceSurfaceWithoutChangingInput
+[       OK ] ConversionContract.PlacedFaceReturnsWorldSpaceSurfaceWithoutChangingInput (88 ms)
+[ RUN      ] ConversionContract.CannotClaimItselfAsItsOwnTangentNeighbor
+[       OK ] ConversionContract.CannotClaimItselfAsItsOwnTangentNeighbor (77 ms)
+[ RUN      ] ConversionContract.RejectsNonQuadricAndCorruptControlPointsWithoutThrowing
+[       OK ] ConversionContract.RejectsNonQuadricAndCorruptControlPointsWithoutThrowing (0 ms)
+[ RUN      ] ConversionContract.PartialSphereConeAndTorusKeepValidTrimmedFaces
+[       OK ] ConversionContract.PartialSphereConeAndTorusKeepValidTrimmedFaces (223 ms)
+[----------] 10 tests from ConversionContract (508 ms total)
+
+[----------] 19 tests from ValidationRegression
+[ RUN      ] ValidationRegression.RejectsNonPositiveOrNonFiniteToleranceWithoutChangingState
+[       OK ] ValidationRegression.RejectsNonPositiveOrNonFiniteToleranceWithoutChangingState (0 ms)
+[ RUN      ] ValidationRegression.IdenticalTrimmedFaceHasZeroBoundaryUnionDistance
+[       OK ] ValidationRegression.IdenticalTrimmedFaceHasZeroBoundaryUnionDistance (154 ms)
+[ RUN      ] ValidationRegression.MissingInputsCannotBecomeZeroErrorOrSuccessfulChecks
+[       OK ] ValidationRegression.MissingInputsCannotBecomeZeroErrorOrSuccessfulChecks (0 ms)
+[ RUN      ] ValidationRegression.SurfaceOnlyResultDoesNotClaimBoundaryOrAdjacencyChecks
+[       OK ] ValidationRegression.SurfaceOnlyResultDoesNotClaimBoundaryOrAdjacencyChecks (0 ms)
+[ RUN      ] ValidationRegression.OffsetWithinToleranceDoesNotFailAnInventedMeanErrorThreshold
+[       OK ] ValidationRegression.OffsetWithinToleranceDoesNotFailAnInventedMeanErrorThreshold (0 ms)
+[ RUN      ] ValidationRegression.FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns
+[       OK ] ValidationRegression.FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns (0 ms)
+[ RUN      ] ValidationRegression.FaceOrientationReversalIsNotNormalPreservation
+[       OK ] ValidationRegression.FaceOrientationReversalIsNotNormalPreservation (153 ms)
+[ RUN      ] ValidationRegression.CoplanarActualNeighborsPassSeparateSharedEdgeG1Check
+[       OK ] ValidationRegression.CoplanarActualNeighborsPassSeparateSharedEdgeG1Check (12 ms)
+[ RUN      ] ValidationRegression.ActualSharedEdgeCreaseIsRejectedAtNinetyDegrees
+[       OK ] ValidationRegression.ActualSharedEdgeCreaseIsRejectedAtNinetyDegrees (6 ms)
+[ RUN      ] ValidationRegression.ReferenceEdgeMustLieOnBothTrimmedBoundaries
+[       OK ] ValidationRegression.ReferenceEdgeMustLieOnBothTrimmedBoundaries (0 ms)
+[ RUN      ] ValidationRegression.PerformanceReportsOnlyCompletedOperationPairs
+[       OK ] ValidationRegression.PerformanceReportsOnlyCompletedOperationPairs (23 ms)
+[ RUN      ] ValidationRegression.IndependentFullDomainBoundsCoverAllFiveAnalyticFamilies
+[       OK ] ValidationRegression.IndependentFullDomainBoundsCoverAllFiveAnalyticFamilies (2 ms)
+[ RUN      ] ValidationRegression.FacePlacementIsAppliedBeforeComparisonWithWorldSpaceAnalyticSupport
+[       OK ] ValidationRegression.FacePlacementIsAppliedBeforeComparisonWithWorldSpaceAnalyticSupport (55 ms)
+[ RUN      ] ValidationRegression.NormalPreservationUsesCorrespondingWorldPointsAcrossParameterizations
+[       OK ] ValidationRegression.NormalPreservationUsesCorrespondingWorldPointsAcrossParameterizations (55 ms)
+[ RUN      ] ValidationRegression.FailedSourceEvaluationCannotBeDiscardedFromStatistics
+[       OK ] ValidationRegression.FailedSourceEvaluationCannotBeDiscardedFromStatistics (0 ms)
+[ RUN      ] ValidationRegression.ReverseBoundaryDirectionDetectsAnExtraInteriorHole
+[       OK ] ValidationRegression.ReverseBoundaryDirectionDetectsAnExtraInteriorHole (56 ms)
+[ RUN      ] ValidationRegression.BoundaryLimitStaysOneEminusFiveWhenSupportToleranceIsRelaxed
+[       OK ] ValidationRegression.BoundaryLimitStaysOneEminusFiveWhenSupportToleranceIsRelaxed (50 ms)
+[ RUN      ] ValidationRegression.OriginalPeriodicRepresentationsReceiveFullDomainCertificates
+[       OK ] ValidationRegression.OriginalPeriodicRepresentationsReceiveFullDomainCertificates (3 ms)
+[ RUN      ] ValidationRegression.LowMultiplicityPeriodicSeamBoundsTheOriginalSurfaceAcrossWrap
+[       OK ] ValidationRegression.LowMultiplicityPeriodicSeamBoundsTheOriginalSurfaceAcrossWrap (0 ms)
+[----------] 19 tests from ValidationRegression (574 ms total)
+
+[----------] Global test environment tear-down
+[==========] 47 tests from 8 test suites ran. (1528 ms total)
+[  PASSED  ] 47 tests.

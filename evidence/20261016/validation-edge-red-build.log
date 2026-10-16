@@ -1,0 +1,7 @@
+/usr/bin/ld: /tmp/ccqtH3TY.o: in function `ValidationRegression_CoplanarActualNeighborsPassSeparateSharedEdgeG1Check_Test::TestBody()':
+test_validation_regression.cpp:(.text+0x4575): undefined reference to `BS2Quad::AccuracyValidator::ValidateNormalsAlongEdge(TopoDS_Face const&, TopoDS_Face const&, TopoDS_Edge const&)'
+/usr/bin/ld: /tmp/ccqtH3TY.o: in function `ValidationRegression_ActualSharedEdgeCreaseIsRejectedAtNinetyDegrees_Test::TestBody()':
+test_validation_regression.cpp:(.text+0x4b7c): undefined reference to `BS2Quad::AccuracyValidator::ValidateNormalsAlongEdge(TopoDS_Face const&, TopoDS_Face const&, TopoDS_Edge const&)'
+/usr/bin/ld: /tmp/ccqtH3TY.o: in function `ValidationRegression_ReferenceEdgeMustLieOnBothTrimmedBoundaries_Test::TestBody()':
+test_validation_regression.cpp:(.text+0x512d): undefined reference to `BS2Quad::AccuracyValidator::ValidateNormalsAlongEdge(TopoDS_Face const&, TopoDS_Face const&, TopoDS_Edge const&)'
+collect2: error: ld returned 1 exit status

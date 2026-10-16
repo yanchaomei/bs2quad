@@ -1,0 +1,31 @@
+Running main() from ./googletest/src/gtest_main.cc
+Note: Google Test filter = ConversionContract.CompleteClosedCylinderSphereAndTorusReturnTrimmedFaces
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ConversionContract
+[ RUN      ] ConversionContract.CompleteClosedCylinderSphereAndTorusReturnTrimmedFaces
+/work/source/tests/unit_tests/test_conversion_contract.cpp:167: Failure
+Value of: result.success
+  Actual: false
+Expected: true
+family=0 TRIM_REGION_FAILURE: reconstructed face area differs beyond boundary displacement budget
+/work/source/tests/unit_tests/test_conversion_contract.cpp:167: Failure
+Value of: result.success
+  Actual: false
+Expected: true
+family=1 UNSUPPORTED_TRIM: degenerated pole edge needs a dedicated pcurve mapping
+/work/source/tests/unit_tests/test_conversion_contract.cpp:167: Failure
+Value of: result.success
+  Actual: false
+Expected: true
+family=2 TRIM_REGION_FAILURE: reconstructed face area differs beyond boundary displacement budget
+[  FAILED  ] ConversionContract.CompleteClosedCylinderSphereAndTorusReturnTrimmedFaces (17 ms)
+[----------] 1 test from ConversionContract (17 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (17 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] ConversionContract.CompleteClosedCylinderSphereAndTorusReturnTrimmedFaces
+
+ 1 FAILED TEST

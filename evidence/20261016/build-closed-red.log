@@ -1,0 +1,13 @@
+Consolidate compiler generated dependencies of target bs2quad_lib
+[ 48%] Built target bs2quad_lib
+Consolidate compiler generated dependencies of target bs2quad_main
+[ 55%] Built target bs2quad_evidence
+[ 68%] Built target performance_tests
+[ 72%] Building CXX object CMakeFiles/unit_tests.dir/tests/unit_tests/test_conversion_contract.cpp.o
+[ 79%] Built target bs2quad_main
+/work/source/tests/unit_tests/test_conversion_contract.cpp: In member function 'virtual void ConversionContract_CompleteClosedCylinderSphereAndTorusReturnTrimmedFaces_Test::TestBody()':
+/work/source/tests/unit_tests/test_conversion_contract.cpp:168:11: warning: suggest explicit braces to avoid ambiguous 'else' [-Wdangling-else]
+  168 |         if(result.success) EXPECT_TRUE(BRepCheck_Analyzer(result.quadricFace).IsValid());
+      |           ^
+[ 82%] Linking CXX executable unit_tests
+[100%] Built target unit_tests

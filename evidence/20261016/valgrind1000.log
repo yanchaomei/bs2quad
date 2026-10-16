@@ -1,0 +1,22 @@
+==39837== Memcheck, a memory error detector
+==39837== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==39837== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==39837== Command: /work/build/bs2quad_evidence --count 1000 --output-dir /work/evidence/valgrind1000 --no-save-inputs
+==39837== Parent PID: 39831
+==39837== 
+==39837== 
+==39837== HEAP SUMMARY:
+==39837==     in use at exit: 16 bytes in 1 blocks
+==39837==   total heap usage: 5,882,147 allocs, 5,882,146 frees, 1,254,481,680 bytes allocated
+==39837== 
+==39837== LEAK SUMMARY:
+==39837==    definitely lost: 0 bytes in 0 blocks
+==39837==    indirectly lost: 0 bytes in 0 blocks
+==39837==      possibly lost: 0 bytes in 0 blocks
+==39837==    still reachable: 16 bytes in 1 blocks
+==39837==         suppressed: 0 bytes in 0 blocks
+==39837== Reachable blocks (those to which a pointer was found) are not shown.
+==39837== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==39837== 
+==39837== For lists of detected and suppressed errors, rerun with: -s
+==39837== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

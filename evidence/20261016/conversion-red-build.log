@@ -1,0 +1,43 @@
+src/AccuracyValidator.cpp: In member function 'BS2Quad::AccuracyResult BS2Quad::AccuracyValidator::ValidateAccuracy(const opencascade::handle<Geom_BSplineSurface>&, const opencascade::handle<Geom_Surface>&)':
+src/AccuracyValidator.cpp:52:39: warning: 'static opencascade::handle<T> opencascade::handle<T>::DownCast(const opencascade::handle<T2>&, typename std::enable_if<(! opencascade::is_base_but_not_same<T2, T>::value), void*>::type) [with T2 = Geom_BSplineSurface; T = Geom_Surface; typename std::enable_if<(! opencascade::is_base_but_not_same<T2, T>::value), void*>::type = void*]' is deprecated: down-casting from object of the same or unrelated type is meaningless [-Wdeprecated-declarations]
+   52 |         Handle(Geom_Surface)::DownCast(nurbsSurface),
+In file included from /usr/include/opencascade/Standard_Type.hxx:19,
+                 from /usr/include/opencascade/Geom_Plane.hxx:21,
+                 from <command-line>:
+/usr/include/opencascade/Standard_Handle.hxx:203:19: note: declared here
+  203 |     static handle DownCast (const handle<T2>& theObject, typename opencascade::std::enable_if<!is_base_but_not_same<T2, T>::value, void*>::type = 0)
+      |                   ^~~~~~~~
+src/AccuracyValidator.cpp: In member function 'BS2Quad::PerformanceResult BS2Quad::AccuracyValidator::ComparePerformance(const opencascade::handle<Geom_BSplineSurface>&, const opencascade::handle<Geom_Surface>&)':
+src/AccuracyValidator.cpp:142:39: warning: 'static opencascade::handle<T> opencascade::handle<T>::DownCast(const opencascade::handle<T2>&, typename std::enable_if<(! opencascade::is_base_but_not_same<T2, T>::value), void*>::type) [with T2 = Geom_BSplineSurface; T = Geom_Surface; typename std::enable_if<(! opencascade::is_base_but_not_same<T2, T>::value), void*>::type = void*]' is deprecated: down-casting from object of the same or unrelated type is meaningless [-Wdeprecated-declarations]
+  142 |         Handle(Geom_Surface)::DownCast(nurbsSurface), testPoints
+In file included from /usr/include/opencascade/Standard_Type.hxx:19,
+                 from /usr/include/opencascade/Geom_Plane.hxx:21,
+                 from <command-line>:
+/usr/include/opencascade/Standard_Handle.hxx:203:19: note: declared here
+  203 |     static handle DownCast (const handle<T2>& theObject, typename opencascade::std::enable_if<!is_base_but_not_same<T2, T>::value, void*>::type = 0)
+      |                   ^~~~~~~~
+src/AccuracyValidator.cpp:148:39: warning: 'static opencascade::handle<T> opencascade::handle<T>::DownCast(const opencascade::handle<T2>&, typename std::enable_if<(! opencascade::is_base_but_not_same<T2, T>::value), void*>::type) [with T2 = Geom_BSplineSurface; T = Geom_Surface; typename std::enable_if<(! opencascade::is_base_but_not_same<T2, T>::value), void*>::type = void*]' is deprecated: down-casting from object of the same or unrelated type is meaningless [-Wdeprecated-declarations]
+  148 |         Handle(Geom_Surface)::DownCast(nurbsSurface)
+In file included from /usr/include/opencascade/Standard_Type.hxx:19,
+                 from /usr/include/opencascade/Geom_Plane.hxx:21,
+                 from <command-line>:
+/usr/include/opencascade/Standard_Handle.hxx:203:19: note: declared here
+  203 |     static handle DownCast (const handle<T2>& theObject, typename opencascade::std::enable_if<!is_base_but_not_same<T2, T>::value, void*>::type = 0)
+      |                   ^~~~~~~~
+src/ExceptionHandler.cpp: In member function 'BS2Quad::SimplificationResult BS2Quad::ExceptionHandler::TrySimplify(const opencascade::handle<Geom_BSplineSurface>&)':
+src/ExceptionHandler.cpp:143:65: warning: 'static opencascade::handle<T> opencascade::handle<T>::DownCast(const opencascade::handle<T2>&, typename std::enable_if<(! opencascade::is_base_but_not_same<T2, T>::value), void*>::type) [with T2 = Geom_BSplineSurface; T = Geom_Surface; typename std::enable_if<(! opencascade::is_base_but_not_same<T2, T>::value), void*>::type = void*]' is deprecated: down-casting from object of the same or unrelated type is meaningless [-Wdeprecated-declarations]
+  143 |         result.quadrics.push_back(Handle(Geom_Surface)::DownCast(region));
+In file included from /usr/include/opencascade/Standard_Type.hxx:19,
+                 from /usr/include/opencascade/Geom_Plane.hxx:21,
+                 from <command-line>:
+/usr/include/opencascade/Standard_Handle.hxx:203:19: note: declared here
+  203 |     static handle DownCast (const handle<T2>& theObject, typename opencascade::std::enable_if<!is_base_but_not_same<T2, T>::value, void*>::type = 0)
+      |                   ^~~~~~~~
+src/ExceptionHandler.cpp:147:66: warning: 'static opencascade::handle<T> opencascade::handle<T>::DownCast(const opencascade::handle<T2>&, typename std::enable_if<(! opencascade::is_base_but_not_same<T2, T>::value), void*>::type) [with T2 = Geom_BSplineSurface; T = Geom_Surface; typename std::enable_if<(! opencascade::is_base_but_not_same<T2, T>::value), void*>::type = void*]' is deprecated: down-casting from object of the same or unrelated type is meaningless [-Wdeprecated-declarations]
+  147 |         result.freeForms.push_back(Handle(Geom_Surface)::DownCast(region));
+In file included from /usr/include/opencascade/Standard_Type.hxx:19,
+                 from /usr/include/opencascade/Geom_Plane.hxx:21,
+                 from <command-line>:
+/usr/include/opencascade/Standard_Handle.hxx:203:19: note: declared here
+  203 |     static handle DownCast (const handle<T2>& theObject, typename opencascade::std::enable_if<!is_base_but_not_same<T2, T>::value, void*>::type = 0)
+      |                   ^~~~~~~~

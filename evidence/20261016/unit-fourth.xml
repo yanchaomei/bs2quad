@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="47" failures="0" disabled="0" errors="0" time="1.633" timestamp="2026-10-16T13:41:12.286" name="AllTests">
+  <testsuite name="SurfaceAnalyzerTest" tests="8" failures="0" disabled="0" skipped="0" errors="0" time="0.009" timestamp="2026-10-16T13:41:12.286">
+    <testcase name="AnalyzeCylinder" status="run" result="completed" time="0.002" timestamp="2026-10-16T13:41:12.286" classname="SurfaceAnalyzerTest" />
+    <testcase name="AnalyzeSphere" status="run" result="completed" time="0.003" timestamp="2026-10-16T13:41:12.288" classname="SurfaceAnalyzerTest" />
+    <testcase name="AnalyzePlane" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:12.291" classname="SurfaceAnalyzerTest" />
+    <testcase name="AnalyzeCone" status="run" result="completed" time="0.002" timestamp="2026-10-16T13:41:12.291" classname="SurfaceAnalyzerTest" />
+    <testcase name="AnalyzeFreeForm" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:12.294" classname="SurfaceAnalyzerTest" />
+    <testcase name="AnalyzeNullSurface" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:12.294" classname="SurfaceAnalyzerTest" />
+    <testcase name="SetSampleSize" status="run" result="completed" time="0.001" timestamp="2026-10-16T13:41:12.294" classname="SurfaceAnalyzerTest" />
+    <testcase name="SetTolerance" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:12.295" classname="SurfaceAnalyzerTest" />
+  </testsuite>
+  <testsuite name="CylinderFitterTest" tests="2" failures="0" disabled="0" skipped="0" errors="0" time="0.003" timestamp="2026-10-16T13:41:12.295">
+    <testcase name="FitStandardCylinder" status="run" result="completed" time="0.001" timestamp="2026-10-16T13:41:12.295" classname="CylinderFitterTest" />
+    <testcase name="CheckCylinderParameters" status="run" result="completed" time="0.001" timestamp="2026-10-16T13:41:12.297" classname="CylinderFitterTest" />
+  </testsuite>
+  <testsuite name="SphereFitterTest" tests="2" failures="0" disabled="0" skipped="0" errors="0" time="0.005" timestamp="2026-10-16T13:41:12.299">
+    <testcase name="FitStandardSphere" status="run" result="completed" time="0.002" timestamp="2026-10-16T13:41:12.299" classname="SphereFitterTest" />
+    <testcase name="CheckSphereParameters" status="run" result="completed" time="0.002" timestamp="2026-10-16T13:41:12.302" classname="SphereFitterTest" />
+  </testsuite>
+  <testsuite name="PlaneFitterTest" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0" timestamp="2026-10-16T13:41:12.305">
+    <testcase name="FitStandardPlane" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:12.305" classname="PlaneFitterTest" />
+  </testsuite>
+  <testsuite name="AccuracyValidatorTest" tests="2" failures="0" disabled="0" skipped="0" errors="0" time="0.435" timestamp="2026-10-16T13:41:12.305">
+    <testcase name="ValidateConversionAccuracy" status="run" result="completed" time="0.003" timestamp="2026-10-16T13:41:12.305" classname="AccuracyValidatorTest" />
+    <testcase name="ComparePerformance" status="run" result="completed" time="0.431" timestamp="2026-10-16T13:41:12.309" classname="AccuracyValidatorTest" />
+  </testsuite>
+  <testsuite name="ExceptionHandlerTest" tests="3" failures="0" disabled="0" skipped="0" errors="0" time="0" timestamp="2026-10-16T13:41:12.741">
+    <testcase name="DetectNullSurface" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:12.741" classname="ExceptionHandlerTest" />
+    <testcase name="DetectFreeFormSurface" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:12.741" classname="ExceptionHandlerTest" />
+    <testcase name="GenerateErrorReport" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:12.741" classname="ExceptionHandlerTest" />
+  </testsuite>
+  <testsuite name="ConversionContract" tests="10" failures="0" disabled="0" skipped="0" errors="0" time="0.588" timestamp="2026-10-16T13:41:12.741">
+    <testcase name="GeneratorProducesExactRationalCylinder" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:12.741" classname="ConversionContract" />
+    <testcase name="ConvertsTranslatedRotatedPartialCylinder" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:12.741" classname="ConversionContract" />
+    <testcase name="FaceConversionReturnsValidTrimmedFace" status="run" result="completed" time="0.068" timestamp="2026-10-16T13:41:12.742" classname="ConversionContract" />
+    <testcase name="RejectsInvalidTolerance" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:12.810" classname="ConversionContract" />
+    <testcase name="NullBatchItemDoesNotPreventNextConversion" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:12.810" classname="ConversionContract" />
+    <testcase name="AllFiveExactFamiliesAndDegreeElevatedSurfacesAreAccepted" status="run" result="completed" time="0.126" timestamp="2026-10-16T13:41:12.810" classname="ConversionContract" />
+    <testcase name="PlacedFaceReturnsWorldSpaceSurfaceWithoutChangingInput" status="run" result="completed" time="0.089" timestamp="2026-10-16T13:41:12.937" classname="ConversionContract" />
+    <testcase name="CannotClaimItselfAsItsOwnTangentNeighbor" status="run" result="completed" time="0.077" timestamp="2026-10-16T13:41:13.026" classname="ConversionContract" />
+    <testcase name="RejectsNonQuadricAndCorruptControlPointsWithoutThrowing" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:13.104" classname="ConversionContract" />
+    <testcase name="PartialSphereConeAndTorusKeepValidTrimmedFaces" status="run" result="completed" time="0.225" timestamp="2026-10-16T13:41:13.104" classname="ConversionContract" />
+  </testsuite>
+  <testsuite name="ValidationRegression" tests="19" failures="0" disabled="0" skipped="0" errors="0" time="0.588" timestamp="2026-10-16T13:41:13.330">
+    <testcase name="RejectsNonPositiveOrNonFiniteToleranceWithoutChangingState" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:13.330" classname="ValidationRegression" />
+    <testcase name="IdenticalTrimmedFaceHasZeroBoundaryUnionDistance" status="run" result="completed" time="0.157" timestamp="2026-10-16T13:41:13.330" classname="ValidationRegression" />
+    <testcase name="MissingInputsCannotBecomeZeroErrorOrSuccessfulChecks" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:13.487" classname="ValidationRegression" />
+    <testcase name="SurfaceOnlyResultDoesNotClaimBoundaryOrAdjacencyChecks" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:13.487" classname="ValidationRegression" />
+    <testcase name="OffsetWithinToleranceDoesNotFailAnInventedMeanErrorThreshold" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:13.488" classname="ValidationRegression" />
+    <testcase name="FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:13.488" classname="ValidationRegression" />
+    <testcase name="FaceOrientationReversalIsNotNormalPreservation" status="run" result="completed" time="0.156" timestamp="2026-10-16T13:41:13.488" classname="ValidationRegression" />
+    <testcase name="CoplanarActualNeighborsPassSeparateSharedEdgeG1Check" status="run" result="completed" time="0.012" timestamp="2026-10-16T13:41:13.645" classname="ValidationRegression" />
+    <testcase name="ActualSharedEdgeCreaseIsRejectedAtNinetyDegrees" status="run" result="completed" time="0.006" timestamp="2026-10-16T13:41:13.657" classname="ValidationRegression" />
+    <testcase name="ReferenceEdgeMustLieOnBothTrimmedBoundaries" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:13.663" classname="ValidationRegression" />
+    <testcase name="PerformanceReportsOnlyCompletedOperationPairs" status="run" result="completed" time="0.024" timestamp="2026-10-16T13:41:13.664" classname="ValidationRegression" />
+    <testcase name="IndependentFullDomainBoundsCoverAllFiveAnalyticFamilies" status="run" result="completed" time="0.003" timestamp="2026-10-16T13:41:13.688" classname="ValidationRegression" />
+    <testcase name="FacePlacementIsAppliedBeforeComparisonWithWorldSpaceAnalyticSupport" status="run" result="completed" time="0.055" timestamp="2026-10-16T13:41:13.691" classname="ValidationRegression" />
+    <testcase name="NormalPreservationUsesCorrespondingWorldPointsAcrossParameterizations" status="run" result="completed" time="0.058" timestamp="2026-10-16T13:41:13.747" classname="ValidationRegression" />
+    <testcase name="FailedSourceEvaluationCannotBeDiscardedFromStatistics" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:13.805" classname="ValidationRegression" />
+    <testcase name="ReverseBoundaryDirectionDetectsAnExtraInteriorHole" status="run" result="completed" time="0.057" timestamp="2026-10-16T13:41:13.806" classname="ValidationRegression" />
+    <testcase name="BoundaryLimitStaysOneEminusFiveWhenSupportToleranceIsRelaxed" status="run" result="completed" time="0.05" timestamp="2026-10-16T13:41:13.863" classname="ValidationRegression" />
+    <testcase name="OriginalPeriodicRepresentationsReceiveFullDomainCertificates" status="run" result="completed" time="0.004" timestamp="2026-10-16T13:41:13.913" classname="ValidationRegression" />
+    <testcase name="LowMultiplicityPeriodicSeamBoundsTheOriginalSurfaceAcrossWrap" status="run" result="completed" time="0" timestamp="2026-10-16T13:41:13.918" classname="ValidationRegression" />
+  </testsuite>
+</testsuites>

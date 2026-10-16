@@ -1,0 +1,31 @@
+Running main() from ./googletest/src/gtest_main.cc
+[==========] Running 11 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 11 tests from PointFitting
+[ RUN      ] PointFitting.PlaneUsesTheLeastVarianceDirectionAndAcceptedGetter
+[       OK ] PointFitting.PlaneUsesTheLeastVarianceDirectionAndAcceptedGetter (0 ms)
+[ RUN      ] PointFitting.SphereRecoversTranslatedCenterFromPartialPatch
+[       OK ] PointFitting.SphereRecoversTranslatedCenterFromPartialPatch (0 ms)
+[ RUN      ] PointFitting.CylinderRecoversThinPartialPatchAxisRatherThanDominantPCAAxis
+[       OK ] PointFitting.CylinderRecoversThinPartialPatchAxisRatherThanDominantPCAAxis (14 ms)
+[ RUN      ] PointFitting.ConeRecoversApexInsteadOfUsingPointCentroid
+[       OK ] PointFitting.ConeRecoversApexInsteadOfUsingPointCentroid (0 ms)
+[ RUN      ] PointFitting.TorusRecoversMajorAndMinorRadiiFromRotatedFullSamples
+[       OK ] PointFitting.TorusRecoversMajorAndMinorRadiiFromRotatedFullSamples (1 ms)
+[ RUN      ] PointFitting.EveryFamilyRejectsNonfiniteRepeatedAndCollinearInputsWithoutLeakingOutput
+[       OK ] PointFitting.EveryFamilyRejectsNonfiniteRepeatedAndCollinearInputsWithoutLeakingOutput (0 ms)
+[ RUN      ] PointFitting.MaximumResidualGateRejectsOneOutlierEvenWhenRMSWouldFitTolerance
+[       OK ] PointFitting.MaximumResidualGateRejectsOneOutlierEvenWhenRMSWouldFitTolerance (0 ms)
+[ RUN      ] PointFitting.PartialTorusAndFullCylinderUseTheSameFinitePointContract
+[       OK ] PointFitting.PartialTorusAndFullCylinderUseTheSameFinitePointContract (43 ms)
+[ RUN      ] PointFitting.EveryFamilyUsesMaximumResidualRatherThanAveragingAnOutlierAway
+[       OK ] PointFitting.EveryFamilyUsesMaximumResidualRatherThanAveragingAnOutlierAway (129 ms)
+[ RUN      ] PointFitting.DisablingOptionalRefinementStillFitsWellConditionedExactFullFixtures
+[       OK ] PointFitting.DisablingOptionalRefinementStillFitsWellConditionedExactFullFixtures (1 ms)
+[ RUN      ] PointFitting.WorldCoordinateRoundingMustNotBypassTheResidualGate
+[       OK ] PointFitting.WorldCoordinateRoundingMustNotBypassTheResidualGate (0 ms)
+[----------] 11 tests from PointFitting (192 ms total)
+
+[----------] Global test environment tear-down
+[==========] 11 tests from 1 test suite ran. (192 ms total)
+[  PASSED  ] 11 tests.

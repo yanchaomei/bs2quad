@@ -1,0 +1,14 @@
+[  3%] Building CXX object CMakeFiles/bs2quad_lib.dir/src/ImplicitCertificate.cpp.o
+[  6%] Linking CXX static library libbs2quad_lib.a
+[ 45%] Built target bs2quad_lib
+[ 48%] Building CXX object CMakeFiles/bs2quad_evidence.dir/src/evidence_main.cpp.o
+[ 51%] Linking CXX executable bs2quad_main
+[ 54%] Linking CXX executable bs2quad_cad_benchmark
+[ 57%] Linking CXX executable unit_tests
+[ 60%] Built target bs2quad_cad_benchmark
+[ 63%] Linking CXX executable performance_tests
+[ 66%] Built target bs2quad_main
+[ 87%] Built target unit_tests
+[ 96%] Built target performance_tests
+[100%] Linking CXX executable bs2quad_evidence
+[100%] Built target bs2quad_evidence
