@@ -6,6 +6,8 @@
  */
 
 #include "ExceptionHandler.h"
+#include "AnalyticRecovery.h"
+#include "ImplicitCertificate.h"
 #include <BRep_Tool.hxx>
 #include <BRepGProp.hxx>
 #include <GProp_GProps.hxx>
@@ -19,6 +21,7 @@ ExceptionHandler::ExceptionHandler(double tolerance)
     , m_minArea(1.0e-6)
     , m_maxSplitDepth(3)
 {
+    SetTolerance(tolerance);
 }
 
 // 析构函数
@@ -118,40 +121,17 @@ SimplificationResult ExceptionHandler::TrySimplify(
         return result;
     }
     
-    // 尝试分割曲面
-    std::vector<Handle(Geom_BSplineSurface)> patches;
-    if (!TrySplitSurface(surface, patches)) {
-        result.success = false;
-        result.description = "无法分割曲面";
-        return result;
+    const auto candidate=RecoverAnalytic(surface,m_tolerance);
+    if(!candidate.surface.IsNull()) {
+        const auto bound=CertifyImplicitDistance(surface,candidate.surface);
+        if(bound.certified&&bound.upperBound<=m_tolerance) {
+            result.quadrics.push_back(candidate.surface);result.success=true;
+            result.description="whole surface converted with independent geometry bound; no subdivision performed";
+            return result;
+        }
     }
-    
-    // 识别可转换区域
-    std::vector<Handle(Geom_BSplineSurface)> convertibleRegions;
-    std::vector<Handle(Geom_BSplineSurface)> freeFormRegions;
-    
-    if (!IdentifyConvertibleRegions(
-        surface, convertibleRegions, freeFormRegions
-    )) {
-        result.success = false;
-        result.description = "无法识别可转换区域";
-        return result;
-    }
-    
-    // 将结果存储到SimplificationResult
-    for (const auto& region : convertibleRegions) {
-        result.quadrics.push_back(Handle(Geom_Surface)::DownCast(region));
-    }
-    
-    for (const auto& region : freeFormRegions) {
-        result.freeForms.push_back(Handle(Geom_Surface)::DownCast(region));
-    }
-    
-    result.success = !result.quadrics.empty();
-    result.description = "已将曲面分割为 " + 
-                         std::to_string(result.quadrics.size()) + " 个二次曲面区域和 " +
-                         std::to_string(result.freeForms.size()) + " 个自由曲面区域";
-    
+    result.freeForms.push_back(surface);
+    result.description="no certified analytic conversion; original freeform retained; subdivision is not implemented";
     return result;
 }
 
@@ -228,23 +208,10 @@ bool ExceptionHandler::IsDegenerate(
 bool ExceptionHandler::IsNonQuadric(
     const Handle(Geom_BSplineSurface)& surface
 ) const {
-    // 简单判断：度数过高可能是非二次曲面
-    int degreeU = surface->UDegree();
-    int degreeV = surface->VDegree();
-    
-    if (degreeU > 2 || degreeV > 2) {
-        return true;
-    }
-    
-    // 检查控制点数量：如果控制点很多，可能是复杂曲面
-    int numPolesU = surface->NbUPoles();
-    int numPolesV = surface->NbVPoles();
-    
-    if (numPolesU > 20 || numPolesV > 20) {
-        return true;
-    }
-    
-    return false;
+    const auto candidate=RecoverAnalytic(surface,m_tolerance);
+    if(candidate.surface.IsNull()) return true;
+    const auto bound=CertifyImplicitDistance(surface,candidate.surface);
+    return !bound.certified||bound.upperBound>m_tolerance;
 }
 
 // 检查控制点是否有效

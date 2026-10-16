@@ -1,0 +1,6 @@
+.git
+build*
+evidence
+delivery
+data/generated
+.DS_Store

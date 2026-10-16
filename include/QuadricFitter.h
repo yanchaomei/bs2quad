@@ -66,7 +66,10 @@ public:
      * @brief 设置容差
      * @param tolerance 新的容差值
      */
-    void SetTolerance(double tolerance) { m_tolerance = tolerance; }
+    void SetTolerance(double tolerance) {
+        if(!std::isfinite(tolerance)||tolerance<=0) throw std::invalid_argument("tolerance must be finite and positive");
+        m_tolerance=tolerance;
+    }
     
     /**
      * @brief 获取容差

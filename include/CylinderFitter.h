@@ -44,7 +44,7 @@ public:
     ) override;
     
     /**
-     * @brief 从采样点拟合圆柱面
+     * @brief 仅拟合所给有限点，以最大点残差验收；不证明点间连续曲面。拟合圆柱面
      * @param points 采样点数组
      * @param quadricSurface 输出：拟合得到的圆柱面
      * @return 是否成功拟合
@@ -71,42 +71,6 @@ public:
      * @return 圆柱半径
      */
     double GetRadius() const { return m_cylinder.Radius(); }
-
-private:
-    /**
-     * @brief 估计圆柱轴线方向（使用PCA）
-     * @param points 采样点数组
-     * @param axis 输出：估计的轴线
-     */
-    void EstimateAxisDirection(const std::vector<gp_Pnt>& points, gp_Ax1& axis);
-    
-    /**
-     * @brief 优化圆柱参数（使用最小二乘法）
-     * @param points 采样点数组
-     * @param axis 输入输出：圆柱轴线
-     * @param radius 输入输出：圆柱半径
-     */
-    void OptimizeParameters(
-        const std::vector<gp_Pnt>& points,
-        gp_Ax1& axis,
-        double& radius
-    );
-    
-    /**
-     * @brief 计算点到轴线的距离
-     * @param point 点
-     * @param axis 轴线
-     * @return 距离值
-     */
-    double DistanceToAxis(const gp_Pnt& point, const gp_Ax1& axis) const;
-    
-    /**
-     * @brief 计算点在轴线上的投影
-     * @param point 点
-     * @param axis 轴线
-     * @return 投影点
-     */
-    gp_Pnt ProjectToAxis(const gp_Pnt& point, const gp_Ax1& axis) const;
 
 private:
     gp_Cylinder m_cylinder;  ///< 拟合得到的圆柱参数

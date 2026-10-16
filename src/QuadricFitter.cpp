@@ -14,9 +14,10 @@ namespace BS2Quad {
 // 构造函数
 QuadricFitter::QuadricFitter(double tolerance)
     : m_tolerance(tolerance)
-    , m_fittingError(0.0)
+    , m_fittingError(std::numeric_limits<double>::infinity())
     , m_optimize(true)
 {
+    SetTolerance(tolerance);
 }
 
 // 析构函数
@@ -30,6 +31,7 @@ void QuadricFitter::SampleSurface(
     int samplesU,
     int samplesV
 ) const {
+    points.clear();
     if (surface.IsNull()) {
         return;
     }
@@ -66,7 +68,7 @@ double QuadricFitter::ComputeRMSError(
     const Handle(Geom_Surface)& surface
 ) const {
     if (points.empty() || surface.IsNull()) {
-        return 0.0;
+        return std::numeric_limits<double>::infinity();
     }
     
     double sumSquaredError = 0.0;
@@ -82,10 +84,9 @@ double QuadricFitter::ComputeRMSError(
                 double distance = projector.LowerDistance();
                 sumSquaredError += distance * distance;
                 validPoints++;
-            }
+            } else return std::numeric_limits<double>::infinity();
         } catch (...) {
-            // 忽略投影失败的点
-            continue;
+            return std::numeric_limits<double>::infinity();
         }
     }
     
@@ -94,7 +95,7 @@ double QuadricFitter::ComputeRMSError(
         return std::sqrt(sumSquaredError / validPoints);
     }
     
-    return 0.0;
+    return std::numeric_limits<double>::infinity();
 }
 
 // 计算两点之间的距离

@@ -44,7 +44,7 @@ public:
     ) override;
     
     /**
-     * @brief 从采样点拟合平面
+     * @brief 仅拟合所给有限点，以最大点残差验收；不证明点间连续曲面。拟合平面
      * @param points 采样点数组
      * @param quadricSurface 输出：拟合得到的平面
      * @return 是否成功拟合
@@ -71,45 +71,6 @@ public:
      * @return 平面位置
      */
     gp_Pnt GetLocation() const { return m_plane.Location(); }
-
-private:
-    /**
-     * @brief 使用SVD分解拟合平面
-     * @param points 采样点数组
-     * @param normal 输出：平面法向量
-     * @param location 输出：平面上一点
-     */
-    void FitPlaneUsingSVD(
-        const std::vector<gp_Pnt>& points,
-        gp_Dir& normal,
-        gp_Pnt& location
-    );
-    
-    /**
-     * @brief 计算点的质心
-     * @param points 采样点数组
-     * @return 质心
-     */
-    gp_Pnt ComputeCentroid(const std::vector<gp_Pnt>& points) const;
-    
-    /**
-     * @brief 验证平面度
-     * @param points 采样点数组
-     * @param plane 平面
-     * @return 平面度误差（最大偏差）
-     */
-    double ValidatePlanarity(
-        const std::vector<gp_Pnt>& points,
-        const gp_Pln& plane
-    ) const;
-    
-    /**
-     * @brief 计算点到平面的距离
-     * @param point 点
-     * @param plane 平面
-     * @return 距离（带符号）
-     */
-    double DistanceToPlane(const gp_Pnt& point, const gp_Pln& plane) const;
 
 private:
     gp_Pln m_plane;  ///< 拟合得到的平面参数

@@ -12,6 +12,8 @@
 #include <vector>
 #include <memory>
 #include <cmath>
+#include <limits>
+#include <stdexcept>
 
 // OpenCASCADE核心头文件
 #include <Standard_TypeDef.hxx>
@@ -72,7 +74,7 @@ inline std::string ErrorTypeToString(ErrorType type) {
         case ErrorType::DATA_CORRUPT: return "Data Corrupt";
         case ErrorType::OUT_OF_RANGE: return "Out of Range";
         case ErrorType::NON_QUADRIC: return "Non-Quadric Surface";
-        case ErrorType::HIGH_ERROR: return "High Error";
+        case ErrorType::HIGH_ERROR: return "HIGH_ERROR";
         case ErrorType::DEGENERATE_SURFACE: return "Degenerate Surface";
         default: return "Unknown Error";
     }
@@ -143,16 +145,27 @@ struct AccuracyResult {
     double hausdorffDistance;         ///< Hausdorff距离（边界）（mm）
     double g1ContinuityError;         ///< G1连续性误差（度）
     bool meetsRequirements;           ///< 是否满足精度要求
+    bool validationComplete = false;  ///< 所请求检查是否完整运行；失败不能解释为零误差
+    bool surfaceChecked = false;
+    bool boundaryChecked = false;
+    bool normalChecked = false;       ///< 原面到转换面法向保持，区别于相邻面 G1
+    bool adjacencyChecked = false;
+    bool maxDistanceCertified = false; ///< 是否具有独立全参数域上界
+    double certifiedMaxDistance = std::numeric_limits<double>::infinity();
+    double normalDeviationDegrees = std::numeric_limits<double>::infinity();
+    size_t sampleCount = 0;
+    size_t failedSampleCount = 0;
+    std::string message;
     
     /**
      * @brief 构造函数
      */
     AccuracyResult()
-        : maxDistance(0.0),
-          avgDistance(0.0),
-          rmsDistance(0.0),
-          hausdorffDistance(0.0),
-          g1ContinuityError(0.0),
+        : maxDistance(std::numeric_limits<double>::infinity()),
+          avgDistance(std::numeric_limits<double>::infinity()),
+          rmsDistance(std::numeric_limits<double>::infinity()),
+          hausdorffDistance(std::numeric_limits<double>::infinity()),
+          g1ContinuityError(std::numeric_limits<double>::infinity()),
           meetsRequirements(false) {}
 };
 
@@ -160,6 +173,10 @@ struct AccuracyResult {
  * @brief 性能对比结果
  */
 struct PerformanceResult {
+    bool projectionComplete = false;
+    bool intersectionComplete = false;
+    bool booleanComplete = false;
+    std::string message;
     double nurbsProjectionTime;       ///< NURBS投影运算时间（ms）
     double quadricProjectionTime;     ///< 二次曲面投影运算时间（ms）
     double nurbsIntersectionTime;     ///< NURBS求交运算时间（ms）
@@ -171,36 +188,36 @@ struct PerformanceResult {
      * @brief 计算投影性能提升
      */
     double GetProjectionSpeedup() const {
-        return (nurbsProjectionTime > 0.0) ? 
-               (nurbsProjectionTime - quadricProjectionTime) / nurbsProjectionTime : 0.0;
+        return (projectionComplete && std::isfinite(nurbsProjectionTime) && std::isfinite(quadricProjectionTime) && nurbsProjectionTime>0 && quadricProjectionTime>0) ?
+            (nurbsProjectionTime-quadricProjectionTime)/nurbsProjectionTime : std::numeric_limits<double>::quiet_NaN();
     }
     
     /**
      * @brief 计算求交性能提升
      */
     double GetIntersectionSpeedup() const {
-        return (nurbsIntersectionTime > 0.0) ?
-               (nurbsIntersectionTime - quadricIntersectionTime) / nurbsIntersectionTime : 0.0;
+        return (intersectionComplete && std::isfinite(nurbsIntersectionTime) && std::isfinite(quadricIntersectionTime) && nurbsIntersectionTime>0 && quadricIntersectionTime>0) ?
+            (nurbsIntersectionTime-quadricIntersectionTime)/nurbsIntersectionTime : std::numeric_limits<double>::quiet_NaN();
     }
     
     /**
      * @brief 计算布尔运算性能提升
      */
     double GetBooleanSpeedup() const {
-        return (nurbsBooleanTime > 0.0) ?
-               (nurbsBooleanTime - quadricBooleanTime) / nurbsBooleanTime : 0.0;
+        return (booleanComplete && std::isfinite(nurbsBooleanTime) && std::isfinite(quadricBooleanTime) && nurbsBooleanTime>0 && quadricBooleanTime>0) ?
+            (nurbsBooleanTime-quadricBooleanTime)/nurbsBooleanTime : std::numeric_limits<double>::quiet_NaN();
     }
     
     /**
      * @brief 构造函数
      */
     PerformanceResult()
-        : nurbsProjectionTime(0.0),
-          quadricProjectionTime(0.0),
-          nurbsIntersectionTime(0.0),
-          quadricIntersectionTime(0.0),
-          nurbsBooleanTime(0.0),
-          quadricBooleanTime(0.0) {}
+        : nurbsProjectionTime(std::numeric_limits<double>::infinity()),
+          quadricProjectionTime(std::numeric_limits<double>::infinity()),
+          nurbsIntersectionTime(std::numeric_limits<double>::infinity()),
+          quadricIntersectionTime(std::numeric_limits<double>::infinity()),
+          nurbsBooleanTime(std::numeric_limits<double>::infinity()),
+          quadricBooleanTime(std::numeric_limits<double>::infinity()) {}
 };
 
 } // namespace BS2Quad

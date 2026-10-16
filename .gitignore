@@ -1,0 +1,51 @@
+# 构建目录
+build/
+cmake-build-*/
+bin/
+lib/
+*.app
+
+# IDE文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 编译产物
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+
+# 测试数据
+data/generated/
+data/temp/
+
+# 文档生成
+docs/html/
+docs/latex/
+
+# 日志文件
+*.log
+
+# CMake缓存
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# 性能分析文件
+*.prof
+*.out
+callgrind.*
+
+
+# 保存可复核的测试与失败日志
+!evidence/**/*.log
+
+# 本地文档渲染中间文件
+tmp/

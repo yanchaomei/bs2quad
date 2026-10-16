@@ -44,7 +44,7 @@ public:
     ) override;
     
     /**
-     * @brief 从采样点拟合圆锥面
+     * @brief 仅拟合所给有限点，以最大点残差验收；不证明点间连续曲面。拟合圆锥面
      * @param points 采样点数组
      * @param quadricSurface 输出：拟合得到的圆锥面
      * @return 是否成功拟合
@@ -77,61 +77,6 @@ public:
      * @return 圆锥顶点
      */
     gp_Pnt GetApex() const { return m_cone.Apex(); }
-
-private:
-    /**
-     * @brief 估计圆锥轴线和顶点
-     * @param points 采样点数组
-     * @param axis 输出：估计的轴线
-     * @param apex 输出：估计的顶点
-     */
-    void EstimateAxisAndApex(
-        const std::vector<gp_Pnt>& points,
-        gp_Ax1& axis,
-        gp_Pnt& apex
-    );
-    
-    /**
-     * @brief 估计半锥角
-     * @param points 采样点数组
-     * @param axis 圆锥轴线
-     * @param apex 圆锥顶点
-     * @return 半锥角（弧度）
-     */
-    double EstimateSemiAngle(
-        const std::vector<gp_Pnt>& points,
-        const gp_Ax1& axis,
-        const gp_Pnt& apex
-    );
-    
-    /**
-     * @brief 优化圆锥参数
-     * @param points 采样点数组
-     * @param axis 输入输出：圆锥轴线
-     * @param apex 输入输出：圆锥顶点
-     * @param semiAngle 输入输出：半锥角
-     */
-    void OptimizeParameters(
-        const std::vector<gp_Pnt>& points,
-        gp_Ax1& axis,
-        gp_Pnt& apex,
-        double& semiAngle
-    );
-    
-    /**
-     * @brief 计算点到圆锥面的距离
-     * @param point 点
-     * @param axis 圆锥轴线
-     * @param apex 圆锥顶点
-     * @param semiAngle 半锥角
-     * @return 距离值
-     */
-    double DistanceToCone(
-        const gp_Pnt& point,
-        const gp_Ax1& axis,
-        const gp_Pnt& apex,
-        double semiAngle
-    ) const;
 
 private:
     gp_Cone m_cone;  ///< 拟合得到的圆锥参数

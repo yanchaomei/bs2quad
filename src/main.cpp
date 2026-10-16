@@ -1,213 +1,138 @@
-/**
- * @file main.cpp
- * @brief BS2Quad主程序
- * @author BS2Quad Team
- * @date 2025-11-21
- */
-
+#include "CheckedOutput.h"
 #include "BS2QuadCore.h"
 #include "TestDataGenerator.h"
-#include <iostream>
+#include <BRepTools.hxx>
+#include <BRep_Builder.hxx>
+#include <BRepCheck_Analyzer.hxx>
+#include <BRep_Tool.hxx>
+#include <STEPControl_Reader.hxx>
+#include <STEPControl_Writer.hxx>
+#include <TopExp_Explorer.hxx>
+#include <TopoDS.hxx>
+#include <fstream>
+#include <filesystem>
 #include <iomanip>
-#include <string>
-#include <vector>
+#include <iostream>
+#include <limits>
 
 using namespace BS2Quad;
-
-/**
- * @brief 打印欢迎信息
- */
-void PrintWelcome() {
-    std::cout << "================================================\n";
-    std::cout << "    BS2Quad - 样条面到二次曲面智能转换系统   \n";
-    std::cout << "    版本: " << BS2QuadCore::GetVersion() << "\n";
-    std::cout << "================================================\n\n";
+namespace {
+void Usage() {
+    std::cout<<"BS2Quad "<<BS2QuadCore::GetVersion()<<" (OpenCASCADE; SGK 1.7 not integrated)\n"
+      <<"  --demo [--tolerance 1e-5] [--perf]\n"
+      <<"  --generate N [--output-dir data/generated] [--seed 42]\n"
+      <<"  --input face.step|face.brep --output converted.step|converted.brep [--report result.json]\n"
+      <<"File conversion accepts exactly one trimmed NURBS face. Multi-face model replacement requires explicit neighbor context.\n";
 }
-
-/**
- * @brief 打印使用帮助
- */
-void PrintUsage() {
-    std::cout << "用法:\n";
-    std::cout << "  bs2quad_main [选项]\n\n";
-    std::cout << "选项:\n";
-    std::cout << "  -h, --help            显示帮助信息\n";
-    std::cout << "  -g, --generate <n>    生成n个测试曲面\n";
-    std::cout << "  -t, --tolerance <d>   设置误差容差（默认：1e-5mm）\n";
-    std::cout << "  -d, --demo            运行演示程序\n";
-    std::cout << "  -p, --perf            启用性能测试\n";
-    std::cout << "\n";
-}
-
-/**
- * @brief 打印转换结果
- */
-void PrintConversionResult(const ConversionResult& result, int index = 0) {
-    std::cout << "\n--- 转换结果";
-    if (index > 0) {
-        std::cout << " #" << index;
+std::string Quote(const std::string& text) {
+    std::string out="\"";
+    for(unsigned char c:text) {
+        if(c=='"'||c=='\\') {out+='\\';out+=static_cast<char>(c);}
+        else if(c=='\n') out+="\\n";
+        else if(c=='\r') out+="\\r";
+        else if(c=='\t') out+="\\t";
+        else if(c<32) out+='?';
+        else out+=static_cast<char>(c);
     }
-    std::cout << " ---\n";
-    
-    std::cout << "成功: " << (result.success ? "是" : "否") << "\n";
-    std::cout << "类型: " << QuadricTypeToString(result.quadricType) << "\n";
-    std::cout << "耗时: " << std::fixed << std::setprecision(3) 
-              << result.conversionTime << " ms\n";
-    
-    if (result.success) {
-        const auto& acc = result.accuracyResult;
-        std::cout << "\n精度信息:\n";
-        std::cout << "  最大距离误差: " << std::scientific << std::setprecision(3)
-                  << acc.maxDistance << " mm\n";
-        std::cout << "  平均距离误差: " << acc.avgDistance << " mm\n";
-        std::cout << "  RMS距离误差: " << acc.rmsDistance << " mm\n";
-        std::cout << "  满足精度要求: " << (acc.meetsRequirements ? "是" : "否") << "\n";
-        
-        if (result.performanceResult.nurbsProjectionTime > 0) {
-            const auto& perf = result.performanceResult;
-            std::cout << "\n性能信息:\n";
-            std::cout << "  投影运算加速: " 
-                      << std::fixed << std::setprecision(1)
-                      << perf.GetProjectionSpeedup() * 100 << "%\n";
-            std::cout << "  求交运算加速: " 
-                      << perf.GetIntersectionSpeedup() * 100 << "%\n";
+    return out+'"';
+}
+void Number(std::ostream& out,double value) {if(std::isfinite(value)) out<<std::setprecision(17)<<value;else out<<"null";}
+void Report(std::ostream& out,const ConversionResult& r) {
+    out<<"{\"backend\":\"OpenCASCADE\",\"sgk_1_7_verified\":false,\"success\":"<<(r.success?"true":"false")
+       <<",\"type\":"<<Quote(QuadricTypeToString(r.quadricType))<<",\"error\":"<<Quote(ErrorTypeToString(r.error))
+       <<",\"message\":"<<Quote(r.message)<<",\"decision_ms\":";Number(out,r.decisionTime);
+    out<<",\"conversion_ms\":";Number(out,r.conversionTime);
+    out<<",\"directed_support_bound_mm\":";Number(out,r.accuracyResult.certifiedMaxDistance);
+    out<<",\"sampled_max_mm\":";Number(out,r.accuracyResult.maxDistance);
+    out<<",\"sampled_boundary_hausdorff_mm\":";Number(out,r.accuracyResult.hausdorffDistance);
+    out<<",\"normal_deviation_degrees\":";Number(out,r.accuracyResult.normalDeviationDegrees);
+    out<<",\"adjacency_checked\":"<<(r.accuracyResult.adjacencyChecked?"true":"false")<<"}\n";
+}
+int Integer(const std::string& text,int lo,int hi) {
+    if(text.empty()||text.find_first_not_of("0123456789")!=std::string::npos) throw std::invalid_argument("expected a nonnegative integer: "+text);
+    std::size_t end=0;const auto value=std::stoll(text,&end);
+    if(end!=text.size()||value<lo||value>hi) throw std::invalid_argument("integer outside allowed range: "+text);
+    return static_cast<int>(value);
+}
+TopoDS_Face ReadFace(const std::string& filename) {
+    if(!std::filesystem::is_regular_file(filename)) throw std::runtime_error("INPUT_READ_FAILED: file does not exist: "+filename);
+    TopoDS_Shape shape;
+    const auto extension=std::filesystem::path(filename).extension().string();
+    if(extension==".brep") {
+        BRep_Builder builder;
+        if(!BRepTools::Read(shape,filename.c_str(),builder)) throw std::runtime_error("INPUT_CORRUPT: failed to parse BRep: "+filename);
+    } else if(extension==".step"||extension==".stp") {
+        STEPControl_Reader reader;
+        if(reader.ReadFile(filename.c_str())!=IFSelect_RetDone||reader.TransferRoots()<1) throw std::runtime_error("INPUT_CORRUPT: failed to parse STEP: "+filename);
+        shape=reader.OneShape();
+    } else throw std::invalid_argument("unsupported input extension (use .step, .stp or .brep)");
+    if(shape.IsNull()||!BRepCheck_Analyzer(shape).IsValid()) throw std::runtime_error("INPUT_CORRUPT: invalid topology: "+filename);
+    TopoDS_Face face;int count=0;
+    for(TopExp_Explorer e(shape,TopAbs_FACE);e.More();e.Next()) {face=TopoDS::Face(e.Current());++count;}
+    if(count!=1) throw std::runtime_error("INPUT_SCOPE: expected exactly one face; received "+std::to_string(count));
+    return face;
+}
+void WriteFace(const TopoDS_Face& face,const std::string& filename) {
+    const auto extension=std::filesystem::path(filename).extension().string();
+    if(extension==".brep") {
+        if(!BRepTools::Write(face,filename.c_str())) throw std::runtime_error("OUTPUT_WRITE_FAILED: "+filename);
+    } else if(extension==".step"||extension==".stp") {
+        STEPControl_Writer writer;
+        if(writer.Transfer(face,STEPControl_AsIs)!=IFSelect_RetDone||writer.Write(filename.c_str())!=IFSelect_RetDone) throw std::runtime_error("OUTPUT_WRITE_FAILED: "+filename);
+    } else throw std::invalid_argument("unsupported output extension (use .step, .stp or .brep)");
+}
+}
+int main(int argc,char** argv) {
+    try {
+        bool demo=argc==1,perf=false;int generate=0,seed=42;double tolerance=1e-5;
+        std::string input,output,report,directory="data/generated";
+        for(int i=1;i<argc;++i) {
+            const std::string arg=argv[i];
+            const auto value=[&]() {if(i+1>=argc) throw std::invalid_argument("missing value for "+arg);return std::string(argv[++i]);};
+            if(arg=="--help"||arg=="-h") {Usage();return 0;}
+            else if(arg=="--demo"||arg=="-d") demo=true;
+            else if(arg=="--perf"||arg=="-p") perf=true;
+            else if(arg=="--generate"||arg=="-g") generate=Integer(value(),1,100000);
+            else if(arg=="--seed") seed=Integer(value(),0,std::numeric_limits<int>::max());
+            else if(arg=="--tolerance"||arg=="-t") {
+                const auto text=value();std::size_t end=0;tolerance=std::stod(text,&end);
+                if(end!=text.size()||!std::isfinite(tolerance)||tolerance<=0) throw std::invalid_argument("tolerance must be finite and positive (mm)");
+            } else if(arg=="--input") input=value();
+            else if(arg=="--output") output=value();
+            else if(arg=="--report") report=value();
+            else if(arg=="--output-dir") directory=value();
+            else throw std::invalid_argument("unknown option: "+arg);
         }
-    }
-    
-    std::cout << "\n信息: " << result.message << "\n";
-    std::cout << "-------------------\n";
-}
-
-/**
- * @brief 运行演示程序
- */
-void RunDemo(double tolerance, bool enablePerf) {
-    std::cout << "运行演示程序...\n\n";
-    
-    // 创建转换引擎
-    BS2QuadCore core(tolerance);
-    core.SetEnablePerformanceTest(enablePerf);
-    
-    // 创建测试数据生成器
-    TestDataGenerator generator;
-    
-    // 生成各种类型的测试曲面
-    std::cout << "生成测试曲面...\n";
-    
-    std::vector<Handle(Geom_BSplineSurface)> testSurfaces;
-    
-    // 1. 圆柱面
-    testSurfaces.push_back(generator.GenerateCylinderSurface(5.0, 10.0, 10, 10));
-    std::cout << "✓ 生成圆柱面\n";
-    
-    // 2. 球面
-    testSurfaces.push_back(generator.GenerateSphereSurface(5.0, 10, 10));
-    std::cout << "✓ 生成球面\n";
-    
-    // 3. 平面
-    testSurfaces.push_back(generator.GeneratePlaneSurface(10.0, 10.0, 5, 5));
-    std::cout << "✓ 生成平面\n";
-    
-    // 4. 圆锥面
-    testSurfaces.push_back(generator.GenerateConeSurface(5.0, 1.0, 10.0, 10, 10));
-    std::cout << "✓ 生成圆锥面\n";
-    
-    // 5. 带噪声的圆柱面
-    auto noisyCylinder = generator.GenerateCylinderSurface(5.0, 10.0, 10, 10);
-    noisyCylinder = generator.AddNoiseToSurface(noisyCylinder, 1e-4);
-    testSurfaces.push_back(noisyCylinder);
-    std::cout << "✓ 生成带噪声的圆柱面\n";
-    
-    std::cout << "\n开始转换测试...\n";
-    
-    // 转换所有曲面
-    std::vector<std::string> surfaceNames = {
-        "标准圆柱面", "标准球面", "标准平面", "标准圆锥面", "带噪声圆柱面"
-    };
-    
-    int successCount = 0;
-    for (size_t i = 0; i < testSurfaces.size(); ++i) {
-        std::cout << "\n[" << (i+1) << "/" << testSurfaces.size() << "] "
-                  << "转换 " << surfaceNames[i] << "...\n";
-        
-        ConversionResult result = core.Convert(testSurfaces[i]);
-        PrintConversionResult(result);
-        
-        if (result.success) {
-            successCount++;
+        if(static_cast<int>(demo)+(generate>0)+!input.empty()!=1) throw std::invalid_argument("choose exactly one of --demo, --generate, --input");
+        TestDataGenerator generator;generator.SetRandomSeed(static_cast<unsigned>(seed));
+        if(generate>0) {
+            const auto sources=generator.GenerateBatchTestData(generate,directory);
+            std::cout<<"generated="<<sources.size()<<"; directory="<<directory<<"; seed="<<seed<<"\n";return 0;
         }
-    }
-    
-    std::cout << "\n" << core.GetStatistics();
-    
-    std::cout << "\n演示完成! 成功率: " 
-              << (successCount * 100 / testSurfaces.size()) << "%\n";
-}
-
-/**
- * @brief 生成批量测试数据
- */
-void GenerateTestData(int count) {
-    std::cout << "生成 " << count << " 个测试曲面...\n";
-    
-    TestDataGenerator generator;
-    generator.SetRandomSeed(42);
-    
-    std::string outputDir = "data/generated";
-    std::vector<Handle(Geom_BSplineSurface)> surfaces = 
-        generator.GenerateBatchTestData(count, outputDir);
-    
-    std::cout << "成功生成 " << surfaces.size() << " 个测试曲面\n";
-    std::cout << "输出目录: " << outputDir << "\n";
-}
-
-/**
- * @brief 主函数
- */
-int main(int argc, char* argv[]) {
-    PrintWelcome();
-    
-    // 默认参数
-    double tolerance = Precision::DEFAULT_TOLERANCE;
-    bool runDemo = false;
-    bool enablePerf = false;
-    int generateCount = 0;
-    
-    // 解析命令行参数
-    for (int i = 1; i < argc; ++i) {
-        std::string arg = argv[i];
-        
-        if (arg == "-h" || arg == "--help") {
-            PrintUsage();
-            return 0;
-        } else if (arg == "-d" || arg == "--demo") {
-            runDemo = true;
-        } else if (arg == "-p" || arg == "--perf") {
-            enablePerf = true;
-        } else if (arg == "-t" || arg == "--tolerance") {
-            if (i + 1 < argc) {
-                tolerance = std::stod(argv[++i]);
-            }
-        } else if (arg == "-g" || arg == "--generate") {
-            if (i + 1 < argc) {
-                generateCount = std::stoi(argv[++i]);
-            }
+        BS2QuadCore core(tolerance);core.SetEnablePerformanceTest(perf);
+        if(!input.empty()) {
+            if(output.empty()) throw std::invalid_argument("--input requires --output");
+            const auto sameFile=[](const std::string& a,const std::string& b) {
+                return std::filesystem::weakly_canonical(std::filesystem::absolute(a))==std::filesystem::weakly_canonical(std::filesystem::absolute(b))||
+                    (std::filesystem::exists(a)&&std::filesystem::exists(b)&&std::filesystem::equivalent(a,b));
+            };
+            if(sameFile(input,output)||(!report.empty()&&(sameFile(input,report)||sameFile(output,report))))
+                throw std::invalid_argument("input, output and report must refer to distinct files");
+            const auto face=ReadFace(input);
+            const auto result=core.Convert(face);
+            if(result.success) WriteFace(result.quadricFace,output);
+            Report(std::cout,result);
+            if(!report.empty()) {std::ofstream file(report);if(!file) throw std::runtime_error("cannot open report: "+report);Report(file,result);FinishOutput(file,report);}
+            return result.success?0:1;
         }
-    }
-    
-    // 执行相应操作
-    if (generateCount > 0) {
-        GenerateTestData(generateCount);
-    } else if (runDemo) {
-        RunDemo(tolerance, enablePerf);
-    } else {
-        // 默认运行简单演示
-        std::cout << "使用 -h 或 --help 查看帮助信息\n";
-        std::cout << "使用 -d 或 --demo 运行演示程序\n\n";
-        
-        RunDemo(tolerance, false);
-    }
-    
-    return 0;
+        const std::vector<Handle(Geom_BSplineSurface)> sources={
+            generator.GeneratePlaneSurface(8,9,10,10),generator.GenerateCylinderSurface(5,12,10,10),
+            generator.GenerateConeSurface(5,2,12,10,10),generator.GenerateSphereSurface(5,10,10),
+            generator.GenerateTorusSurface(8,2,10,10),generator.GenerateFreeFormSurface(10,10)};
+        bool valid=true;
+        for(std::size_t i=0;i<sources.size();++i) {const auto result=core.Convert(sources[i]);Report(std::cout,result);valid&=result.success==(i<5);}
+        std::cout<<core.GetStatistics();return valid?0:1;
+    } catch(const Standard_Failure& failure) {
+        std::cerr<<"KERNEL_FAILURE: "<<(failure.GetMessageString()?failure.GetMessageString():"OCCT exception")<<"\n";return 2;
+    } catch(const std::exception& failure) {std::cerr<<"ERROR: "<<failure.what()<<"\n";return 2;}
 }
-

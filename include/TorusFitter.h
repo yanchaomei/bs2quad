@@ -44,7 +44,7 @@ public:
     ) override;
     
     /**
-     * @brief 从采样点拟合圆环面
+     * @brief 仅拟合所给有限点，以最大点残差验收；不证明点间连续曲面。拟合圆环面
      * @param points 采样点数组
      * @param quadricSurface 输出：拟合得到的圆环面
      * @return 是否成功拟合
@@ -77,57 +77,6 @@ public:
      * @return 圆环轴线
      */
     gp_Ax1 GetAxis() const { return m_torus.Axis(); }
-
-private:
-    /**
-     * @brief 估计圆环轴线
-     * @param points 采样点数组
-     * @param axis 输出：估计的轴线
-     */
-    void EstimateAxis(const std::vector<gp_Pnt>& points, gp_Ax1& axis);
-    
-    /**
-     * @brief 估计主半径和副半径
-     * @param points 采样点数组
-     * @param axis 圆环轴线
-     * @param majorRadius 输出：主半径
-     * @param minorRadius 输出：副半径
-     */
-    void EstimateRadii(
-        const std::vector<gp_Pnt>& points,
-        const gp_Ax1& axis,
-        double& majorRadius,
-        double& minorRadius
-    );
-    
-    /**
-     * @brief 优化圆环参数
-     * @param points 采样点数组
-     * @param axis 输入输出：圆环轴线
-     * @param majorRadius 输入输出：主半径
-     * @param minorRadius 输入输出：副半径
-     */
-    void OptimizeParameters(
-        const std::vector<gp_Pnt>& points,
-        gp_Ax1& axis,
-        double& majorRadius,
-        double& minorRadius
-    );
-    
-    /**
-     * @brief 计算点到圆环面的距离
-     * @param point 点
-     * @param axis 圆环轴线
-     * @param majorRadius 主半径
-     * @param minorRadius 副半径
-     * @return 距离值
-     */
-    double DistanceToTorus(
-        const gp_Pnt& point,
-        const gp_Ax1& axis,
-        double majorRadius,
-        double minorRadius
-    ) const;
 
 private:
     gp_Torus m_torus;  ///< 拟合得到的圆环参数

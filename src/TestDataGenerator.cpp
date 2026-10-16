@@ -16,331 +16,116 @@
 #include <STEPControl_Reader.hxx>
 #include <BRepBuilderAPI_MakeFace.hxx>
 #include <TopoDS_Face.hxx>
+#include <TopoDS.hxx>
+#include <TopExp_Explorer.hxx>
+#include <BRep_Tool.hxx>
 #include <cmath>
+#include <GeomConvert.hxx>
+#include <Geom_RectangularTrimmedSurface.hxx>
+#include <Geom_CylindricalSurface.hxx>
+#include <Geom_ConicalSurface.hxx>
+#include <Geom_SphericalSurface.hxx>
+#include <Geom_ToroidalSurface.hxx>
+#include <Geom_Plane.hxx>
+#include <filesystem>
 #include <random>
 #include <fstream>
 #include <sys/stat.h>
 
 namespace BS2Quad {
 
-// 构造函数
-TestDataGenerator::TestDataGenerator()
-    : m_randomSeed(42)
-{
-    std::srand(m_randomSeed);
+namespace {
+void ValidateGrid(int u, int v) {
+    if (u < 2 || v < 2 || u > 256 || v > 256)
+        throw std::invalid_argument("control grid must be in [2,256] per direction");
+}
+void Positive(double value, const char* name) {
+    if (!std::isfinite(value) || value <= 0.0) throw std::invalid_argument(name);
+}
+// Inserting a knot preserves the rational surface exactly. Requested counts
+// below the canonical representation minimum are raised to that minimum.
+Handle(Geom_BSplineSurface) Refine(const Handle(Geom_Surface)& analytic,
+    double u0, double u1, double v0, double v1, int nu, int nv) {
+    ValidateGrid(nu,nv);
+    auto result=GeomConvert::SurfaceToBSplineSurface(
+        new Geom_RectangularTrimmedSurface(analytic,u0,u1,v0,v1));
+    // Canonical clamped fixtures make the full-domain proof independent of a
+    // periodic seam convention. The analytic residual is checked in tests.
+    if(result->IsUPeriodic()) result->SetUNotPeriodic();
+    if(result->IsVPeriodic()) result->SetVNotPeriodic();
+    result->Segment(u0,u1,v0,v1);
+    for (int direction=0; direction<2; ++direction) {
+        const int target=direction==0?nu:nv;
+        while ((direction==0?result->NbUPoles():result->NbVPoles()) < target) {
+            const int count=direction==0?result->NbUKnots():result->NbVKnots();
+            double largest=-1.0, middle=0.0;
+            for (int i=1;i<count;++i) {
+                const double lo=direction==0?result->UKnot(i):result->VKnot(i);
+                const double hi=direction==0?result->UKnot(i+1):result->VKnot(i+1);
+                if (hi-lo>largest) { largest=hi-lo; middle=(lo+hi)*0.5; }
+            }
+            if (direction==0) result->InsertUKnot(middle,1,1e-12);
+            else result->InsertVKnot(middle,1,1e-12);
+        }
+    }
+    return result;
+}
 }
 
-// 析构函数
-TestDataGenerator::~TestDataGenerator() {
-}
+TestDataGenerator::TestDataGenerator() : m_rng(42), m_randomSeed(42) {}
+TestDataGenerator::~TestDataGenerator() = default;
 
-// 生成标准圆柱面NURBS
 Handle(Geom_BSplineSurface) TestDataGenerator::GenerateCylinderSurface(
-    double radius,
-    double height,
-    int numPointsU,
-    int numPointsV
-) {
-    // 创建控制点网格
-    TColgp_Array2OfPnt controlPoints(1, numPointsU, 1, numPointsV);
-    TColStd_Array2OfReal weights(1, numPointsU, 1, numPointsV);
-    
-    // 生成圆柱面控制点
-    for (int i = 1; i <= numPointsU; ++i) {
-        double angle = 2.0 * M_PI * (i - 1) / (numPointsU - 1);
-        double x = radius * std::cos(angle);
-        double y = radius * std::sin(angle);
-        
-        for (int j = 1; j <= numPointsV; ++j) {
-            double z = height * (j - 1) / (numPointsV - 1);
-            controlPoints.SetValue(i, j, gp_Pnt(x, y, z));
-            weights.SetValue(i, j, 1.0);
-        }
-    }
-    
-    // 生成节点向量
-    int degreeU = 2;
-    int degreeV = 1;
-    
-    TColStd_Array1OfReal uKnots = GenerateUniformKnots(numPointsU, degreeU);
-    TColStd_Array1OfReal vKnots = GenerateUniformKnots(numPointsV, degreeV);
-    
-    // 生成重复度
-    TColStd_Array1OfInteger uMults(1, uKnots.Length());
-    TColStd_Array1OfInteger vMults(1, vKnots.Length());
-    
-    for (int i = 1; i <= uKnots.Length(); ++i) {
-        uMults.SetValue(i, (i == 1 || i == uKnots.Length()) ? (degreeU + 1) : 1);
-    }
-    
-    for (int i = 1; i <= vKnots.Length(); ++i) {
-        vMults.SetValue(i, (i == 1 || i == vKnots.Length()) ? (degreeV + 1) : 1);
-    }
-    
-    // 创建B样条曲面
-    Handle(Geom_BSplineSurface) surface = new Geom_BSplineSurface(
-        controlPoints, weights, uKnots, vKnots, uMults, vMults, 
-        degreeU, degreeV
-    );
-    
-    return surface;
+    double radius,double height,int nu,int nv) {
+    Positive(radius,"radius must be finite and positive");
+    Positive(height,"height must be finite and positive");
+    return Refine(new Geom_CylindricalSurface(gp_Ax3(),radius),
+        0.0,2.0*M_PI,0.0,height,nu,nv);
 }
 
-// 生成标准圆锥面NURBS
 Handle(Geom_BSplineSurface) TestDataGenerator::GenerateConeSurface(
-    double radius1,
-    double radius2,
-    double height,
-    int numPointsU,
-    int numPointsV
-) {
-    // 创建控制点网格
-    TColgp_Array2OfPnt controlPoints(1, numPointsU, 1, numPointsV);
-    TColStd_Array2OfReal weights(1, numPointsU, 1, numPointsV);
-    
-    // 生成圆锥面控制点
-    for (int i = 1; i <= numPointsU; ++i) {
-        double angle = 2.0 * M_PI * (i - 1) / (numPointsU - 1);
-        
-        for (int j = 1; j <= numPointsV; ++j) {
-            double t = static_cast<double>(j - 1) / (numPointsV - 1);
-            double z = height * t;
-            double r = radius1 + (radius2 - radius1) * t;
-            double x = r * std::cos(angle);
-            double y = r * std::sin(angle);
-            
-            controlPoints.SetValue(i, j, gp_Pnt(x, y, z));
-            weights.SetValue(i, j, 1.0);
-        }
-    }
-    
-    // 生成节点向量
-    int degreeU = 2;
-    int degreeV = 1;
-    
-    TColStd_Array1OfReal uKnots = GenerateUniformKnots(numPointsU, degreeU);
-    TColStd_Array1OfReal vKnots = GenerateUniformKnots(numPointsV, degreeV);
-    
-    TColStd_Array1OfInteger uMults(1, uKnots.Length());
-    TColStd_Array1OfInteger vMults(1, vKnots.Length());
-    
-    for (int i = 1; i <= uKnots.Length(); ++i) {
-        uMults.SetValue(i, (i == 1 || i == uKnots.Length()) ? (degreeU + 1) : 1);
-    }
-    
-    for (int i = 1; i <= vKnots.Length(); ++i) {
-        vMults.SetValue(i, (i == 1 || i == vKnots.Length()) ? (degreeV + 1) : 1);
-    }
-    
-    // 创建B样条曲面
-    Handle(Geom_BSplineSurface) surface = new Geom_BSplineSurface(
-        controlPoints, weights, uKnots, vKnots, uMults, vMults,
-        degreeU, degreeV
-    );
-    
-    return surface;
+    double r1,double r2,double height,int nu,int nv) {
+    Positive(r1,"base radius must be finite and positive");
+    Positive(height,"height must be finite and positive");
+    if (!std::isfinite(r2)||r2<0.0) throw std::invalid_argument("top radius must be finite and nonnegative");
+    if (r1==r2) return GenerateCylinderSurface(r1,height,nu,nv);
+    const double angle=std::atan2(r2-r1,height);
+    return Refine(new Geom_ConicalSurface(gp_Ax3(),angle,r1),
+        0.0,2.0*M_PI,0.0,std::hypot(height,r2-r1),nu,nv);
 }
 
-// 生成标准球面NURBS
 Handle(Geom_BSplineSurface) TestDataGenerator::GenerateSphereSurface(
-    double radius,
-    int numPointsU,
-    int numPointsV
-) {
-    // 创建控制点网格
-    TColgp_Array2OfPnt controlPoints(1, numPointsU, 1, numPointsV);
-    TColStd_Array2OfReal weights(1, numPointsU, 1, numPointsV);
-    
-    // 生成球面控制点
-    for (int i = 1; i <= numPointsU; ++i) {
-        double phi = 2.0 * M_PI * (i - 1) / (numPointsU - 1);  // 经度
-        
-        for (int j = 1; j <= numPointsV; ++j) {
-            double theta = M_PI * (j - 1) / (numPointsV - 1);  // 纬度
-            double x = radius * std::sin(theta) * std::cos(phi);
-            double y = radius * std::sin(theta) * std::sin(phi);
-            double z = radius * std::cos(theta);
-            
-            controlPoints.SetValue(i, j, gp_Pnt(x, y, z));
-            weights.SetValue(i, j, 1.0);
-        }
-    }
-    
-    // 生成节点向量
-    int degreeU = 2;
-    int degreeV = 2;
-    
-    TColStd_Array1OfReal uKnots = GenerateUniformKnots(numPointsU, degreeU);
-    TColStd_Array1OfReal vKnots = GenerateUniformKnots(numPointsV, degreeV);
-    
-    TColStd_Array1OfInteger uMults(1, uKnots.Length());
-    TColStd_Array1OfInteger vMults(1, vKnots.Length());
-    
-    for (int i = 1; i <= uKnots.Length(); ++i) {
-        uMults.SetValue(i, (i == 1 || i == uKnots.Length()) ? (degreeU + 1) : 1);
-    }
-    
-    for (int i = 1; i <= vKnots.Length(); ++i) {
-        vMults.SetValue(i, (i == 1 || i == vKnots.Length()) ? (degreeV + 1) : 1);
-    }
-    
-    // 创建B样条曲面
-    Handle(Geom_BSplineSurface) surface = new Geom_BSplineSurface(
-        controlPoints, weights, uKnots, vKnots, uMults, vMults,
-        degreeU, degreeV
-    );
-    
-    return surface;
+    double radius,int nu,int nv) {
+    Positive(radius,"radius must be finite and positive");
+    return Refine(new Geom_SphericalSurface(gp_Ax3(),radius),
+        0.0,2.0*M_PI,-M_PI/2.0,M_PI/2.0,nu,nv);
 }
 
-// 生成标准平面NURBS
 Handle(Geom_BSplineSurface) TestDataGenerator::GeneratePlaneSurface(
-    double width,
-    double length,
-    int numPointsU,
-    int numPointsV
-) {
-    // 创建控制点网格
-    TColgp_Array2OfPnt controlPoints(1, numPointsU, 1, numPointsV);
-    TColStd_Array2OfReal weights(1, numPointsU, 1, numPointsV);
-    
-    // 生成平面控制点
-    for (int i = 1; i <= numPointsU; ++i) {
-        double x = width * (i - 1) / (numPointsU - 1);
-        
-        for (int j = 1; j <= numPointsV; ++j) {
-            double y = length * (j - 1) / (numPointsV - 1);
-            controlPoints.SetValue(i, j, gp_Pnt(x, y, 0.0));
-            weights.SetValue(i, j, 1.0);
-        }
-    }
-    
-    // 生成节点向量
-    int degreeU = 1;
-    int degreeV = 1;
-    
-    TColStd_Array1OfReal uKnots = GenerateUniformKnots(numPointsU, degreeU);
-    TColStd_Array1OfReal vKnots = GenerateUniformKnots(numPointsV, degreeV);
-    
-    TColStd_Array1OfInteger uMults(1, uKnots.Length());
-    TColStd_Array1OfInteger vMults(1, vKnots.Length());
-    
-    for (int i = 1; i <= uKnots.Length(); ++i) {
-        uMults.SetValue(i, (i == 1 || i == uKnots.Length()) ? (degreeU + 1) : 1);
-    }
-    
-    for (int i = 1; i <= vKnots.Length(); ++i) {
-        vMults.SetValue(i, (i == 1 || i == vKnots.Length()) ? (degreeV + 1) : 1);
-    }
-    
-    // 创建B样条曲面
-    Handle(Geom_BSplineSurface) surface = new Geom_BSplineSurface(
-        controlPoints, weights, uKnots, vKnots, uMults, vMults,
-        degreeU, degreeV
-    );
-    
-    return surface;
+    double width,double length,int nu,int nv) {
+    Positive(width,"width must be finite and positive");
+    Positive(length,"length must be finite and positive");
+    return Refine(new Geom_Plane(gp_Ax3()),0.0,width,0.0,length,nu,nv);
 }
 
-// 生成标准圆环面NURBS
 Handle(Geom_BSplineSurface) TestDataGenerator::GenerateTorusSurface(
-    double majorRadius,
-    double minorRadius,
-    int numPointsU,
-    int numPointsV
-) {
-    // 创建控制点网格
-    TColgp_Array2OfPnt controlPoints(1, numPointsU, 1, numPointsV);
-    TColStd_Array2OfReal weights(1, numPointsU, 1, numPointsV);
-    
-    // 生成圆环面控制点
-    for (int i = 1; i <= numPointsU; ++i) {
-        double u = 2.0 * M_PI * (i - 1) / (numPointsU - 1);
-        
-        for (int j = 1; j <= numPointsV; ++j) {
-            double v = 2.0 * M_PI * (j - 1) / (numPointsV - 1);
-            
-            double x = (majorRadius + minorRadius * std::cos(v)) * std::cos(u);
-            double y = (majorRadius + minorRadius * std::cos(v)) * std::sin(u);
-            double z = minorRadius * std::sin(v);
-            
-            controlPoints.SetValue(i, j, gp_Pnt(x, y, z));
-            weights.SetValue(i, j, 1.0);
-        }
-    }
-    
-    // 生成节点向量
-    int degreeU = 2;
-    int degreeV = 2;
-    
-    TColStd_Array1OfReal uKnots = GenerateUniformKnots(numPointsU, degreeU);
-    TColStd_Array1OfReal vKnots = GenerateUniformKnots(numPointsV, degreeV);
-    
-    TColStd_Array1OfInteger uMults(1, uKnots.Length());
-    TColStd_Array1OfInteger vMults(1, vKnots.Length());
-    
-    for (int i = 1; i <= uKnots.Length(); ++i) {
-        uMults.SetValue(i, (i == 1 || i == uKnots.Length()) ? (degreeU + 1) : 1);
-    }
-    
-    for (int i = 1; i <= vKnots.Length(); ++i) {
-        vMults.SetValue(i, (i == 1 || i == vKnots.Length()) ? (degreeV + 1) : 1);
-    }
-    
-    // 创建B样条曲面
-    Handle(Geom_BSplineSurface) surface = new Geom_BSplineSurface(
-        controlPoints, weights, uKnots, vKnots, uMults, vMults,
-        degreeU, degreeV
-    );
-    
-    return surface;
+    double majorRadius,double minorRadius,int nu,int nv) {
+    Positive(majorRadius,"major radius must be finite and positive");
+    Positive(minorRadius,"minor radius must be finite and positive");
+    if (minorRadius>=majorRadius) throw std::invalid_argument("ring torus requires major radius > minor radius");
+    return Refine(new Geom_ToroidalSurface(gp_Ax3(),majorRadius,minorRadius),
+        0.0,2.0*M_PI,0.0,2.0*M_PI,nu,nv);
 }
 
-// 生成带噪声的曲面
 Handle(Geom_BSplineSurface) TestDataGenerator::AddNoiseToSurface(
-    const Handle(Geom_BSplineSurface)& surface,
-    double noiseLevel
-) {
-    if (surface.IsNull() || noiseLevel <= 0.0) {
-        return surface;
-    }
-    
-    // 复制控制点
-    int numPolesU = surface->NbUPoles();
-    int numPolesV = surface->NbVPoles();
-    
-    TColgp_Array2OfPnt newControlPoints(1, numPolesU, 1, numPolesV);
-    TColStd_Array2OfReal newWeights(1, numPolesU, 1, numPolesV);
-    
-    // 添加噪声
-    for (int i = 1; i <= numPolesU; ++i) {
-        for (int j = 1; j <= numPolesV; ++j) {
-            gp_Pnt pole = surface->Pole(i, j);
-            gp_Vec noise = GenerateRandomNoise(noiseLevel);
-            
-            newControlPoints.SetValue(i, j, pole.Translated(noise));
-            newWeights.SetValue(i, j, surface->Weight(i, j));
-        }
-    }
-    
-    // 复制节点向量
-    TColStd_Array1OfReal uKnots(1, surface->NbUKnots());
-    TColStd_Array1OfReal vKnots(1, surface->NbVKnots());
-    TColStd_Array1OfInteger uMults(1, surface->NbUKnots());
-    TColStd_Array1OfInteger vMults(1, surface->NbVKnots());
-    
-    surface->UKnots(uKnots);
-    surface->VKnots(vKnots);
-    surface->UMultiplicities(uMults);
-    surface->VMultiplicities(vMults);
-    
-    // 创建新的B样条曲面
-    Handle(Geom_BSplineSurface) noisySurface = new Geom_BSplineSurface(
-        newControlPoints, newWeights, uKnots, vKnots, uMults, vMults,
-        surface->UDegree(), surface->VDegree()
-    );
-    
-    return noisySurface;
+    const Handle(Geom_BSplineSurface)& surface,double amplitude) {
+    if (surface.IsNull()) return {};
+    if (!std::isfinite(amplitude)||amplitude<0.0) throw std::invalid_argument("noise amplitude must be finite and nonnegative (mm)");
+    auto copy=Handle(Geom_BSplineSurface)::DownCast(surface->Copy());
+    for (int i=1;i<=copy->NbUPoles();++i)
+        for (int j=1;j<=copy->NbVPoles();++j)
+            copy->SetPole(i,j,copy->Pole(i,j).Translated(GenerateRandomNoise(amplitude)));
+    return copy;
 }
 
 // 生成复杂自由曲面（负样本）
@@ -348,6 +133,8 @@ Handle(Geom_BSplineSurface) TestDataGenerator::GenerateFreeFormSurface(
     int numPointsU,
     int numPointsV
 ) {
+    ValidateGrid(numPointsU,numPointsV);
+    if (numPointsU<4||numPointsV<4) throw std::invalid_argument("cubic freeform needs at least 4 poles per direction");
     // 创建控制点网格（随机波浪形）
     TColgp_Array2OfPnt controlPoints(1, numPointsU, 1, numPointsV);
     TColStd_Array2OfReal weights(1, numPointsU, 1, numPointsV);
@@ -400,88 +187,27 @@ std::vector<Handle(Geom_BSplineSurface)> TestDataGenerator::GenerateBatchTestDat
     int count,
     const std::string& outputDir
 ) {
+    if(count<0||count>100000) throw std::invalid_argument("batch count must be in [0,100000]");
+    std::filesystem::create_directories(outputDir);
     std::vector<Handle(Geom_BSplineSurface)> surfaces;
-    
-    // 创建输出目录
-    mkdir(outputDir.c_str(), 0755);
-    
-    int cylinderCount = count / 5;
-    int coneCount = count / 5;
-    int sphereCount = count / 5;
-    int planeCount = count / 5;
-    int freeFormCount = count - (cylinderCount + coneCount + sphereCount + planeCount);
-    
-    // 生成圆柱面
-    for (int i = 0; i < cylinderCount; ++i) {
-        double radius = 1.0 + (std::rand() % 100) / 50.0;
-        double height = 5.0 + (std::rand() % 100) / 20.0;
-        int points = 8 + std::rand() % 12;
-        
-        Handle(Geom_BSplineSurface) surf = GenerateCylinderSurface(
-            radius, height, points, points
-        );
-        surfaces.push_back(surf);
-        
-        std::string filename = outputDir + "/cylinder_" + std::to_string(i) + ".step";
-        ExportToSTEP(surf, filename);
+    surfaces.reserve(count);
+    const char* names[]={"plane","cylinder","cone","sphere","torus","freeform"};
+    for(int i=0;i<count;++i) {
+        const int u=9+static_cast<int>(m_rng()%5),v=6+static_cast<int>(m_rng()%8);
+        const double r=2.0+(m_rng()%100)*0.05,h=5.0+(m_rng()%100)*0.1;
+        Handle(Geom_BSplineSurface) surface;
+        switch(i%6) {
+        case 0:surface=GeneratePlaneSurface(2*r,h,u,v);break;
+        case 1:surface=GenerateCylinderSurface(r,h,u,v);break;
+        case 2:surface=GenerateConeSurface(r,r*0.4,h,u,v);break;
+        case 3:surface=GenerateSphereSurface(r,u,v);break;
+        case 4:surface=GenerateTorusSurface(r*2.5,r*0.35,u,v);break;
+        default:surface=GenerateFreeFormSurface(u,v);break;
+        }
+        const std::string filename=outputDir+"/"+names[i%6]+"_"+std::to_string(i)+".step";
+        if(!ExportToSTEP(surface,filename)) throw std::runtime_error("STEP export failed: "+filename);
+        surfaces.push_back(surface);
     }
-    
-    // 生成圆锥面
-    for (int i = 0; i < coneCount; ++i) {
-        double radius1 = 1.0 + (std::rand() % 100) / 50.0;
-        double radius2 = 0.1 + (std::rand() % 50) / 50.0;
-        double height = 5.0 + (std::rand() % 100) / 20.0;
-        int points = 8 + std::rand() % 12;
-        
-        Handle(Geom_BSplineSurface) surf = GenerateConeSurface(
-            radius1, radius2, height, points, points
-        );
-        surfaces.push_back(surf);
-        
-        std::string filename = outputDir + "/cone_" + std::to_string(i) + ".step";
-        ExportToSTEP(surf, filename);
-    }
-    
-    // 生成球面
-    for (int i = 0; i < sphereCount; ++i) {
-        double radius = 1.0 + (std::rand() % 100) / 50.0;
-        int points = 8 + std::rand() % 12;
-        
-        Handle(Geom_BSplineSurface) surf = GenerateSphereSurface(
-            radius, points, points
-        );
-        surfaces.push_back(surf);
-        
-        std::string filename = outputDir + "/sphere_" + std::to_string(i) + ".step";
-        ExportToSTEP(surf, filename);
-    }
-    
-    // 生成平面
-    for (int i = 0; i < planeCount; ++i) {
-        double width = 5.0 + (std::rand() % 100) / 20.0;
-        double length = 5.0 + (std::rand() % 100) / 20.0;
-        int points = 4 + std::rand() % 6;
-        
-        Handle(Geom_BSplineSurface) surf = GeneratePlaneSurface(
-            width, length, points, points
-        );
-        surfaces.push_back(surf);
-        
-        std::string filename = outputDir + "/plane_" + std::to_string(i) + ".step";
-        ExportToSTEP(surf, filename);
-    }
-    
-    // 生成自由曲面
-    for (int i = 0; i < freeFormCount; ++i) {
-        int points = 10 + std::rand() % 10;
-        
-        Handle(Geom_BSplineSurface) surf = GenerateFreeFormSurface(points, points);
-        surfaces.push_back(surf);
-        
-        std::string filename = outputDir + "/freeform_" + std::to_string(i) + ".step";
-        ExportToSTEP(surf, filename);
-    }
-    
     return surfaces;
 }
 
@@ -576,7 +302,7 @@ Handle(Geom_BSplineSurface) TestDataGenerator::ImportFromSTEP(
 // 设置随机种子
 void TestDataGenerator::SetRandomSeed(unsigned int seed) {
     m_randomSeed = seed;
-    std::srand(seed);
+    m_rng.seed(seed);
 }
 
 // 生成均匀节点向量
@@ -596,9 +322,8 @@ TColStd_Array1OfReal TestDataGenerator::GenerateUniformKnots(
 
 // 生成随机噪声
 gp_Vec TestDataGenerator::GenerateRandomNoise(double magnitude) {
-    double x = ((std::rand() % 2000) - 1000) / 1000.0 * magnitude;
-    double y = ((std::rand() % 2000) - 1000) / 1000.0 * magnitude;
-    double z = ((std::rand() % 2000) - 1000) / 1000.0 * magnitude;
+    std::uniform_real_distribution<double> distribution(-magnitude,magnitude);
+    double x=distribution(m_rng), y=distribution(m_rng), z=distribution(m_rng);
     
     return gp_Vec(x, y, z);
 }

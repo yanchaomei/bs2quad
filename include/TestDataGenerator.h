@@ -13,6 +13,10 @@
 #include <TopoDS_Face.hxx>
 #include <string>
 #include <vector>
+#include <random>
+#include <TColgp_Array2OfPnt.hxx>
+#include <TColStd_Array2OfReal.hxx>
+#include <TColStd_Array1OfReal.hxx>
 
 namespace BS2Quad {
 
@@ -134,7 +138,7 @@ public:
     /**
      * @brief 生成带噪声的曲面
      * @param surface 原始曲面
-     * @param noiseLevel 噪声级别（相对于曲面尺寸的比例）
+     * @param noiseLevel 控制点坐标噪声幅度（绝对值，mm）
      * @return 带噪声的NURBS曲面
      */
     Handle(Geom_BSplineSurface) AddNoiseToSurface(
@@ -235,6 +239,7 @@ private:
     gp_Vec GenerateRandomNoise(double magnitude);
 
 private:
+    std::mt19937 m_rng;
     unsigned int m_randomSeed;  ///< 随机种子
 };
 
