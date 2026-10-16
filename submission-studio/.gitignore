@@ -8,3 +8,4 @@ narration/*.aiff
 # 旧版媒体检查帧仅留本地；最终版本帧与绑定记录保留
 qa/video-S*.png
 qa/independent-frames/
+video/frames.ffconcat
