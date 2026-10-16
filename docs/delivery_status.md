@@ -3,6 +3,7 @@
 - 私有仓库：https://github.com/yanchaomei/bs2quad 。评审访问权限需按赛事规则由仓库所有者配置；私有链接本身不代表外部评委可读取。
 - 已验证源码提交：`a813309e5ef1e7d748713925685eb9620c00fdec`。
 - 源文件聚合 SHA-256：`d2d09dfd362b48bb46204c7ad4052468414664a050d246d8c1a1bdcf5caceefc`；逐文件定义见证据清单。
+- 评审策略与贡献：`docs/competition_strategy.md`；叙事：`docs/story.md`。
 - 方案：`docs/design.md`；完整实验：`docs/experiment_report.md`；误差分析：`docs/error_analysis.md`。
 - 六页可阅读 PDF：`output/pdf/BS2Quad_方案与实测报告_20261016.pdf`，已渲染逐页检查。
 - 原始证据：`evidence/20261016/README.md`；独立复核：`docs/reviews/`。

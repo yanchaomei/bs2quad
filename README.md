@@ -81,7 +81,7 @@ if (result.success) {
 
 [本轮交付状态](docs/delivery_status.md)；[六页方案与实测 PDF](output/pdf/BS2Quad_方案与实测报告_20261016.pdf)；[GitHub 私有仓库](https://github.com/yanchaomei/bs2quad)。
 
-- [方案设计](docs/design.md)、[项目故事](docs/story.md)、[实验报告](docs/experiment_report.md)、[误差分析](docs/error_analysis.md)、[API 与复现说明](docs/user_guide.md)。
+- [竞赛策略与评分映射](docs/competition_strategy.md)、[方案设计](docs/design.md)、[项目故事](docs/story.md)、[实验报告](docs/experiment_report.md)、[误差分析](docs/error_analysis.md)、[API 与复现说明](docs/user_guide.md)。
 - 完整原始记录随交付包提供；本次历史失败记录和未达标的 CAD 操作保留，不改写为成功。
 - SGK 1.7 的真实 SDK、初始化、对象适配、目标环境构建和同一套验收仍需完成。配置 `BS2QUAD_BACKEND=SGK` 会明确失败，工程中没有模拟 SGK 接口。
 - 证书采用充分条件，可能保守拒绝实际可接受的近圆锥等曲面；支持次数上限为 12，圆环证书限环状圆环面 `R > r > 0`。
