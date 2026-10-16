@@ -1,0 +1,16 @@
+{
+  "tools": [
+    {
+      "path": "tools/package_audit.py",
+      "source": "competition-submission-studio/scripts/package_audit.py",
+      "sha256": "31f7b2b21f7161ebe21ef32e1f54edde839a1266d5a628442c18b547b57ebddd",
+      "modified": false
+    },
+    {
+      "path": "tools/check_narration.py",
+      "source": "competition-submission-studio/scripts/check_narration.py",
+      "sha256": "91f8e8ab3b91290e383a3fee6501cc9ecef74a9a5964e42db75f8cd409486561",
+      "modified": false
+    }
+  ]
+}

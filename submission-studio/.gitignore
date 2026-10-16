@@ -1,0 +1,10 @@
+# 可重复生成的页面/编码中间文件；成品、源文本及原始证据保留
+report/rendered/
+video/frames/
+narration/*.aiff
+
+# 保留实际失败与验收日志
+!*.log
+# 旧版媒体检查帧仅留本地；最终版本帧与绑定记录保留
+qa/video-S*.png
+qa/independent-frames/

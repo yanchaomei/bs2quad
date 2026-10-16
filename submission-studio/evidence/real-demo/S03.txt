@@ -1,0 +1,4 @@
+$ /work/build/bs2quad_main --input /work/evidence/final-release-v3/surface1000/inputs/case_1.brep --output /work/materials-demo-20261016T1510/converted-cylinder.brep --report /work/materials-demo-20261016T1510/converted-cylinder.json
+{"backend":"OpenCASCADE","sgk_1_7_verified":false,"success":true,"type":"Cylinder","error":"Success","message":"converted trimmed face; boundary and normal checks complete; adjacency requires neighbor context","decision_ms":1.2260660000000001,"conversion_ms":67.612869000000003,"directed_support_bound_mm":2.5426829250465855e-13,"sampled_max_mm":2.2204460492503131e-15,"sampled_boundary_hausdorff_mm":6.6844277772883349e-15,"normal_deviation_degrees":7.635919138854164e-14,"adjacency_checked":false}
+
+[process exit=0]

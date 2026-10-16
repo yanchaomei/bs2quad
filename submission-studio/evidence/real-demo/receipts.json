@@ -1,0 +1,136 @@
+{
+  "scope": "Actual remote execution capture, no generated or post-hoc typed output",
+  "records": [
+    {
+      "id": "S02",
+      "command": "/work/build/bs2quad_main --help",
+      "actual_launcher": [
+        "docker",
+        "exec",
+        "-e",
+        "LD_LIBRARY_PATH=/work/occt770/lib",
+        "-e",
+        "OMP_NUM_THREADS=1",
+        "bs2quad_20261016",
+        "bash",
+        "-c",
+        "/work/build/bs2quad_main --help"
+      ],
+      "started_utc": "2026-10-16T15:01:17.949996+00:00",
+      "ended_utc": "2026-10-16T15:01:18.103420+00:00",
+      "actual_elapsed_seconds": 0.15340852178633213,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "expected_exit_observed": true,
+      "cast": "S02.cast",
+      "raw": "S02.txt"
+    },
+    {
+      "id": "S03",
+      "command": "/work/build/bs2quad_main --input /work/evidence/final-release-v3/surface1000/inputs/case_1.brep --output /work/materials-demo-20261016T1510/converted-cylinder.brep --report /work/materials-demo-20261016T1510/converted-cylinder.json",
+      "actual_launcher": [
+        "docker",
+        "exec",
+        "-e",
+        "LD_LIBRARY_PATH=/work/occt770/lib",
+        "-e",
+        "OMP_NUM_THREADS=1",
+        "bs2quad_20261016",
+        "bash",
+        "-c",
+        "/work/build/bs2quad_main --input /work/evidence/final-release-v3/surface1000/inputs/case_1.brep --output /work/materials-demo-20261016T1510/converted-cylinder.brep --report /work/materials-demo-20261016T1510/converted-cylinder.json"
+      ],
+      "started_utc": "2026-10-16T15:01:18.103521+00:00",
+      "ended_utc": "2026-10-16T15:01:18.319869+00:00",
+      "actual_elapsed_seconds": 0.21633300930261612,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "expected_exit_observed": true,
+      "cast": "S03.cast",
+      "raw": "S03.txt"
+    },
+    {
+      "id": "S04",
+      "command": "/work/build/bs2quad_main --input /work/evidence/final-release-v3/surface1000/inputs/case_5.brep --output /work/materials-demo-20261016T1510/rejected-freeform.brep --report /work/materials-demo-20261016T1510/rejected-freeform.json",
+      "actual_launcher": [
+        "docker",
+        "exec",
+        "-e",
+        "LD_LIBRARY_PATH=/work/occt770/lib",
+        "-e",
+        "OMP_NUM_THREADS=1",
+        "bs2quad_20261016",
+        "bash",
+        "-c",
+        "/work/build/bs2quad_main --input /work/evidence/final-release-v3/surface1000/inputs/case_5.brep --output /work/materials-demo-20261016T1510/rejected-freeform.brep --report /work/materials-demo-20261016T1510/rejected-freeform.json"
+      ],
+      "started_utc": "2026-10-16T15:01:18.319961+00:00",
+      "ended_utc": "2026-10-16T15:01:18.471909+00:00",
+      "actual_elapsed_seconds": 0.15193350985646248,
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "expected_exit_observed": true,
+      "cast": "S04.cast",
+      "raw": "S04.txt"
+    },
+    {
+      "id": "S05",
+      "command": "/work/build/unit_tests --gtest_color=no --gtest_filter=ValidationRegression.FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns:ValidationRegression.FaceOrientationReversalIsNotNormalPreservation:ValidationRegression.ReverseBoundaryDirectionDetectsAnExtraInteriorHole:ValidationRegression.ConversionWithActualNeighborsAcceptsSmoothAndRejectsCreasedFaces",
+      "actual_launcher": [
+        "docker",
+        "exec",
+        "-e",
+        "LD_LIBRARY_PATH=/work/occt770/lib",
+        "-e",
+        "OMP_NUM_THREADS=1",
+        "bs2quad_20261016",
+        "bash",
+        "-c",
+        "/work/build/unit_tests --gtest_color=no --gtest_filter=ValidationRegression.FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns:ValidationRegression.FaceOrientationReversalIsNotNormalPreservation:ValidationRegression.ReverseBoundaryDirectionDetectsAnExtraInteriorHole:ValidationRegression.ConversionWithActualNeighborsAcceptsSmoothAndRejectsCreasedFaces"
+      ],
+      "started_utc": "2026-10-16T15:01:18.472002+00:00",
+      "ended_utc": "2026-10-16T15:01:18.951397+00:00",
+      "actual_elapsed_seconds": 0.4793817512691021,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "expected_exit_observed": true,
+      "cast": "S05.cast",
+      "raw": "S05.txt"
+    },
+    {
+      "id": "S06",
+      "command": "cat /work/evidence/final-release-v3/surface1000/summary.json",
+      "actual_launcher": [
+        "docker",
+        "exec",
+        "-e",
+        "LD_LIBRARY_PATH=/work/occt770/lib",
+        "-e",
+        "OMP_NUM_THREADS=1",
+        "bs2quad_20261016",
+        "bash",
+        "-c",
+        "cat /work/evidence/final-release-v3/surface1000/summary.json"
+      ],
+      "started_utc": "2026-10-16T15:01:18.951486+00:00",
+      "ended_utc": "2026-10-16T15:01:19.094029+00:00",
+      "actual_elapsed_seconds": 0.1425282321870327,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "expected_exit_observed": true,
+      "cast": "S06.cast",
+      "raw": "S06.txt"
+    }
+  ],
+  "binary_sha256": {
+    "bs2quad_main": "89df7c2da1126e278f69ac884343fab9ed652bac5453ea624533e2a970d35b9a",
+    "unit_tests": "2cc21161a4613e585fac4c7449ae95a8f03b9100f692762851186a9187c99c4d",
+    "bs2quad_evidence": "0be77d9da153937fb92241af22799956f25bd1123120041436e2cab225c53a43",
+    "bs2quad_cad_benchmark": "6ce52ce216fcaf84e37433d3b8e209824acb9ad3eb20eeeae6c695b487043447"
+  },
+  "archive_summary_sha256": "1a3ff006d901e7cc8a1d2daff7b401a51b1d7332110c77a8be93524bbf2c1739",
+  "input_sha256": {
+    "case_1.brep": "8d082468e8cb5541237b32a9b6d353e2721ebfbee25afb8c0245b437feeebd61",
+    "case_5.brep": "ff29e3264f1bcc2444935a1fa769dafce88729a1083e51e24c2c3a9db24f2718"
+  }
+}

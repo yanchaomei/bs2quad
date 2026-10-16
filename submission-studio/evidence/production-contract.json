@@ -1,0 +1,33 @@
+{
+  "created_utc": "2026-10-16T14:58:21.703561+00:00",
+  "project": "BS2Quad",
+  "competition": "AI+工业软件 / 中船海舟 样条面到二次曲面转换",
+  "material_source_commit": "6172362949ed3d4b696515cbc1e4233bb58e8064",
+  "verified_code_commit": "a813309e5ef1e7d748713925685eb9620c00fdec",
+  "source_aggregate_sha256": "d2d09dfd362b48bb46204c7ad4052468414664a050d246d8c1a1bdcf5caceefc",
+  "rule_source": "User-provided task text; official contest landing page previously checked, exact full task version not independently obtained",
+  "deadline_as_provided": "2026-10-16 24:00 Asia/Shanghai (2026-10-17 00:00)",
+  "target_state": "Generate detailed PDF, mechanism illustration, real CLI recording and narrated demo, guide, audited archive; local commit and private GitHub push within standing project authorization",
+  "submission_authorized": false,
+  "external_paid_tts_authorized": false,
+  "runtime_source_changes": false,
+  "evidence_main": "evidence/20261016/final-release-v3",
+  "known_limits": [
+    "SGK 1.7 unavailable and not integrated",
+    "6/15 CAD groups below 50%",
+    "boundary/G1 checks sampled",
+    "OCCT STEP LSAN exit leak unresolved"
+  ],
+  "retained_materials": [
+    "Existing six-page PDF summary",
+    "Original 1000 inputs and all logs"
+  ],
+  "voice_decision": "Prefer installed local Chinese voice if actual sample succeeds; no paid external synthesis without authorization",
+  "official_rule_url": "https://www.oschina.net/os2026/",
+  "official_page_direct_read": "No full content retrieved; saved response and search-index primary-domain excerpt",
+  "official_index_excerpt": "以上材料请打包附件，于10月16日24:00前发送至大赛组委会邮箱：oscc@oschina.cn",
+  "official_access_checked_date": "2026-10-16 Asia/Shanghai",
+  "audio_subjective_review": "Not yet independently listened; no naturalness certification claimed",
+  "geometry_helper_sha256": "33b5560479000224cde3847573c9346c01bac2cafdb1370e7fe05ba65cdbd044",
+  "geometry_helper_source_sha256": "2f75390b9829cf7e303930542211386654f2ca8841387837c573f8ef279594ec"
+}

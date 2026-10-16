@@ -1,0 +1,57 @@
+{
+  "scope": "Exact PCM segment preservation in full narration, silence padding only; no subjective listening claim",
+  "status": "pass",
+  "segments": [
+    {
+      "id": "S01",
+      "input_pcm_sha256": "87d3a9fdac1019886b3e6df3b412fbd7cf0b93b6d60fa6feb8dda49b932a5e57",
+      "final_pcm_slice_sha256": "87d3a9fdac1019886b3e6df3b412fbd7cf0b93b6d60fa6feb8dda49b932a5e57",
+      "identical": true,
+      "narration_text_sha256": "fb3bac7b55c1e6e2a3d106b013219fc03d0bb434f4caa87fc0687deec649b2e6"
+    },
+    {
+      "id": "S02",
+      "input_pcm_sha256": "f401f21830c06fd91804b537c4d931527cc2abef3993c14857356feaa147d2a4",
+      "final_pcm_slice_sha256": "f401f21830c06fd91804b537c4d931527cc2abef3993c14857356feaa147d2a4",
+      "identical": true,
+      "narration_text_sha256": "d96dd44d5e9bbd58ced15253edd322592dafda97a953d2f17595939a6e7ec39d"
+    },
+    {
+      "id": "S03",
+      "input_pcm_sha256": "4f1229686cb32c8ba71b3733f75c6b9d5a57565072af6c402942052b02b4f797",
+      "final_pcm_slice_sha256": "4f1229686cb32c8ba71b3733f75c6b9d5a57565072af6c402942052b02b4f797",
+      "identical": true,
+      "narration_text_sha256": "c270481d857605a39de1a11ab7f38fa07bc648ef0792314166db54a9d97537cd"
+    },
+    {
+      "id": "S04",
+      "input_pcm_sha256": "e893aa46703a631e038b956757aa60c500c91e00a058214e85163b66b347fbc5",
+      "final_pcm_slice_sha256": "e893aa46703a631e038b956757aa60c500c91e00a058214e85163b66b347fbc5",
+      "identical": true,
+      "narration_text_sha256": "d4aed0f38be7e90a88d9d8b35a12aaaf5efc3a5bc62a9e01325538d77cbe28ff"
+    },
+    {
+      "id": "S05",
+      "input_pcm_sha256": "3a8820beff9fa90a3107feea4bf88e327dc209535344acec7471f17b09535e4b",
+      "final_pcm_slice_sha256": "3a8820beff9fa90a3107feea4bf88e327dc209535344acec7471f17b09535e4b",
+      "identical": true,
+      "narration_text_sha256": "80e2d1a28f8b83dc32cf64387fa211ed10a61535e4c6883bb54b625833dece5f"
+    },
+    {
+      "id": "S06",
+      "input_pcm_sha256": "9f9ddebf68b092aef249392fe2c7ee8d84868b4f8d07c381137786346c5ba399",
+      "final_pcm_slice_sha256": "9f9ddebf68b092aef249392fe2c7ee8d84868b4f8d07c381137786346c5ba399",
+      "identical": true,
+      "narration_text_sha256": "c43957aa88eed80ce52228222b8e5bedcb4159b87c057272bc389721fb00c4e3"
+    },
+    {
+      "id": "S07",
+      "input_pcm_sha256": "3f84c250fb37482ebf6f3b36285f81690ba4484eb6ec3bdcaca974d71f4096ad",
+      "final_pcm_slice_sha256": "3f84c250fb37482ebf6f3b36285f81690ba4484eb6ec3bdcaca974d71f4096ad",
+      "identical": true,
+      "narration_text_sha256": "58330dc0d27c760d73a6be53f661c51ab7db63ab84a009226a9e50bc5f7ce499"
+    }
+  ],
+  "final_duration_seconds": 152.0,
+  "subjective_listening": "not independently verified"
+}

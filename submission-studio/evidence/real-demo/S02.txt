@@ -1,0 +1,8 @@
+$ /work/build/bs2quad_main --help
+BS2Quad 1.1.0 (OpenCASCADE; SGK 1.7 not integrated)
+  --demo [--tolerance 1e-5] [--perf]
+  --generate N [--output-dir data/generated] [--seed 42]
+  --input face.step|face.brep --output converted.step|converted.brep [--report result.json]
+File conversion accepts exactly one trimmed NURBS face. Multi-face model replacement requires explicit neighbor context.
+
+[process exit=0]

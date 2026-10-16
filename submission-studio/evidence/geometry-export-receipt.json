@@ -1,0 +1,20 @@
+{
+  "scope": "Read-only BRep support evaluation for visualization, not an accuracy check",
+  "execution": "remote task-owned container, OCCT 7.7.0",
+  "build_command": "g++ -std=c++17 -O2 -I$OCCT/include/opencascade export_geometry.cpp -L$OCCT/lib -Wl,-rpath,$OCCT/lib -lTKTopAlgo -lTKBRep -lTKGeomBase -lTKG3d -lTKG2d -lTKMath -lTKernel -o export_geometry",
+  "runtime_environment": "LD_LIBRARY_PATH=$OCCT/lib",
+  "binary_sha256": "33b5560479000224cde3847573c9346c01bac2cafdb1370e7fe05ba65cdbd044",
+  "source_sha256": "2f75390b9829cf7e303930542211386654f2ca8841387837c573f8ef279594ec",
+  "corrected_runtime_exit": 0,
+  "initial_loader_failure_retained": "geometry-export-attempt1.log",
+  "outputs": [
+    {
+      "path": "evidence/real-demo/converted-geometry.json",
+      "sha256": "34455cd782788e3fd58748622d0961898b4309be84a0eaadd530ec1aa0def97d"
+    },
+    {
+      "path": "evidence/real-demo/source-geometry.json",
+      "sha256": "b840bc271534768ce3788705c99f4417af0c2ec6d5bb856b203af2907d437f12"
+    }
+  ]
+}

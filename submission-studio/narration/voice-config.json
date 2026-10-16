@@ -1,0 +1,14 @@
+{
+  "provider": "Local macOS say",
+  "voice": "Tingting",
+  "locale": "zh_CN",
+  "rate": 175,
+  "selected_by": "agent judgment, no prior user voice preference",
+  "sample": "voice-sample.wav",
+  "sample_text": "voice-sample.txt",
+  "online_service_used": false,
+  "paid_service_used": false,
+  "playback_rate_changes": false,
+  "listening_status": "Sample emitted in conversation for listening; subjective naturalness not independently verified",
+  "generation_utc": "2026-10-16T15:06:16.758656+00:00"
+}

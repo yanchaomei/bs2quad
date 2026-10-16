@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "duration_seconds": 152,
+  "segments": [
+    {
+      "id": "S01",
+      "title": "项目与核心矛盾",
+      "duration_seconds": 21,
+      "lead_in_seconds": 0.6,
+      "kind": "mechanism",
+      "audio": "narration/S01.wav",
+      "narration": "在船舶设计中，圆柱和球面常被统一保存为复杂的样条。恢复解析表达可以减少后续几何计算，但采样点很近，并不代表整张面都能接受。我们的方案先恢复候选，再独立检查接受条件。",
+      "audio_duration_seconds": 19.177625,
+      "action": "Explain evidence-derived mechanism or CAD results",
+      "observe": "Verify actual source fields and retain explicitly unmet requirements",
+      "evidence": [
+        {
+          "path": "assets/mechanism.provenance.json",
+          "date": "2026-10-16"
+        }
+      ],
+      "edit_note": "Remote output replay from original timed events; after real execution, hold result for narration. Geometry preview and plots are evidence-derived. Archived benchmark readback labelled; no wait shortening or narration acceleration."
+    },
+    {
+      "id": "S02",
+      "title": "接口与处理流程",
+      "duration_seconds": 20,
+      "lead_in_seconds": 0.6,
+      "kind": "terminal",
+      "audio": "narration/S02.wav",
+      "narration": "当前工程使用真实的开源几何内核。命令行支持演示、生成数据，以及单个裁剪面的文件转换。候选恢复之后，还要检查完整参数域的距离上界；裁剪边界和法向另行验收。",
+      "audio_duration_seconds": 17.825583,
+      "action": "/work/build/bs2quad_main --help",
+      "observe": "Verify actual source fields and retain explicitly unmet requirements",
+      "evidence": [
+        {
+          "path": "evidence/real-demo/S02.cast",
+          "date": "2026-10-16"
+        }
+      ],
+      "edit_note": "Remote output replay from original timed events; after real execution, hold result for narration. Geometry preview and plots are evidence-derived. Archived benchmark readback labelled; no wait shortening or narration acceleration."
+    },
+    {
+      "id": "S03",
+      "title": "真实圆柱面转换",
+      "duration_seconds": 22,
+      "lead_in_seconds": 0.6,
+      "kind": "data",
+      "audio": "narration/S03.wav",
+      "narration": "这里运行一张真实输入文件的圆柱面转换。成功后生成新的几何文件和报告。画面中的几何预览来自实际输入输出的求值。报告分别记录判定时间与完整转换时间，没有把拓扑重建混入十毫秒判定指标。",
+      "audio_duration_seconds": 19.979417,
+      "action": "/work/build/bs2quad_main --input /work/evidence/final-release-v3/surface1000/inputs/case_1.brep --output /work/materials-demo-20261016T1510/converted-cylinder.brep --report /work/materials-demo-20261016T1510/converted-cylinder.json",
+      "observe": "Verify actual source fields and retain explicitly unmet requirements",
+      "evidence": [
+        {
+          "path": "evidence/real-demo/S03.cast",
+          "date": "2026-10-16"
+        }
+      ],
+      "edit_note": "Remote output replay from original timed events; after real execution, hold result for narration. Geometry preview and plots are evidence-derived. Archived benchmark readback labelled; no wait shortening or narration acceleration."
+    },
+    {
+      "id": "S04",
+      "title": "自由曲面明确拒绝",
+      "duration_seconds": 20,
+      "lead_in_seconds": 0.6,
+      "kind": "terminal",
+      "audio": "narration/S04.wav",
+      "narration": "接着输入自由曲面。程序明确返回拒绝状态，退出码为一，并保存原因。没有有效候选时，不会发布一个看似成功的解析结果。未知的误差字段保持未知，不把它们写成零。",
+      "audio_duration_seconds": 17.338875,
+      "action": "/work/build/bs2quad_main --input /work/evidence/final-release-v3/surface1000/inputs/case_5.brep --output /work/materials-demo-20261016T1510/rejected-freeform.brep --report /work/materials-demo-20261016T1510/rejected-freeform.json",
+      "observe": "Verify actual source fields and retain explicitly unmet requirements",
+      "evidence": [
+        {
+          "path": "evidence/real-demo/S04.cast",
+          "date": "2026-10-16"
+        }
+      ],
+      "edit_note": "Remote output replay from original timed events; after real execution, hold result for narration. Geometry preview and plots are evidence-derived. Archived benchmark readback labelled; no wait shortening or narration acceleration."
+    },
+    {
+      "id": "S05",
+      "title": "针对性反例回归",
+      "duration_seconds": 22,
+      "lead_in_seconds": 0.6,
+      "kind": "terminal",
+      "audio": "narration/S05.wav",
+      "narration": "现在重放四个真实回归：采样之间的窄凸起、反向法向、额外内孔，以及真实邻面的平滑与折角。测试通过，说明这些固定反例获得了预期处理。它们不等于所有连续边界和法向都已得到数学证明。",
+      "audio_duration_seconds": 19.75125,
+      "action": "/work/build/unit_tests --gtest_color=no --gtest_filter=ValidationRegression.FullDomainCertificateRejectsNarrowBumpBetweenAllSamplingColumns:ValidationRegression.FaceOrientationReversalIsNotNormalPreservation:ValidationRegression.ReverseBoundaryDirectionDetectsAnExtraInteriorHole:ValidationRegression.ConversionWithActualNeighborsAcceptsSmoothAndRejectsCreasedFaces",
+      "observe": "Verify actual source fields and retain explicitly unmet requirements",
+      "evidence": [
+        {
+          "path": "evidence/real-demo/S05.cast",
+          "date": "2026-10-16"
+        }
+      ],
+      "edit_note": "Remote output replay from original timed events; after real execution, hold result for narration. Geometry preview and plots are evidence-derived. Archived benchmark readback labelled; no wait shortening or narration acceleration."
+    },
+    {
+      "id": "S06",
+      "title": "已保存的一千例实验",
+      "duration_seconds": 24,
+      "lead_in_seconds": 0.6,
+      "kind": "data",
+      "audio": "narration/S06.wav",
+      "narration": "下面读取十月十六日保存的主实验，不是重新运行性能测试。一千个合成输入中，八百三十四个正例正确接受，一百六十六个反例正确拒绝。实际控制点为五十到二百；这组支撑面判定的最高耗时为八点二五毫秒。",
+      "audio_duration_seconds": 21.365042,
+      "action": "cat /work/evidence/final-release-v3/surface1000/summary.json",
+      "observe": "Verify actual source fields and retain explicitly unmet requirements",
+      "evidence": [
+        {
+          "path": "evidence/real-demo/S06.cast",
+          "date": "2026-10-16"
+        }
+      ],
+      "edit_note": "Remote output replay from original timed events; after real execution, hold result for narration. Geometry preview and plots are evidence-derived. Archived benchmark readback labelled; no wait shortening or narration acceleration."
+    },
+    {
+      "id": "S07",
+      "title": "性能结果与集成边界",
+      "duration_seconds": 23,
+      "lead_in_seconds": 0.6,
+      "kind": "data",
+      "audio": "narration/S07.wav",
+      "narration": "同一有限裁剪域的十五组操作中，九组达到耗时降低百分之五十，六组没有达到。海星几何内核一点七版本尚未接入，完整的文件导出路径仍有内存退出检查失败。代码、原始数据和失败记录均随材料提供。",
+      "audio_duration_seconds": 20.807958,
+      "action": "Explain evidence-derived mechanism or CAD results",
+      "observe": "Verify actual source fields and retain explicitly unmet requirements",
+      "evidence": [
+        {
+          "path": "../evidence/20261016/final-release-v3/cad/summary.json",
+          "date": "2026-10-16"
+        }
+      ],
+      "edit_note": "Remote output replay from original timed events; after real execution, hold result for narration. Geometry preview and plots are evidence-derived. Archived benchmark readback labelled; no wait shortening or narration acceleration."
+    }
+  ]
+}

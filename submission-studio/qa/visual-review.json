@@ -1,0 +1,32 @@
+{
+  "checked_utc": "2026-10-16T15:13:52.469055+00:00",
+  "pdfs": [
+    {
+      "path": "report/BS2Quad_详细作品说明_20261016.pdf",
+      "sha256": "bb6366c1dec5c8b97db70d0b692934522007fba97bfbaf856d025e22825ced82",
+      "pages": 10,
+      "review": "All final pages rendered and viewed; dense formula/result tables, TOC, figure captions and guide inspected; no clipping/overlap found"
+    },
+    {
+      "path": "report/BS2Quad_演示操作指南_20261016.pdf",
+      "sha256": "19b17debde56d5e8ae9bb25eefc6c96f21c410278932562ce40f0090aad8e373",
+      "pages": 2,
+      "review": "All final pages rendered and viewed; dense formula/result tables, TOC, figure captions and guide inspected; no clipping/overlap found"
+    }
+  ],
+  "video": {
+    "path": "video/BS2Quad_真实演示_20261016.mp4",
+    "sha256": "03f00a87d593688b0cd21acffdb179c7526d37273da291c1ff12498666c7b6da",
+    "full_decode_exit": 0,
+    "scene_keyframes": "S01-S07 checked; S05 final framing checked",
+    "subjective_audio_listening": "not independently verified",
+    "word_level_audio_text_completeness": "not independently verified",
+    "subjective_av_sync": "not independently verified"
+  },
+  "images": {
+    "mechanism": "full original viewed; main arrows/rejection path/scope/labels checked; AI explanatory only",
+    "charts": "generated from archived raw CSV/JSON; values and 50% target checked",
+    "geometry": "actual BRep evaluations; visualization only"
+  },
+  "final_state": "Content and visual review completed within stated scope; subjective listening remains unchecked; no submission receipt"
+}

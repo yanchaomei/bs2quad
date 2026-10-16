@@ -1,0 +1,14 @@
+{
+  "platform": "macOS-26.5-arm64-arm-64bit",
+  "python_graphics": "3.10.11",
+  "python_documents": "Codex bundled primary runtime Python",
+  "graphics_packages": {
+    "numpy": "1.26.4",
+    "matplotlib": "3.8.1",
+    "Pillow": "11.3.0"
+  },
+  "ffmpeg": "ffmpeg version 8.1.1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "voice": "local macOS say / Tingting / rate175",
+  "external_tts": false,
+  "material_creation_date": "2026-10-16 Asia/Shanghai"
+}

@@ -1,0 +1,58 @@
+{
+  "duration_seconds": 152,
+  "scenes": [
+    {
+      "id": "S01",
+      "video_start_seconds": 0,
+      "scene_seconds": 21,
+      "actual_command_seconds": null,
+      "editing": "Time-faithful event replay then freeze; terminal view redraw/scroll; evidence-derived plot cards; captions timed by text length, not forced alignment"
+    },
+    {
+      "id": "S02",
+      "video_start_seconds": 21,
+      "scene_seconds": 20,
+      "actual_command_seconds": 0.15340852178633213,
+      "editing": "Time-faithful event replay then freeze; terminal view redraw/scroll; evidence-derived plot cards; captions timed by text length, not forced alignment"
+    },
+    {
+      "id": "S03",
+      "video_start_seconds": 41,
+      "scene_seconds": 22,
+      "actual_command_seconds": 0.21633300930261612,
+      "editing": "Time-faithful event replay then freeze; terminal view redraw/scroll; evidence-derived plot cards; captions timed by text length, not forced alignment"
+    },
+    {
+      "id": "S04",
+      "video_start_seconds": 63,
+      "scene_seconds": 20,
+      "actual_command_seconds": 0.15193350985646248,
+      "editing": "Time-faithful event replay then freeze; terminal view redraw/scroll; evidence-derived plot cards; captions timed by text length, not forced alignment"
+    },
+    {
+      "id": "S05",
+      "video_start_seconds": 83,
+      "scene_seconds": 22,
+      "actual_command_seconds": 0.4793817512691021,
+      "editing": "Time-faithful event replay then freeze; terminal view redraw/scroll; evidence-derived plot cards; captions timed by text length, not forced alignment"
+    },
+    {
+      "id": "S06",
+      "video_start_seconds": 105,
+      "scene_seconds": 24,
+      "actual_command_seconds": 0.1425282321870327,
+      "editing": "Time-faithful event replay then freeze; terminal view redraw/scroll; evidence-derived plot cards; captions timed by text length, not forced alignment"
+    },
+    {
+      "id": "S07",
+      "video_start_seconds": 129,
+      "scene_seconds": 23,
+      "actual_command_seconds": null,
+      "editing": "Time-faithful event replay then freeze; terminal view redraw/scroll; evidence-derived plot cards; captions timed by text length, not forced alignment"
+    }
+  ],
+  "source_receipt": "evidence/real-demo/receipts.json",
+  "audio_processing": "PCM concatenation with exact silence lead/pad only; no rate change or truncation",
+  "caption_alignment": "Proportional text-length segments; subjective synchronization review still required",
+  "output_sha256": "03f00a87d593688b0cd21acffdb179c7526d37273da291c1ff12498666c7b6da"
+}
