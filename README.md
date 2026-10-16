@@ -1,3 +1,5 @@
+> 访问状态更新：按用户指示，仓库现为 Public；代码、演示视频和字幕可公开访问。历史交付记录中“私有”是当时的状态，保留原始记录。
+
 # BS2Quad：带全域距离上界的 NURBS 解析面恢复
 
 BS2Quad 将可等效的 NURBS 支撑面恢复为平面、圆柱面、圆锥面、球面和圆环面。候选由真实几何内核生成，接受与否由独立误差检查决定；验证失败时返回明确错误，并保留原输入。
@@ -79,7 +81,7 @@ if (result.success) {
 
 ## 交付与限制
 
-[本轮交付状态](docs/delivery_status.md)；[六页方案与实测 PDF](output/pdf/BS2Quad_方案与实测报告_20261016.pdf)；[GitHub 私有仓库](https://github.com/yanchaomei/bs2quad)。
+[本轮交付状态](docs/delivery_status.md)；[六页方案与实测 PDF](output/pdf/BS2Quad_方案与实测报告_20261016.pdf)；[GitHub 公开仓库](https://github.com/yanchaomei/bs2quad)。
 
 - [竞赛策略与评分映射](docs/competition_strategy.md)、[方案设计](docs/design.md)、[项目故事](docs/story.md)、[实验报告](docs/experiment_report.md)、[误差分析](docs/error_analysis.md)、[API 与复现说明](docs/user_guide.md)。
 - 完整原始记录随交付包提供；本次历史失败记录和未达标的 CAD 操作保留，不改写为成功。
